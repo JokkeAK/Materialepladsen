@@ -19,6 +19,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.materialepladsenappui.ui.theme.BRed
 
 @Composable
 public fun MorePage(){
@@ -28,27 +29,27 @@ public fun MorePage(){
     {
             Header()
             Spacer(modifier = Modifier.height(75.dp))
-        Divider()
+        DividerBred()
         MoreButtons("Personlige oplysninger")
-        Divider()
+        DividerBred()
         MoreButtons("Betalingløsninger")
-        Divider()
+        DividerBred()
         MoreButtons("Læssekort")
-        Divider()
+        DividerBred()
         MoreButtons("Tilknyt virksomhed")
-        Divider()
+        DividerBred()
         MoreButtons("Betingelser")
-        Divider()
+        DividerBred()
         MoreButtons("Beregn forbrug")
-        Divider()
+        DividerBred()
         MoreButtons("Bil-administration")
-        Divider()
+        DividerBred()
         MoreButtons("Kontakt")
-        Divider()
+        DividerBred()
         MoreButtons("Ændre kodeord")
-        Divider()
+        DividerBred()
         MoreButtons("Log ud")
-        Divider()
+        DividerBred()
 
     }
 
@@ -81,12 +82,12 @@ public fun MoreButtons(text: String = "notext"){
     } }
 }
 @Composable
-fun Divider(){
+fun DividerBred(){
     Spacer(modifier = Modifier
         .fillMaxWidth()
-        .height(height = 1.dp))
+        .height(height = 5.dp))
     Divider(
-        color = Color.Black,
+        color = BRed,
         modifier = Modifier
             .fillMaxWidth()
             .width(1.dp)
