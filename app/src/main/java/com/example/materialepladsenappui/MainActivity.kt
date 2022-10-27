@@ -64,13 +64,7 @@ fun MyScreenContent() {
         horizontalAlignment = Alignment.CenterHorizontally
         ){
 
-        Image(
-            painter = painterResource(id = com.example.materialepladsenappui.R.drawable.mp_logo_text),
-            contentDescription = "materialepladsen logo",
-            modifier = Modifier
-                .width(194.dp)
-                .height(56.dp),
-            alignment = Alignment.Center)
+        Header()
 
         Greeting(name = "bruh")
 
