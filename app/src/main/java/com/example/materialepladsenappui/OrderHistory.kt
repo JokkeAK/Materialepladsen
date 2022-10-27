@@ -47,9 +47,9 @@ fun OrderHis(){
             horizontalAlignment = Alignment.CenterHorizontally){
 
             item { BordeauxButton(text = "tester")
-            Spacer(modifier = Modifier.height(height = 5.dp))}
+            Spacer(modifier = Modifier.height(5.dp))}
             items(20){index -> BordeauxButton(text = "tester $index")
-                Spacer(modifier = Modifier.height(height = 5.dp))}
+                Spacer(modifier = Modifier.height(5.dp))}
 
 
         }
