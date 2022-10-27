@@ -1,5 +1,6 @@
 package com.example.materialepladsenappui
 
+import android.icu.util.TimeUnit.values
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.ComponentActivity
@@ -25,11 +26,16 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.materialepladsenappui.ui.theme.MaterialepladsenAppUITheme
-
+import androidx.compose.ui.res.stringResource
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType.Companion.values
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontStyle.Companion.values
+import androidx.compose.ui.text.style.TextAlign.Companion.values
+import java.time.chrono.JapaneseEra.values
 
 
 class MainActivity : ComponentActivity() {
@@ -66,7 +72,7 @@ fun MyScreenContent() {
 
         Header()
 
-        Greeting(name = "bruh")
+        Greeting(name = "bruh") //harcoded name, needs to be changed
 
         Spacer(
             modifier = Modifier
@@ -85,9 +91,12 @@ fun MyScreenContent() {
                 .height(height = 68.dp))
 
 
-        KøbPåPladsKnap()
-        KøbOnlineKnap()
-        UdregnForbrugKnap()
+        BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_buy1),
+        )
+        BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_buy2),
+        )
+        BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_calc),
+        )
     }
 
 }
@@ -115,75 +124,6 @@ fun Greeting(name: String) {
             .fillMaxWidth()
             .width(1.dp)
     )
-}
-
-
-
-@Composable
-fun KøbPåPladsKnap() {
-    Button(onClick = { /*TODO*/ },
-        modifier = Modifier.width(width = 250.dp),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color(0xFF890C18),
-            contentColor = Color.White
-        )
-    ){
-        Text(
-            text = "Køb på plads",
-            color = Color.White,
-            textAlign = TextAlign.Center,
-            style = TextStyle(
-                fontSize = 16.sp)
-        )    }
-    Spacer(
-        modifier = Modifier
-            .height(height = 51.dp))
-}
-
-@Composable
-fun KøbOnlineKnap() {
-    Button(onClick = { /*TODO*/ },
-        modifier = Modifier.width(width = 250.dp),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color(0xFF890C18),
-            contentColor = Color.White
-        )
-    ){
-        Text(
-            text = "Køb online",
-            color = Color.White,
-            textAlign = TextAlign.Center,
-            style = TextStyle(
-                fontSize = 16.sp)
-        )
-    }
-
-    Spacer(
-        modifier = Modifier
-            .height(height = 51.dp))
-}
-
-@Composable
-fun UdregnForbrugKnap() {
-    Button(onClick = { /*TODO*/ },
-        modifier = Modifier.width(width = 250.dp),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color(0xFF890C18),
-            contentColor = Color.White
-        )
-    ){
-        Text(
-            text = "Udregn forbrug",
-            color = Color.White,
-            textAlign = TextAlign.Center,
-            style = TextStyle(
-                fontSize = 16.sp)
-        )
-    }
-    Spacer(
-        modifier = Modifier
-            .height(height = 51.dp))
-
 }
 
 @Preview(showBackground = true)
