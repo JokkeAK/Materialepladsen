@@ -15,7 +15,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.materialepladsenappui.ui.theme.BRed
@@ -30,27 +33,39 @@ public fun Betaling(){
 
         Header()
 
-        Spacer(modifier = Modifier.height(height = 155.dp))
+        Spacer(modifier = Modifier.height(height = 100.dp))
         
-        Text(text = "Vælg din fortrukne betalingsmetode", fontWeight = FontWeight.Bold)
+        Text(text = stringResource(R.string.betaling_foretrukne), fontSize = 20.sp, fontWeight = FontWeight.Bold)
         
         Spacer(modifier = Modifier.height(height = 50.dp))
         
-        BordeauxButton(text = "Pay By Plate")
+        BordeauxButton(text = stringResource(R.string.betaling_plate))
 
         Spacer(modifier = Modifier.height(height = 25.dp))
         
-        BordeauxButton(text = "Betalingskort")
+        BordeauxButton(text = stringResource(R.string.betaling_kort))
 
         Spacer(modifier = Modifier.height(height = 25.dp))
         
-        BordeauxButton(text = "MobilePay")
-        
-        Spacer(modifier = Modifier.height(height = 200.dp))
+        BordeauxButton(text = stringResource(R.string.betaling_mobile))
 
-        Text("Nummerplade",Modifier.background(
-            Color.Gray, RectangleShape
-        ),Color.Black, fontSize = 25.sp, fontWeight = FontWeight.Bold)
+        Spacer(modifier = Modifier.height(height = 68.dp))
 
+        Text(text = stringResource(R.string.nummerplade),
+            Modifier
+                .background(Color.Gray, RectangleShape)
+                .padding(20.dp)
+                .width(280.dp),
+            Color.Black, fontSize = 25.sp, fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center)
+
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun BetalingPreview() {
+    MyApp {
+        Betaling()
     }
 }
