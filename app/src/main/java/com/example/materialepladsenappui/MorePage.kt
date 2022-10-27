@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.text.style.TextAlign
@@ -30,25 +31,25 @@ public fun MorePage(){
             Header()
             Spacer(modifier = Modifier.height(75.dp))
         DividerBred()
-        MoreButtons("Personlige oplysninger")
+        MoreButtons(text = stringResource(R.string.more_personInf))
         DividerBred()
-        MoreButtons("Betalingløsninger")
+        MoreButtons(text = stringResource(R.string.more_payment))
         DividerBred()
-        MoreButtons("Læssekort")
+        MoreButtons(text = stringResource(R.string.more_loader))
         DividerBred()
-        MoreButtons("Tilknyt virksomhed")
+        MoreButtons(text = stringResource(R.string.more_corporate))
         DividerBred()
-        MoreButtons("Betingelser")
+        MoreButtons(text = stringResource(R.string.more_terms))
         DividerBred()
-        MoreButtons("Beregn forbrug")
+        MoreButtons(text = stringResource(R.string.more_usage))
         DividerBred()
-        MoreButtons("Bil-administration")
+        MoreButtons(text = stringResource(R.string.more_car))
         DividerBred()
-        MoreButtons("Kontakt")
+        MoreButtons(text = stringResource(R.string.more_contact))
         DividerBred()
-        MoreButtons("Ændre kodeord")
+        MoreButtons(text = stringResource(R.string.more_password))
         DividerBred()
-        MoreButtons("Log ud")
+        MoreButtons(text = stringResource(R.string.more_logOut))
         DividerBred()
 
     }
@@ -90,7 +91,7 @@ fun DividerBred(){
         color = BRed,
         modifier = Modifier
             .fillMaxWidth()
-            .width(1.dp)
+            .height(3.dp)
     )
 
 }
