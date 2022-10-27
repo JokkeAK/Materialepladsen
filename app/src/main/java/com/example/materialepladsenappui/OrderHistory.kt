@@ -3,6 +3,7 @@ package com.example.materialepladsenappui
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -15,57 +16,53 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.materialepladsenappui.ui.theme.BRed
 
 @Composable
-public fun Betaling(){
-    Column (
+fun OrderHis(){
+
+    Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
+    ) {
 
         Header()
 
-        Spacer(modifier = Modifier.height(height = 100.dp))
-        
-        Text(text = stringResource(R.string.betaling_foretrukne), fontSize = 20.sp, fontWeight = FontWeight.Bold)
-        
-        Spacer(modifier = Modifier.height(height = 50.dp))
-        
-        BordeauxButton(text = stringResource(R.string.betaling_plate))
+        Text("Kvitteringer",
+            style = TextStyle(fontSize = 18.sp, fontWeight = FontWeight.Bold),
+            modifier = Modifier.padding(5.dp)
+        )
 
-        Spacer(modifier = Modifier.height(height = 25.dp))
-        
-        BordeauxButton(text = stringResource(R.string.betaling_kort))
+        LazyColumn(modifier = Modifier
+            .background(color = Color.Gray, shape = RectangleShape)
+            .fillMaxWidth()
+            .height(650.dp),
+            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 10.dp),
+            horizontalAlignment = Alignment.CenterHorizontally){
 
-        Spacer(modifier = Modifier.height(height = 25.dp))
-        
-        BordeauxButton(text = stringResource(R.string.betaling_mobile))
+            item { BordeauxButton(text = "tester")
+            Spacer(modifier = Modifier.height(5.dp))}
+            items(20){index -> BordeauxButton(text = "tester $index")
+                Spacer(modifier = Modifier.height(5.dp))}
 
-        Spacer(modifier = Modifier.height(height = 68.dp))
 
-        Text(text = stringResource(R.string.nummerplade),
-            Modifier
-                .background(Color.Gray, RectangleShape)
-                .padding(20.dp)
-                .width(280.dp),
-            Color.Black, fontSize = 25.sp, fontWeight = FontWeight.Bold,
-            textAlign = TextAlign.Center)
+        }
+
 
     }
+
 }
 
 @Preview(showBackground = true)
 @Composable
-fun BetalingPreview() {
+fun Orderpreview() {
     MyApp {
-        Betaling()
+        OrderHis()
     }
 }

@@ -1,8 +1,34 @@
 <resources>
     <string name="app_name">Materialepladsen app UI</string>
+
+    HomePage:
     <string name="home_page_buy1">Køb på plads</string>
     <string name="home_page_buy2">Køb online</string>
     <string name="home_page_calc">Udregn forbrug</string>
+
+    Betaling:
+    <string name="betaling_foretrukne">Vælg din fortrukne betalingsmetode</string>
+    <string name="betaling_plate">Pay by plate</string>
+    <string name="betaling_kort">Betalingskort</string>
+    <string name="betaling_mobile">MobilePay</string>
+
+    Nummerplade:
+    <string name="nummerplade">Nummerplade: </string>
+
+    MorePage:
+    <string name="more_personInf">Personlige oplysninger</string>
+    <string name="more_payment">Betalingløsninger</string>
+    <string name="more_loader">Læssekort</string>
+    <string name="more_corporate">Tilknyt virksomhed</string>
+    <string name="more_terms">Betingelser</string>
+    <string name="more_usage">Beregn forbrug</string>
+    <string name="more_car">Bil-administration</string>
+    <string name="more_contact">Kontakt</string>
+    <string name="more_password">Ændre kodeord</string>
+    <string name="more_logOut">Log ud</string>
+
+
+
 
 
 </resources>
