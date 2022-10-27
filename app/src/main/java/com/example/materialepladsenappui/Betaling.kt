@@ -35,40 +35,16 @@ public fun Betaling(){
         Text(text = "Vælg din fortrukne betalingsmetode", fontWeight = FontWeight.Bold)
         
         Spacer(modifier = Modifier.height(height = 50.dp))
-
-        Button(onClick = { /*TODO*/ },
-        modifier = Modifier.width(width = 250.dp),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = BRed,
-            contentColor = Color.White
-        ), shape = RectangleShape
-        ){
-            Text(text = "Pay By Plate",color = Color.White)
-        }
+        
+        BordeauxButton(text = "Pay By Plate")
 
         Spacer(modifier = Modifier.height(height = 25.dp))
-
-        Button(onClick = { /*TODO*/ },
-            modifier = Modifier.width(width = 250.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = BRed,
-                contentColor = Color.White
-            ), shape = RectangleShape
-        ){
-            Text(text = "Betalingskort",color = Color.White)
-        }
+        
+        BordeauxButton(text = "Betalingskort")
 
         Spacer(modifier = Modifier.height(height = 25.dp))
-
-        Button(onClick = { /*TODO*/ },
-            modifier = Modifier.width(width = 250.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = BRed,
-                contentColor = Color.White
-            ), shape = RectangleShape
-        ){
-            Text(text = "Mobilepay",color = Color.White)
-        }
+        
+        BordeauxButton(text = "MobilePay")
         
         Spacer(modifier = Modifier.height(height = 200.dp))
 
