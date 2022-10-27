@@ -29,27 +29,27 @@ public fun MorePage(){
     {
             Header()
             Spacer(modifier = Modifier.height(75.dp))
-        DividerBredBred()
+        DividerBred()
         MoreButtons("Personlige oplysninger")
-        DividerBredBred()
+        DividerBred()
         MoreButtons("Betalingløsninger")
-        DividerBredBred()
+        DividerBred()
         MoreButtons("Læssekort")
-        DividerBredBred()
+        DividerBred()
         MoreButtons("Tilknyt virksomhed")
-        DividerBredBred()
+        DividerBred()
         MoreButtons("Betingelser")
-        DividerBredBred()
+        DividerBred()
         MoreButtons("Beregn forbrug")
-        DividerBredBred()
+        DividerBred()
         MoreButtons("Bil-administration")
-        DividerBredBred()
+        DividerBred()
         MoreButtons("Kontakt")
-        DividerBredBred()
+        DividerBred()
         MoreButtons("Ændre kodeord")
-        DividerBredBred()
+        DividerBred()
         MoreButtons("Log ud")
-        DividerBredBred()
+        DividerBred()
 
     }
 
@@ -82,7 +82,7 @@ public fun MoreButtons(text: String = "notext"){
     } }
 }
 @Composable
-fun DividerBredBred(){
+fun DividerBred(){
     Spacer(modifier = Modifier
         .fillMaxWidth()
         .height(height = 5.dp))
