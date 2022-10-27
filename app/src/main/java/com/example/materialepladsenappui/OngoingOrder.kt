@@ -44,16 +44,49 @@ fun OrderPage(){
 
            )
        }
+       /*
+   Place for list of products
+   */
+       Spacer(modifier = Modifier.height(350.dp))
+       Column(modifier = Modifier.fillMaxSize()) {
+           DividerBred()
+           Spacer(modifier = Modifier.height(20.dp))
+           
+           Box(modifier = Modifier
+               .fillMaxWidth()){
+               Text(text = "\t \t Total",
+                   style= TextStyle(fontSize = 25.sp))
+               Text(text = "2000 kr. \t \t",
+               modifier = Modifier.align(Alignment.BottomEnd),
+                       style = TextStyle(fontSize = 25.sp))
 
+
+
+
+           }
+           Box(modifier = Modifier
+               .fillMaxWidth()) {
+
+               Text(
+                   text = "2000 kg. \t \t",
+                   modifier = Modifier.align(Alignment.BottomEnd),
+                   style = TextStyle(fontSize = 25.sp)
+               )
+           }
+
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                verticalArrangement = Arrangement.Top,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ){
+                Spacer(modifier = Modifier.height(60.dp))
+           BordeauxButton(text = "Betaling")}
        }
-    /*
-    Place for list of products
-    */
-    Column(modifier = Modifier.fillMaxSize()) {
-        Row(modifier = Modifier.fillMaxWidth()) {
-            Divider()
+       
 
-        }
+
+
+
         
     }
 }
