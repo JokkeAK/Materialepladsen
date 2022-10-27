@@ -65,7 +65,6 @@ fun MyApp(content: @Composable () -> Unit ) {
 
 @Composable
 fun MyScreenContent() {
-
     Column (
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
@@ -84,21 +83,26 @@ fun MyScreenContent() {
             painter = painterResource(id = com.example.materialepladsenappui.R.drawable.mp_logo_big),
             contentDescription = "materialepladsen logo",
             modifier = Modifier
-                .size(size = 275.dp)
+                .size(size = 200.dp)
                 .clip(shape = CircleShape),
             contentScale = ContentScale.Fit)
 
         Spacer(
             modifier = Modifier
-                .height(height = 68.dp))
+                .height(height = 24.dp))
 
 
-        BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_buy1),
-        )
-        BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_buy2),
-        )
-        BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_calc),
-        )
+        BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_buy1))
+        Spacer(
+            modifier = Modifier
+                .height(height = 24.dp))
+
+        BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_buy2))
+        Spacer(
+            modifier = Modifier
+                .height(height = 24.dp))
+
+        BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_calc))
     }
 
 }
@@ -110,7 +114,7 @@ fun Greeting(name: String) {
         color = Color.Black,
         modifier = Modifier
             .fillMaxWidth()
-            .width(1.dp)
+            .height(3.dp)
     )
     Text(text = "Velkommen, $name",
         color = Color.Black,
@@ -124,13 +128,13 @@ fun Greeting(name: String) {
         color = Color.Black,
         modifier = Modifier
             .fillMaxWidth()
-            .width(1.dp)
+            .height(3.dp)
     )
 }
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun HomePagePreview() {
     MyApp {
         MyScreenContent()
     }

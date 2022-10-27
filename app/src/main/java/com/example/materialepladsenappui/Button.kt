@@ -18,6 +18,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+import com.example.materialepladsenappui.ui.theme.BRed
+
 
 @Composable //need to add a function for navigation.
 fun BordeauxButton(text: String) {
@@ -25,7 +27,7 @@ fun BordeauxButton(text: String) {
         modifier = Modifier.width(width = 250.dp),
         shape = RectangleShape,
         colors = ButtonDefaults.buttonColors(
-            containerColor = Color(0xFF890C18),
+            containerColor = BRed,
             contentColor = Color.White),
         border = BorderStroke(1.dp, Color.Black)
         ,elevation =  ButtonDefaults.elevatedButtonElevation(
