@@ -1,0 +1,72 @@
+package com.example.materialepladsenappui
+
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CutCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Text
+import androidx.compose.material3.surfaceColorAtElevation
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.materialepladsenappui.ui.theme.BRed
+
+@Composable
+public fun StartVægt(weight: Int){
+    Column (
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+
+        Header()
+
+        Box() {
+            Column(modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Top,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+
+
+
+            Spacer(modifier = Modifier.height(height = 200.dp))
+
+            BordeauxButton(text = "Vej bil")
+
+            Spacer(modifier = Modifier.height(height = 40.dp))
+
+            Text(
+                "Din startvægt er: " +weight+" kg", Modifier.background(
+                    Color.Gray, RectangleShape
+                ), Color.Black, fontSize = 22.sp
+            )
+
+            Spacer(modifier = Modifier.height(height = 40.dp))
+
+            BordeauxButton(text = "Fortsæt")
+
+            }
+        }
+
+
+
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun StartVægtTest() {
+    MyApp {
+        StartVægt(250)
+    }
+}

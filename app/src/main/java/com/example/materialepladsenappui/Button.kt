@@ -40,7 +40,4 @@ fun BordeauxButton(text: String) {
             style = TextStyle(
                 fontSize = 16.sp)
         )    }
-    Spacer(
-        modifier = Modifier
-            .height(height = 51.dp))
 }
