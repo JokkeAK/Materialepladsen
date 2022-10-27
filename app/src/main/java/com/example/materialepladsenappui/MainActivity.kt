@@ -190,6 +190,6 @@ fun UdregnForbrugKnap() {
 @Composable
 fun DefaultPreview() {
     MyApp {
-        MyScreenContent()
+        Betaling()
     }
 }
