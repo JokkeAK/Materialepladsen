@@ -1,0 +1,65 @@
+package com.example.materialepladsenappui
+
+import android.graphics.Paint
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Gray
+import androidx.compose.ui.modifier.modifierLocalConsumer
+import androidx.compose.ui.platform.textInputServiceFactory
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
+
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+
+import com.example.materialepladsenappui.ui.theme.*
+
+
+@Composable
+fun OrderPage(){
+
+    Header()
+   Column(modifier = Modifier.fillMaxWidth()) {
+
+       Spacer(modifier = Modifier.height(85.dp))
+       Box(modifier = Modifier
+
+           .width(250.dp)
+           .height(60.dp)
+           .align(Alignment.CenterHorizontally)
+           .background(Gray))
+
+       {
+
+           Text(text = "Ordreoversigt",
+               modifier = Modifier.align(Alignment.Center),
+            style= TextStyle(fontSize = 25.sp)
+
+           )
+       }
+
+       }
+    /*
+    Place for list of products
+    */
+    Column(modifier = Modifier.fillMaxSize()) {
+        Row(modifier = Modifier.fillMaxWidth()) {
+            Divider()
+
+        }
+        
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+public fun OrderPagePreview(){
+    OrderPage()
+}
