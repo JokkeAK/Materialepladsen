@@ -43,7 +43,7 @@ fun BordeauxButton(text: String) {
             color = Color.White,
             textAlign = TextAlign.Center,
             style = TextStyle(
-                fontSize = 16.sp,
+                fontSize = 20.sp,
                 fontWeight = FontWeight.Bold)
         )    }
 }
