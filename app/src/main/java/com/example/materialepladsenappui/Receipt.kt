@@ -35,6 +35,8 @@ import androidx.compose.ui.unit.sp
 import com.example.materialepladsenappui.ui.theme.BRed
 import innerShadow
 
+
+// All text is hardcoded. Needs to be changed.
 @Composable
 fun Receipt(date: String){
 
