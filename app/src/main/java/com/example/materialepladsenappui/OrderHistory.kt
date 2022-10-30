@@ -24,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.materialepladsenappui.ui.theme.BRed
+import innerShadow
 
 @Composable
 fun OrderHis(){
@@ -42,7 +43,10 @@ fun OrderHis(){
         LazyColumn(modifier = Modifier
             .background(color = Color.Gray, shape = RectangleShape)
             .fillMaxWidth()
-            .height(650.dp)
+            .height(575.dp)
+            //Custom inner shadow code from https://stackoverflow.com/questions/71054138/jetpack-compose-inner-shadow
+            //Modified to fit our app design
+            //Inbuilt shadows for backgrounds suck.
             .innerShadow(),
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 10.dp),
             horizontalAlignment = Alignment.CenterHorizontally){
@@ -55,87 +59,6 @@ fun OrderHis(){
     }
 }
 
-//Custom inner shadow code from https://stackoverflow.com/questions/71054138/jetpack-compose-inner-shadow
-//Modified to fit our app design
-//Inbuilt shadows for backgrounds suck.
-fun Modifier.innerShadow() = composed(
-    inspectorInfo = {
-
-    },
-    factory = {
-
-        val paint = remember() {
-            Paint()
-        }
-
-        val foregroundPaint = remember() {
-            Paint().apply {
-                color = Color.Gray
-            }
-        }
-
-        val frameworkPaint = remember {
-            paint.asFrameworkPaint()
-        }
-
-        Modifier.drawWithContent {
-            this.drawIntoCanvas {
-                val color = Color(0x656464)
-
-                val radius = 8.dp.toPx()
-
-                val shadowColor = color
-                    .copy(alpha = .7f)
-                    .toArgb()
-                val transparent = color
-                    .copy(alpha = 0f)
-                    .toArgb()
-
-                frameworkPaint.color = transparent
-
-                frameworkPaint.setShadowLayer(
-                    radius,
-                    0f,
-                    0f,
-                    shadowColor
-                )
-                val shadowRadius = 8.dp.toPx()
-
-                it.drawRoundRect(
-                    left = 0f,
-                    top = 0f,
-                    right = this.size.width,
-                    bottom = this.size.height,
-                    radiusX = 5.dp.toPx(),
-                    radiusY = 5.dp.toPx(),
-                    paint = foregroundPaint
-                )
-
-                it.drawRoundRect(
-                    left = 0f,
-                    top = 0f,
-                    right = this.size.width,
-                    bottom = this.size.height,
-                    radiusX = 5.dp.toPx(),
-                    radiusY = 5.dp.toPx(),
-                    paint = paint
-                )
-
-                it.drawRoundRect(
-                    left = shadowRadius,
-                    top = shadowRadius,
-                    right = this.size.width - shadowRadius,
-                    bottom = this.size.height,
-                    radiusX = 5.dp.toPx(),
-                    radiusY = 5.dp.toPx(),
-                    paint = foregroundPaint
-                )
-                drawContent()
-
-            }
-        }
-    }
-)
 
 @Preview(showBackground = true)
 @Composable
