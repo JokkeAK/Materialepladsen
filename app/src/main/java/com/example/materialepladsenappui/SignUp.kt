@@ -75,7 +75,7 @@ public fun SignUp(){
 
 
 @Composable
-fun FullNameTextFiled(){
+private fun FullNameTextFiled(){
 
     var text by rememberSaveable { mutableStateOf("Navn") }
     TextField(
@@ -88,7 +88,7 @@ fun FullNameTextFiled(){
 }
 
 @Composable
-fun EmailTextFiled(){
+private fun EmailTextFiled(){
 
     var text by rememberSaveable { mutableStateOf("Email@Email.dk") }
     TextField(
@@ -101,7 +101,7 @@ fun EmailTextFiled(){
 }
 
 @Composable
-fun TlfTextFiled(){
+private fun TlfTextFiled(){
 
     var text by rememberSaveable { mutableStateOf("+45 12 34 56 78") }
     TextField(
@@ -114,7 +114,7 @@ fun TlfTextFiled(){
 }
 
 @Composable
-fun CityTextFiled(){
+private fun CityTextFiled(){
 
     var text by rememberSaveable { mutableStateOf("Roskilde") }
     TextField(
@@ -126,7 +126,7 @@ fun CityTextFiled(){
     )
 }
 @Composable
-fun ZipTextFiled(){
+private fun ZipTextFiled(){
 
     var text by rememberSaveable { mutableStateOf("4000") }
     TextField(
@@ -139,7 +139,7 @@ fun ZipTextFiled(){
 }
 
 @Composable
-fun LicensePlateTextFiled(){
+private fun LicensePlateTextFiled(){
 
     var text by rememberSaveable { mutableStateOf("AA 12 345") }
     TextField(
