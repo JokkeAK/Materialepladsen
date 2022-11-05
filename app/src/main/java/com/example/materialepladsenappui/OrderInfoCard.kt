@@ -30,13 +30,12 @@ fun OrderInfoCard() {
     Card(
         shape = RectangleShape,
         modifier = Modifier
-            .fillMaxWidth()
-            .background(Color.Gray),
+            .fillMaxWidth(),
     ) {
 
 
         Column(modifier = Modifier
-            .background(Color.Gray)){
+            ){
             Text(
                 text = "\t\tFlisegrus 0-8 mm",
                 color = Color.Black,

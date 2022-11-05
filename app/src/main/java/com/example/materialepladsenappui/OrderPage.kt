@@ -37,12 +37,14 @@ import com.example.materialepladsenappui.ui.theme.*
 
 
 @Composable
-fun OrderPage(){
+fun OrderPage() {
 
 
-    Column(modifier = Modifier.fillMaxSize(),
+    Column(
+        modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally) {
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
 
         Header()
 
@@ -64,13 +66,62 @@ fun OrderPage(){
                 )
 
                 OrderInfoCard()
+
+                Column(modifier = Modifier.fillMaxSize()) {
+
+                    DividerBred()
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    ) {
+                        Text(
+                            text = "\t\t Total",
+                            style = TextStyle(fontSize = 15.sp)
+                        )
+                        Text(
+                            text = "2000 kr.\t\t",
+                            modifier = Modifier.align(Alignment.BottomEnd),
+                            style = TextStyle(fontSize = 15.sp)
+                        )
+
+
+                    }
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    ) {
+
+                        Text(
+                            text = " 2000000 kg.\t\t",
+                            modifier = Modifier.align(Alignment.BottomEnd),
+                            style = TextStyle(fontSize = 15.sp)
+                        )
+                    }
+                }
             }
         }
+
+        Spacer(
+            modifier = Modifier
+                .height(height = 32.dp)
+        )
+
+        BordeauxButton(text = "Fortsæt med at handle")
+
+        Spacer(
+            modifier = Modifier
+                .height(height = 32.dp)
+        )
+
+        BordeauxButton(text = "Betal")
+
+
     }
 
-       }
-
-
+}
 
 @Preview(showBackground = true)
 @Composable
