@@ -40,28 +40,36 @@ import com.example.materialepladsenappui.ui.theme.*
 fun OrderPage(){
 
 
-    Column(modifier = Modifier.fillMaxSize()) {
+    Column(modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally) {
 
         Header()
 
 
-        Box(modifier = Modifier){
-            Image(
-                painter = painterResource(id =R.drawable.order_background),
-                contentDescription = "Order background",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .fillMaxHeight(0.5F),
-                alignment = Alignment.TopCenter,
-                contentScale = ContentScale.Fit
-            )
+        Box(modifier = Modifier) {
 
-            OrderInfoCard()
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Top,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+
+                Image(
+                    painter = painterResource(id = R.drawable.order_background),
+                    contentDescription = "Order background",
+                    modifier = Modifier
+                        .size(size = 400.dp),
+                    alignment = Alignment.TopCenter,
+                )
+
+                OrderInfoCard()
+            }
         }
+    }
 
        }
 
-    }
 
 
 @Preview(showBackground = true)
