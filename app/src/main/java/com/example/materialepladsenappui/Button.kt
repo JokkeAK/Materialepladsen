@@ -26,8 +26,8 @@ import com.example.materialepladsenappui.ui.theme.BRed
 fun BordeauxButton(text: String) {
     Button(onClick = { /*TODO*/ },
         modifier = Modifier
-            .width(width = 250.dp)
-            .height(height = 48.dp),
+            .width(width = 260.dp)
+            .height(height = 45.dp),
         shape = RectangleShape,
         colors = ButtonDefaults.buttonColors(
             containerColor = BRed,
