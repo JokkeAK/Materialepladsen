@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 public fun Header() {
+
     androidx.compose.material3.Button(
         onClick = { /*TODO*/ },
         modifier = Modifier.fillMaxWidth(),
@@ -27,7 +28,7 @@ public fun Header() {
             modifier = Modifier
                 .width(194.dp)
                 .height(56.dp),
-            alignment = Alignment.Center
+            alignment = Alignment.TopCenter
         )
     }
 }

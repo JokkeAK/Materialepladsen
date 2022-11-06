@@ -7,6 +7,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,6 +28,7 @@ import androidx.compose.ui.platform.textInputServiceFactory
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.SemanticsProperties.ContentDescription
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 
 import androidx.compose.ui.tooling.preview.Preview
@@ -46,28 +48,46 @@ fun OrderPage() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Header()
+                Box(modifier = Modifier
+                    .fillMaxWidth()
+                    .size(360.dp, 360.dp)){
+
+                    Image(
+                        painter = painterResource(id = R.drawable.order_background),
+                        contentDescription = "Order background",
+                        modifier = Modifier
+                            .matchParentSize(),
+                        alignment = Alignment.TopCenter)
+
+                    Header()
 
 
-        Box(modifier = Modifier) {
+                    Box(modifier = Modifier
+                        .fillMaxWidth()
+                        .size(360.dp, 170.dp)
+                        .clip(RoundedCornerShape(topStart = 50.dp, topEnd = 50.dp))
+                        .background(Color.White)
+                        .align(Alignment.BottomCenter)){
 
-            Column(
-                modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.Top,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
+                        Text(
+                            text = "\n\t\tFlisegrus 0-8 mm \t\t\t\t"  + "pris " + "kr./kg",
+                            modifier = Modifier.align(Alignment.TopStart),
+                            color = Color.Black,
+                            style = TextStyle(
+                                fontSize = 24.sp,
+                                fontWeight = FontWeight.Bold))
 
-                Image(
-                    painter = painterResource(id = R.drawable.order_background),
-                    contentDescription = "Order background",
-                    modifier = Modifier
-                        .size(size = 400.dp),
-                    alignment = Alignment.TopCenter,
-                )
+                        Text(
+                            text = "\n\t\tInfo\n",
+                            modifier = Modifier.align(Alignment.CenterStart),
+                            color = Color.Black,
+                            style = TextStyle(
+                                fontSize = 16.sp,
+                                fontWeight = FontWeight.Bold))
+                    }
+                }
 
-                OrderInfoCard()
 
-                Column(modifier = Modifier.fillMaxSize()) {
 
                     DividerBred()
 
@@ -76,38 +96,28 @@ fun OrderPage() {
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
+                            .size(0.dp, 90.dp)
                     ) {
                         Text(
                             text = "\t\t Total",
+                            modifier = Modifier.align(Alignment.TopStart),
                             style = TextStyle(fontSize = 15.sp)
                         )
                         Text(
-                            text = "2000 kr.\t\t",
-                            modifier = Modifier.align(Alignment.BottomEnd),
+                            text = "Vægt " + "kg.\t\t",
+                            modifier = Modifier.align(Alignment.TopEnd),
                             style = TextStyle(fontSize = 15.sp)
                         )
-
-
-                    }
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                    ) {
 
                         Text(
-                            text = " 2000000 kg.\t\t",
-                            modifier = Modifier.align(Alignment.BottomEnd),
+                            text = "Pris " + "kr.\t\t",
+                            modifier = Modifier.align(Alignment.CenterEnd),
                             style = TextStyle(fontSize = 15.sp)
                         )
-                    }
+
+
+
                 }
-            }
-        }
-
-        Spacer(
-            modifier = Modifier
-                .height(height = 32.dp)
-        )
 
         BordeauxButton(text = "Fortsæt med at handle")
 
@@ -118,10 +128,11 @@ fun OrderPage() {
 
         BordeauxButton(text = "Betal")
 
+    }
 
     }
 
-}
+
 
 @Preview(showBackground = true)
 @Composable
