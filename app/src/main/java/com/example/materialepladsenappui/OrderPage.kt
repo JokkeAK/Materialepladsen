@@ -48,76 +48,81 @@ fun OrderPage() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-                Box(modifier = Modifier
-                    .fillMaxWidth()
-                    .size(360.dp, 360.dp)){
+        Box(modifier = Modifier
+            .fillMaxWidth()
+            .size(360.dp, 360.dp)){
 
-                    Image(
-                        painter = painterResource(id = R.drawable.order_background),
-                        contentDescription = "Order background",
-                        modifier = Modifier
-                            .matchParentSize(),
-                        alignment = Alignment.TopCenter)
+            Image(
+                painter = painterResource(id = R.drawable.order_background),
+                contentDescription = "Order background",
+                modifier = Modifier
+                    .matchParentSize(),
+                alignment = Alignment.TopCenter)
 
-                    Header()
-
-
-                    Box(modifier = Modifier
-                        .fillMaxWidth()
-                        .size(360.dp, 170.dp)
-                        .clip(RoundedCornerShape(topStart = 50.dp, topEnd = 50.dp))
-                        .background(Color.White)
-                        .align(Alignment.BottomCenter)){
-
-                        Text(
-                            text = "\n\t\tFlisegrus 0-8 mm \t\t\t\t"  + "pris " + "kr./kg",
-                            modifier = Modifier.align(Alignment.TopStart),
-                            color = Color.Black,
-                            style = TextStyle(
-                                fontSize = 24.sp,
-                                fontWeight = FontWeight.Bold))
-
-                        Text(
-                            text = "\n\t\tInfo\n",
-                            modifier = Modifier.align(Alignment.CenterStart),
-                            color = Color.Black,
-                            style = TextStyle(
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold))
-                    }
-                }
+            Header()
 
 
+            Box(modifier = Modifier
+                .fillMaxWidth()
+                .size(360.dp, 170.dp)
+                .clip(RoundedCornerShape(topStart = 50.dp, topEnd = 50.dp))
+                .background(Color.White)
+                .align(Alignment.BottomCenter)){
 
-                    DividerBred()
+                Column(horizontalAlignment = Alignment.Start, modifier = Modifier.padding(10.dp)) {
 
                     Spacer(modifier = Modifier.height(10.dp))
 
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .size(0.dp, 90.dp)
-                    ) {
-                        Text(
-                            text = "\t\t Total",
-                            modifier = Modifier.align(Alignment.TopStart),
-                            style = TextStyle(fontSize = 15.sp)
-                        )
-                        Text(
-                            text = "Vægt " + "kg.\t\t",
-                            modifier = Modifier.align(Alignment.TopEnd),
-                            style = TextStyle(fontSize = 15.sp)
-                        )
+                    Text(
+                        text = "Flisegrus 0-8 mm \t\t\t\t"  + "pris " + "kr./kg",
+                        color = Color.Black,
+                        style = TextStyle(
+                            fontSize = 24.sp,
+                            fontWeight = FontWeight.Bold))
 
-                        Text(
-                            text = "Pris " + "kr.\t\t",
-                            modifier = Modifier.align(Alignment.CenterEnd),
-                            style = TextStyle(fontSize = 15.sp)
-                        )
-
-
+                    Text(
+                        text = "Info",
+                        color = Color.Black,
+                        style = TextStyle(
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold))
 
                 }
+
+            }
+        }
+
+
+
+        DividerBred()
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .size(0.dp, 90.dp)
+        ) {
+            Text(
+                text = "\t\t Total",
+                modifier = Modifier.align(Alignment.TopStart),
+                style = TextStyle(fontSize = 15.sp)
+            )
+            Text(
+                text = "Vægt " + "kg.\t\t",
+                modifier = Modifier.align(Alignment.TopEnd),
+                style = TextStyle(fontSize = 15.sp)
+            )
+
+            Text(
+                text = "Pris " + "kr.\t\t",
+                modifier = Modifier.align(Alignment.CenterEnd),
+                style = TextStyle(fontSize = 15.sp)
+            )
+
+
+
+        }
 
         BordeauxButton(text = "Fortsæt med at handle")
 
@@ -130,7 +135,7 @@ fun OrderPage() {
 
     }
 
-    }
+}
 
 
 
