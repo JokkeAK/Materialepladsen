@@ -45,14 +45,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyScreenContent()
-            }
         }
     }
+}
 
 
 @Composable
-fun MyApp(content: @Composable () -> Unit ) {
-    MaterialepladsenAppUITheme() {
+fun MyApp(content: @Composable () -> Unit) {
+    MaterialepladsenAppUITheme {
         // A surface container using the 'background' color from the theme
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -65,11 +65,11 @@ fun MyApp(content: @Composable () -> Unit ) {
 
 @Composable
 fun MyScreenContent() {
-    Column (
+    Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
-        ){
+    ) {
 
         Header()
 
@@ -77,7 +77,8 @@ fun MyScreenContent() {
 
         Spacer(
             modifier = Modifier
-                .height(height = 30.dp))
+                .height(height = 30.dp)
+        )
 
         Image(
             painter = painterResource(id = com.example.materialepladsenappui.R.drawable.mp_logo_big),
@@ -85,22 +86,26 @@ fun MyScreenContent() {
             modifier = Modifier
                 .size(size = 200.dp)
                 .clip(shape = CircleShape),
-            contentScale = ContentScale.Fit)
+            contentScale = ContentScale.Fit
+        )
 
         Spacer(
             modifier = Modifier
-                .height(height = 24.dp))
+                .height(height = 24.dp)
+        )
 
 
         BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_buy1))
         Spacer(
             modifier = Modifier
-                .height(height = 24.dp))
+                .height(height = 24.dp)
+        )
 
         BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_buy2))
         Spacer(
             modifier = Modifier
-                .height(height = 24.dp))
+                .height(height = 24.dp)
+        )
 
         BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_calc))
     }
@@ -116,13 +121,16 @@ fun Greeting(name: String) {
             .fillMaxWidth()
             .height(3.dp)
     )
-    Text(text = "Velkommen, $name",
+    Text(
+        text = "Velkommen, $name",
         color = Color.Black,
         textAlign = TextAlign.Center,
         style = TextStyle(
-            fontSize = 28.sp),
+            fontSize = 28.sp
+        ),
         modifier = Modifier
-            .padding(all = 16.dp))
+            .padding(all = 16.dp)
+    )
 
     Divider(
         color = Color.Black,

@@ -10,11 +10,13 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.composed
+import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.graphics.*
+import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -22,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.materialepladsenappui.ui.theme.BRed
+import innerShadow
 
 @Composable
 fun OrderHis(){
@@ -35,29 +38,27 @@ fun OrderHis(){
         Header()
 
         Text("Kvitteringer",
-            style = TextStyle(fontSize = 18.sp, fontWeight = FontWeight.Bold),
-            modifier = Modifier.padding(5.dp)
-        )
+            style = TextStyle(fontSize = 18.sp, fontWeight = FontWeight.Bold))
 
         LazyColumn(modifier = Modifier
             .background(color = Color.Gray, shape = RectangleShape)
             .fillMaxWidth()
-            .height(650.dp),
+            .height(575.dp)
+            //Custom inner shadow code from https://stackoverflow.com/questions/71054138/jetpack-compose-inner-shadow
+            //Modified to fit our app design
+            //Inbuilt shadows for backgrounds suck.
+            .innerShadow(),
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 10.dp),
             horizontalAlignment = Alignment.CenterHorizontally){
 
-            item { BordeauxButton(text = "tester")
+            item { ReceiptCard(onClick = {} ) //need to handle on click in the future
             Spacer(modifier = Modifier.height(5.dp))}
-            items(20){index -> BordeauxButton(text = "tester $index")
+            items(20){index -> ReceiptCard(onClick = {} ) //need to handle on click in the future
                 Spacer(modifier = Modifier.height(5.dp))}
-
-
         }
-
-
     }
-
 }
+
 
 @Preview(showBackground = true)
 @Composable
