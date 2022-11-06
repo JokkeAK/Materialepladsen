@@ -34,7 +34,7 @@ public fun Login(){
                 .height(height = 68.dp))
         Image(
             painter = painterResource(id = R.drawable.mp_logo_big),
-            contentDescription = "materialepladsen logo",
+            contentDescription = "Materialepladsen logo",
             modifier = Modifier
                 .size(size = 275.dp)
                 .clip(shape = CircleShape),
