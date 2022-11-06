@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.layout.AlignmentLine
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -38,7 +39,7 @@ import innerShadow
 
 // All text is hardcoded. Needs to be changed.
 @Composable
-fun Receipt(date: String){
+fun Receipt(date: String, totalPriceForDay: Double){
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -48,7 +49,8 @@ fun Receipt(date: String){
 
         Header()
 
-        Text("Kvittering: " +date,
+        Text(
+            stringResource(R.string.receipts) + " " + date,
             style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold),
             modifier = Modifier.padding(5.dp)
         )
@@ -64,9 +66,9 @@ fun Receipt(date: String){
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 10.dp),
             horizontalAlignment = Alignment.CenterHorizontally){
 
-            item { MaterialInfoCard()
+            item { MaterialInfoCard("Flisegrus 0-8 mm", 200, 68.0)
                 Spacer(modifier = Modifier.height(5.dp))}
-            items(20){index -> MaterialInfoCard()
+            items(20){index -> MaterialInfoCard("Flisegrus 0-8 mm", 200, 68.0)
                 Spacer(modifier = Modifier.height(5.dp))}
         }
 
@@ -75,12 +77,13 @@ fun Receipt(date: String){
         Box(modifier = Modifier
             .fillMaxWidth()) {
             Text(
-                text = "\t \t Total",
+                text = "\t\t\t" + stringResource(R.string.total),
+                modifier = Modifier.align(Alignment.TopStart),
                 style = TextStyle(fontSize = 20.sp)
             )
             Text(
-                text = "4.034,50 kr. \t \t",
-                modifier = Modifier.align(Alignment.BottomEnd),
+                text = "" + totalPriceForDay + " " + stringResource(R.string.kr) + "\t\t\t",
+                modifier = Modifier.align(Alignment.TopEnd),
                 style = TextStyle(fontSize = 20.sp)
             )
         }
@@ -89,7 +92,7 @@ fun Receipt(date: String){
             .fillMaxWidth()
             .height(height = 32.dp))
 
-        BordeauxButton(text = "Eksportér")
+        BordeauxButton(stringResource(R.string.export))
 
     }
 
@@ -113,6 +116,7 @@ fun Divider(){
 @Composable
 fun ReceiptPreview() {
     MyApp {
-        Receipt(date = "07/11-2022")
+        Receipt("07/11-2022",
+        4034.50)
     }
 }

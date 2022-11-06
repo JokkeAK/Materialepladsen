@@ -1,5 +1,9 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Materialepladsen app UI</string>
+
+    Units:
+    <string name="kr">kr</string>
+    <string name="kg">kg</string>
 
     HomePage:
     <string name="home_page_buy1">Køb på plads</string>
@@ -29,16 +33,37 @@
 
     StartVægt:
     <string name="vægt">Din startvægt er: </string>
-    <string name="kg">kg</string>
-
 
     OrderPage:
     <string name="order_more">Fortsæt med at handle </string>
     <string name="pay">Betal </string>
     <string name="total">Total </string>
-    <string name="kr">kr</string>
 
 
+    LoginPage:
+    <string name="new_user">Ny bruger?</string>
+    <string name="login">Log ind</string>
+    <string name="username">Brugernavn</string>
+    <string name="password">Password</string>
+
+    OrderHistoryPage:
+    <string name="receipts">Kvitteringer</string>
+
+    ReceiptPage:
+    <string name="export">Eksportér</string>
+
+    LoginPage:
+    <string name="name_full">Fulde navn</string>
+    <string name="mail">Email</string>
+    <string name="phone">Telefon nr.</string>
+    <string name="city">By</string>
+    <string name="zip">Postnummer</string>
+    <string name="license">Nummerplade</string>
+
+    StartingWeightPage:
+    <string name="start_weight">Din startvægt er: </string>
+    <string name="weigh_car">Vej bil</string>
+    <string name="continue_on">Fortsæt</string>
 
 
 

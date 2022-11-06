@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.sp
 // All text is hardcoded. Needs to be changed.
 
 @Composable
-fun ReceiptCard(onClick: () -> Unit) { //need to handle on click in the future
+fun ReceiptCard(date: String, location: String, matTypeAmount: Int, totalWeightForDay: Int, totalPriceForDay: Double, onClick: () -> Unit) { //need to handle on click in the future
 
     Card(
         shape = MaterialTheme.shapes.medium,
@@ -44,7 +44,7 @@ fun ReceiptCard(onClick: () -> Unit) { //need to handle on click in the future
             Column() {
 
                 Text(
-                    text = "\t07. November - Næstved",
+                    text = "\t$date-$location",
                     color = Color.Black,
                     style = TextStyle(
                         fontSize = 18.sp,
@@ -55,19 +55,19 @@ fun ReceiptCard(onClick: () -> Unit) { //need to handle on click in the future
                 Box(modifier = Modifier
                     .fillMaxWidth()) {
                     Text(
-                        text = "\t4 varer",
+                        text = "\t" + matTypeAmount + " varer",
                         modifier = Modifier.align(Alignment.BottomStart),
                         style = TextStyle(fontSize = 13.sp)
                     )
                     Text(
-                        text = "4.034,5 kr. \t\t",
+                        text = "" + totalPriceForDay + " kr. \t\t",
                         modifier = Modifier.align(Alignment.BottomEnd),
                         style = TextStyle(fontSize = 20.sp)
                     )
                 }
 
                 Text(
-                    text = "\t2.825 kg",
+                    text = "\t$totalWeightForDay kg",
                     color = Color.Black,
                     style = TextStyle(
                         fontSize = 13.sp,
@@ -86,12 +86,18 @@ fun ReceiptCard(onClick: () -> Unit) { //need to handle on click in the future
 }
 
 
-
+//Info about the receipt is hard coded for now. Need to get the data from somewhere.
 @Preview(showBackground = true)
 @Composable
 fun ReceiptCardPreview() {
     MyApp {
-        ReceiptCard(onClick = {} ) //need to handle on click in the future
+        ReceiptCard(
+            "07. november",
+            "Næstved",
+            4,
+            2825,
+            4034.5,
+            onClick = {}) //need to handle on click in the future
     }
 }
 

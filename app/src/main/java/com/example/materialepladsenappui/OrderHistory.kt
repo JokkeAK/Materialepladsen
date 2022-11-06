@@ -18,6 +18,7 @@ import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -37,7 +38,8 @@ fun OrderHis(){
 
         Header()
 
-        Text("Kvitteringer",
+        Text(
+            stringResource(R.string.receipts),
             style = TextStyle(fontSize = 18.sp, fontWeight = FontWeight.Bold))
 
         LazyColumn(modifier = Modifier
@@ -51,9 +53,22 @@ fun OrderHis(){
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 10.dp),
             horizontalAlignment = Alignment.CenterHorizontally){
 
-            item { ReceiptCard(onClick = {} ) //need to handle on click in the future
+            item { ReceiptCard(
+                "07. november",
+                "Næstved",
+                4,
+                2825,
+                4034.5,
+                onClick = {} ) //need to handle on click in the future
             Spacer(modifier = Modifier.height(5.dp))}
-            items(20){index -> ReceiptCard(onClick = {} ) //need to handle on click in the future
+            items(20){index -> ReceiptCard(
+                "07. november",
+                "Næstved",
+                4,
+                2825,
+                4034.5,
+                onClick = {} ) //need to handle on click in the future
+
                 Spacer(modifier = Modifier.height(5.dp))}
         }
     }

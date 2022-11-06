@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -34,7 +35,7 @@ public fun SignUp(){
                 .height(height = 68.dp))
         Image(
             painter = painterResource(id = R.drawable.mp_logo_big),
-            contentDescription = "materialepladsen logo",
+            contentDescription = "Materialepladsen logo",
             modifier = Modifier
                 .size(size = 100.dp)
                 .clip(shape = CircleShape),
@@ -68,11 +69,13 @@ public fun SignUp(){
                 contentColor = Color.White
             ), shape = RectangleShape
         ){
-            Text(text = "Log ind",color = Color.White)
+            Text(stringResource(R.string.login),color = Color.White)
         }
     }
 }
 
+
+//Need to make the values in mutableStateOf not hard coded, but how?
 
 @Composable
 fun FullNameTextFiled(){
@@ -82,7 +85,7 @@ fun FullNameTextFiled(){
         modifier = Modifier.width(width = 250.dp),
         value = text,
         onValueChange = { text = it },
-        label = { Text("Fulde navn") },
+        label = { Text(stringResource(R.string.name_full)) },
         singleLine = true
     )
 }
@@ -95,7 +98,7 @@ fun EmailTextFiled(){
         modifier = Modifier.width(width = 250.dp),
         value = text,
         onValueChange = { text = it },
-        label = { Text("Email") },
+        label = { Text(stringResource(R.string.mail)) },
         singleLine = true
     )
 }
@@ -108,7 +111,7 @@ fun TlfTextFiled(){
         modifier = Modifier.width(width = 250.dp),
         value = text,
         onValueChange = { text = it },
-        label = { Text("Telefon nr.") },
+        label = { Text(stringResource(R.string.phone)) },
         singleLine = true
     )
 }
@@ -121,7 +124,7 @@ fun CityTextFiled(){
         modifier = Modifier.width(width = 250.dp),
         value = text,
         onValueChange = { text = it },
-        label = { Text("By") },
+        label = { Text(stringResource(R.string.city)) },
         singleLine = true
     )
 }
@@ -133,7 +136,7 @@ fun ZipTextFiled(){
         modifier = Modifier.width(width = 250.dp),
         value = text,
         onValueChange = { text = it },
-        label = { Text("Postnummer") },
+        label = { Text(stringResource(R.string.zip)) },
         singleLine = true
     )
 }
@@ -146,7 +149,7 @@ fun LicensePlateTextFiled(){
         modifier = Modifier.width(width = 250.dp),
         value = text,
         onValueChange = { text = it },
-        label = { Text("Nummerplade") },
+        label = { Text(stringResource(R.string.license)) },
         singleLine = true
     )
 }

@@ -51,7 +51,7 @@ public fun Betaling(licensePlate: String){
 
         Spacer(modifier = Modifier.height(height = 50.dp))
 
-        Text(text = stringResource(R.string.nummerplade) + "\n" + licensePlate ,
+        Text(text = stringResource(R.string.nummerplade)+ "\n" + licensePlate ,
             Modifier
                 .background(Color.Gray, RectangleShape)
                 .padding(10.dp)
