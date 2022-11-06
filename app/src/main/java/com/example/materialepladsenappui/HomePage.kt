@@ -82,7 +82,7 @@ fun MyScreenContent() {
 
         Image(
             painter = painterResource(id = com.example.materialepladsenappui.R.drawable.mp_logo_big),
-            contentDescription = "materialepladsen logo",
+            contentDescription = "Materialepladsen logo",
             modifier = Modifier
                 .size(size = 200.dp)
                 .clip(shape = CircleShape),

@@ -26,6 +26,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.platform.textInputServiceFactory
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.SemanticsProperties.ContentDescription
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -37,9 +38,9 @@ import androidx.compose.ui.unit.sp
 
 import com.example.materialepladsenappui.ui.theme.*
 
-
+//Can the weight be measured with decimals? If so change to double.
 @Composable
-fun OrderPage() {
+fun OrderPage(name: String, weightPrice: String, matInfo: String, matTotalWeight: Int, matTotalPrice: Double) {
 
 
     Column(
@@ -52,6 +53,7 @@ fun OrderPage() {
             .fillMaxWidth()
             .size(360.dp, 360.dp)){
 
+            //Image to be used when going to the order page. Either the same static image or based on the material to be purchased.
             Image(
                 painter = painterResource(id = R.drawable.order_background),
                 contentDescription = "Order background",
@@ -59,9 +61,10 @@ fun OrderPage() {
                     .matchParentSize(),
                 alignment = Alignment.TopCenter)
 
+            //Header for the frame.
             Header()
 
-
+            //Box containing the info about the material.
             Box(modifier = Modifier
                 .fillMaxWidth()
                 .size(360.dp, 170.dp)
@@ -74,18 +77,19 @@ fun OrderPage() {
                     Spacer(modifier = Modifier.height(10.dp))
 
                     Text(
-                        text = "Flisegrus 0-8 mm \t\t\t\t"  + "pris " + "kr./kg",
+                        text = "$name - $weightPrice",
                         color = Color.Black,
                         style = TextStyle(
                             fontSize = 24.sp,
                             fontWeight = FontWeight.Bold))
 
+                    Spacer(modifier = Modifier.height(20.dp))
+
                     Text(
-                        text = "Info",
+                        text = matInfo,
                         color = Color.Black,
                         style = TextStyle(
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.Bold))
+                            fontSize = 16.sp))
 
                 }
 
@@ -93,29 +97,30 @@ fun OrderPage() {
         }
 
 
-
+        //Red divider line.
         DividerBred()
 
         Spacer(modifier = Modifier.height(10.dp))
 
+        //Box containing the total weight and price for the material to be purchased.
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .size(0.dp, 90.dp)
         ) {
             Text(
-                text = "\t\t Total",
+                text = "\t\t" + stringResource(R.string.total),
                 modifier = Modifier.align(Alignment.TopStart),
                 style = TextStyle(fontSize = 15.sp)
             )
             Text(
-                text = "Vægt " + "kg.\t\t",
+                text = "" +matTotalWeight + " " + stringResource(R.string.kg) + "\t\t\t",
                 modifier = Modifier.align(Alignment.TopEnd),
                 style = TextStyle(fontSize = 15.sp)
             )
 
             Text(
-                text = "Pris " + "kr.\t\t",
+                text = "" + matTotalPrice + " " + stringResource(R.string.kr) + "\t\t\t",
                 modifier = Modifier.align(Alignment.CenterEnd),
                 style = TextStyle(fontSize = 15.sp)
             )
@@ -124,23 +129,29 @@ fun OrderPage() {
 
         }
 
-        BordeauxButton(text = "Fortsæt med at handle")
+        //The buttons to continue the flow.
+        BordeauxButton(text = stringResource(R.string.order_more))
 
         Spacer(
             modifier = Modifier
                 .height(height = 32.dp)
         )
 
-        BordeauxButton(text = "Betal")
+        BordeauxButton(text = stringResource(R.string.pay))
 
     }
 
 }
 
 
-
+//Hard coded inputs for now. Need to receive this from somewhere.
 @Preview(showBackground = true)
 @Composable
 public fun OrderPagePreview(){
-    OrderPage()
+    OrderPage(
+        "Granit grå 11-16 mm ",
+        "0,8 kr./kg",
+        "Granit i grå med lille rød nist. Velegnet til indkørsler. Pynt i haver.",
+        1367,
+        1093.6)
 }

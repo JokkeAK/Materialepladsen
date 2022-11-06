@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.sp
 import com.example.materialepladsenappui.ui.theme.BRed
 
 @Composable
-public fun Betaling(){
+public fun Betaling(licensePlate: String){
     Column (
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
@@ -49,12 +49,12 @@ public fun Betaling(){
         
         BordeauxButton(text = stringResource(R.string.betaling_mobile))
 
-        Spacer(modifier = Modifier.height(height = 68.dp))
+        Spacer(modifier = Modifier.height(height = 50.dp))
 
-        Text(text = stringResource(R.string.nummerplade),
+        Text(text = stringResource(R.string.nummerplade) + "\n" + licensePlate ,
             Modifier
                 .background(Color.Gray, RectangleShape)
-                .padding(20.dp)
+                .padding(10.dp)
                 .width(280.dp),
             Color.Black, fontSize = 25.sp, fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center)
@@ -62,10 +62,11 @@ public fun Betaling(){
     }
 }
 
+//Hard coded license plate.
 @Preview(showBackground = true)
 @Composable
 fun BetalingPreview() {
     MyApp {
-        Betaling()
+        Betaling("CU342I2")
     }
 }

@@ -32,6 +32,14 @@
     <string name="kg">kg</string>
 
 
+    OrderPage:
+    <string name="order_more">Fortsæt med at handle </string>
+    <string name="pay">Betal </string>
+    <string name="total">Total </string>
+    <string name="kr">kr</string>
+
+
+
 
 
 
