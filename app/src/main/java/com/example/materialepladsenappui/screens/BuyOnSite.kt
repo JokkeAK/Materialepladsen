@@ -169,7 +169,7 @@ fun BuyCard(onClick: () -> Unit/*Needs input*/){
         Column(horizontalAlignment = CenterHorizontally) {
             Image(
                 painter = painterResource(id = R.drawable.mp_logo_big),
-                contentDescription = "materialepladsen logo",
+                contentDescription = "Materialepladsen logo",
                 modifier = Modifier
                     .size(size = 85.dp)
                     .clip(shape = RectangleShape),
