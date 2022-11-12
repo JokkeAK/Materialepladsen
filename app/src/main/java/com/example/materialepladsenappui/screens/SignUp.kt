@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -34,7 +35,7 @@ public fun SignUp(){
                 .height(height = 68.dp))
         Image(
             painter = painterResource(id = R.drawable.mp_logo_big),
-            contentDescription = "materialepladsen logo",
+            contentDescription = "Materialepladsen logo",
             modifier = Modifier
                 .size(size = 100.dp)
                 .clip(shape = CircleShape),
@@ -68,85 +69,87 @@ public fun SignUp(){
                 contentColor = Color.White
             ), shape = RectangleShape
         ){
-            Text(text = "Log ind",color = Color.White)
+            Text(stringResource(R.string.login),color = Color.White)
         }
     }
 }
 
 
+//Need to make the values in mutableStateOf not hard coded, but how?
+
 @Composable
-fun FullNameTextFiled(){
+private fun FullNameTextFiled(){
 
     var text by rememberSaveable { mutableStateOf("Navn") }
     TextField(
         modifier = Modifier.width(width = 250.dp),
         value = text,
         onValueChange = { text = it },
-        label = { Text("Fulde navn") },
+        label = { Text(stringResource(R.string.name_full)) },
         singleLine = true
     )
 }
 
 @Composable
-fun EmailTextFiled(){
+private fun EmailTextFiled(){
 
     var text by rememberSaveable { mutableStateOf("Email@Email.dk") }
     TextField(
         modifier = Modifier.width(width = 250.dp),
         value = text,
         onValueChange = { text = it },
-        label = { Text("Email") },
+        label = { Text(stringResource(R.string.mail)) },
         singleLine = true
     )
 }
 
 @Composable
-fun TlfTextFiled(){
+private fun TlfTextFiled(){
 
     var text by rememberSaveable { mutableStateOf("+45 12 34 56 78") }
     TextField(
         modifier = Modifier.width(width = 250.dp),
         value = text,
         onValueChange = { text = it },
-        label = { Text("Telefon nr.") },
+        label = { Text(stringResource(R.string.phone)) },
         singleLine = true
     )
 }
 
 @Composable
-fun CityTextFiled(){
+private fun CityTextFiled(){
 
     var text by rememberSaveable { mutableStateOf("Roskilde") }
     TextField(
         modifier = Modifier.width(width = 250.dp),
         value = text,
         onValueChange = { text = it },
-        label = { Text("By") },
+        label = { Text(stringResource(R.string.city)) },
         singleLine = true
     )
 }
 @Composable
-fun ZipTextFiled(){
+private fun ZipTextFiled(){
 
     var text by rememberSaveable { mutableStateOf("4000") }
     TextField(
         modifier = Modifier.width(width = 250.dp),
         value = text,
         onValueChange = { text = it },
-        label = { Text("Postnummer") },
+        label = { Text(stringResource(R.string.zip)) },
         singleLine = true
     )
 }
 
 @Composable
-fun LicensePlateTextFiled(){
+private fun LicensePlateTextFiled(){
 
     var text by rememberSaveable { mutableStateOf("AA 12 345") }
     TextField(
         modifier = Modifier.width(width = 250.dp),
         value = text,
         onValueChange = { text = it },
-        label = { Text("Nummerplade") },
+        label = { Text(stringResource(R.string.license)) },
         singleLine = true
     )
 }

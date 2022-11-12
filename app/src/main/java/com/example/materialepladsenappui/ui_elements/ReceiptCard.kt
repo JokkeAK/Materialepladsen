@@ -20,76 +20,85 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.materialepladsenappui.screens.MyApp
 
 // All text is hardcoded. Needs to be changed.
 
 @Composable
-fun MaterialInfoCard() {
+fun ReceiptCard(date: String, location: String, matTypeAmount: Int, totalWeightForDay: Int, totalPriceForDay: Double, onClick: () -> Unit) { //need to handle on click in the future
 
     Card(
         shape = MaterialTheme.shapes.medium,
         modifier = Modifier
             .padding(top = 6.dp, bottom = 6.dp)
             .fillMaxWidth(0.9F),
-        elevation = CardDefaults.cardElevation(8.dp)
+        elevation = CardDefaults.cardElevation(8.dp),
+
     ) {
+
+
 
         Row(
             modifier = Modifier
-                .background(color = Color.White)
-        ) {
-
-            Image(
-                painter = painterResource(id = R.drawable.material_placeholder),
-                contentDescription = "Material picture",
-                modifier = Modifier
-                    .size(size = 80.dp)
-                    .clip(shape = RoundedCornerShape(topStart = 8.dp, bottomStart = 8.dp)),
-                contentScale = ContentScale.Crop
-            )
+            .background(color = Color.White)) {
 
             Column() {
 
                 Text(
-                    text = "\tFlisegrus 0-8 mm",
+                    text = "\t$date-$location",
                     color = Color.Black,
                     style = TextStyle(
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold
+                        fontSize = 18.sp,
                     )
                 )
 
+
+                Box(modifier = Modifier
+                    .fillMaxWidth()) {
+                    Text(
+                        text = "\t" + matTypeAmount + " varer",
+                        modifier = Modifier.align(Alignment.BottomStart),
+                        style = TextStyle(fontSize = 13.sp)
+                    )
+                    Text(
+                        text = "" + totalPriceForDay + " kr. \t\t",
+                        modifier = Modifier.align(Alignment.BottomEnd),
+                        style = TextStyle(fontSize = 20.sp)
+                    )
+                }
+
+                Text(
+                    text = "\t$totalWeightForDay kg",
+                    color = Color.Black,
+                    style = TextStyle(
+                        fontSize = 13.sp,
+                    )
+                )
 
                 Spacer(
                     modifier = Modifier
-                        .height(height = 20.dp)
-                )
+                        .height(height = 5.dp))
 
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = "\t\t200 kg",
-                        style = TextStyle(fontSize = 16.sp),
-                        modifier = Modifier.align(Alignment.BottomStart)
-                    )
-                    Text(
-                        text = "68 kr. \t \t",
-                        modifier = Modifier.align(Alignment.BottomEnd),
-                        style = TextStyle(fontSize = 16.sp)
-                    )
-                }
             }
+
+
         }
     }
 }
 
+
+//Info about the receipt is hard coded for now. Need to get the data from somewhere.
 @Preview(showBackground = true)
 @Composable
-fun MaterialInfoCardPreview() {
+fun ReceiptCardPreview() {
     MyApp {
-        MaterialInfoCard()
+        ReceiptCard(
+            "07. november",
+            "Næstved",
+            4,
+            2825,
+            4034.5,
+            onClick = {}) //need to handle on click in the future
     }
 }
+

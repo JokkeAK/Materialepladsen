@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -34,7 +35,7 @@ public fun Login(){
                 .height(height = 68.dp))
         Image(
             painter = painterResource(id = R.drawable.mp_logo_big),
-            contentDescription = "materialepladsen logo",
+            contentDescription = "Materialepladsen logo",
             modifier = Modifier
                 .size(size = 275.dp)
                 .clip(shape = CircleShape),
@@ -51,7 +52,7 @@ public fun Login(){
                 contentColor = Color.White
             ), shape = RectangleShape
         ){
-            Text(text = "Ny bruger?",color = Color.White)
+            Text(text = stringResource(R.string.new_user),color = Color.White)
         }
 
         Spacer( modifier = Modifier.height(height = 200.dp))
@@ -68,7 +69,7 @@ public fun Login(){
             contentColor = Color.White
         ), shape = RectangleShape
         ){
-        Text(text = "Log ind",color = Color.White)
+        Text(text = stringResource(R.string.login),color = Color.White)
     }
     }
 }
@@ -76,12 +77,13 @@ public fun Login(){
 @Composable
 fun UsernameTextFiled(){
 
+    //Need to make the value "Ny bruger" not hard coded, but how?
     var text by rememberSaveable { mutableStateOf("Ny bruger") }
     TextField(
         modifier = Modifier.width(width = 250.dp),
         value = text,
         onValueChange = { text = it },
-        label = { Text("Brugernavn") },
+        label = { Text(stringResource(R.string.username)) },
         singleLine = true
     )
 }
@@ -89,12 +91,13 @@ fun UsernameTextFiled(){
 @Composable
 fun PasswordTextFiled(){
 
+    //Need to make the value "Password" not hard coded, but how?
     var text by rememberSaveable { mutableStateOf("Password") }
     TextField(
         modifier = Modifier.width(width = 250.dp),
         value = text,
         onValueChange = { text = it },
-        label = { Text("Password") },
+        label = {Text(stringResource(R.string.password)) },
         singleLine = true
     )
 }

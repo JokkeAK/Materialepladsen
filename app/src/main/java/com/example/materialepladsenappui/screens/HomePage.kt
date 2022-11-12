@@ -1,4 +1,4 @@
-package com.example.materialepladsenappui
+package com.example.materialepladsenappui.screens
 
 import android.icu.util.TimeUnit.values
 import android.os.Bundle
@@ -37,6 +37,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle.Companion.values
 import androidx.compose.ui.text.style.TextAlign.Companion.values
+import com.example.materialepladsenappui.BordeauxButton
+import com.example.materialepladsenappui.Header
 import java.time.chrono.JapaneseEra.values
 
 
@@ -82,7 +84,7 @@ fun MyScreenContent() {
 
         Image(
             painter = painterResource(id = com.example.materialepladsenappui.R.drawable.mp_logo_big),
-            contentDescription = "materialepladsen logo",
+            contentDescription = "Materialepladsen logo",
             modifier = Modifier
                 .size(size = 200.dp)
                 .clip(shape = CircleShape),

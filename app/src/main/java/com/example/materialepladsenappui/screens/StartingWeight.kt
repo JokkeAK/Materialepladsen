@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.materialepladsenappui.screens.MyApp
 import com.example.materialepladsenappui.ui.theme.BRed
 
 @Composable
@@ -33,6 +34,10 @@ public fun StartVægt(weight: Int){
 
         Header()
 
+
+
+
+
         Box() {
             Column(modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.Top,
@@ -43,12 +48,12 @@ public fun StartVægt(weight: Int){
 
             Spacer(modifier = Modifier.height(height = 200.dp))
 
-            BordeauxButton(text = "Vej bil")
+            BordeauxButton(stringResource(R.string.weigh_car))
 
             Spacer(modifier = Modifier.height(height = 40.dp))
 
             Text(
-                "Din startvægt er: " +weight+" kg",
+                stringResource(R.string.start_weight) + " " + weight + " " + stringResource(R.string.kg),
                 Modifier
                     .background(Color.Gray, RectangleShape)
                     .width(250.dp)
@@ -60,7 +65,7 @@ public fun StartVægt(weight: Int){
             Spacer(modifier = Modifier.height(height = 40.dp))
 
 
-            BordeauxButton(text = "Fortsæt")
+            BordeauxButton(stringResource(R.string.continue_on))
 
             }
         }
