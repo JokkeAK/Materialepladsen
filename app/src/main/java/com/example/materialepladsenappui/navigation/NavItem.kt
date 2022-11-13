@@ -12,10 +12,10 @@ sealed class NavItem(
     val icon: ImageVector,
     val navRoute: String
 ){
-    object Home: NavItem(R.string.home, Icons.Default.Home, "HOME")
-    object Orders: NavItem(R.string.order, Icons.Default.List, "LIST")
-    object Buy: NavItem(R.string.buy, Icons.Default.ShoppingCart, "CART")
-    object More: NavItem(R.string.more, Icons.Default.MoreVert, "MORE")
+    object Home: NavItem(R.string.home, Icons.Default.Home, "home")
+    object Orders: NavItem(R.string.order, Icons.Default.List, "order history")
+    object Buy: NavItem(R.string.buy, Icons.Default.ShoppingCart, "starting weight")
+    object More: NavItem(R.string.more, Icons.Default.MoreVert, "more page")
 
 
 

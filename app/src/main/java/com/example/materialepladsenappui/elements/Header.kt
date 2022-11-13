@@ -15,15 +15,16 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontVariation.width
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 
 
 //The header in our app that contains the logo of Materialepladsen and is a button that can be pressed to get to
 //the home page.
 @Composable
-public fun Header() {
+public fun Header(navController: NavHostController? = null) {
 
     androidx.compose.material3.Button(
-        onClick = { /*TODO*/ },
+        onClick = {navController?.navigate("home")},
         contentPadding = PaddingValues(0.dp),
         shape = RectangleShape,
         modifier = Modifier

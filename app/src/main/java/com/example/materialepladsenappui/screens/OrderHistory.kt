@@ -50,7 +50,8 @@ fun OrderHistory(navController: NavHostController? = null){
                 4,
                 2825,
                 4034.5,
-                onClick = {} ) //need to handle on click in the future
+                navController
+                )
             Spacer(modifier = Modifier.height(5.dp))}
             items(20){index -> ReceiptCard(
                 "07. november",
@@ -58,7 +59,8 @@ fun OrderHistory(navController: NavHostController? = null){
                 4,
                 2825,
                 4034.5,
-                onClick = {} ) //need to handle on click in the future
+                navController
+                )
 
                 Spacer(modifier = Modifier.height(5.dp))}
         }

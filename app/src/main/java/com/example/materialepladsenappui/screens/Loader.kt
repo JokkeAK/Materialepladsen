@@ -17,11 +17,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.materialepladsenappui.theme.BRed
 
 
 @Composable
-public fun Loader(){
+public fun Loader(navController: NavHostController? = null){
     Column (
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
@@ -46,15 +47,7 @@ public fun Loader(){
 
         Spacer(modifier = Modifier.height(height = 240.dp))
 
-        Button(onClick = { /*TODO*/ },
-            modifier = Modifier.width(width = 250.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = BRed,
-                contentColor = Color.White
-            ), shape = RectangleShape
-        ){
-            Text(text = "Indstrutions Video",color = Color.White)
-        }
+        BordeauxButton(text = "Indstrutions Video", route = "", navController)
     }
 }
 
