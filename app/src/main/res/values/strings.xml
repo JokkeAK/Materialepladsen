@@ -4,6 +4,7 @@
     Units:
     <string name="kr">DKK</string>
     <string name="kg">KG</string>
+    <string name="mm">mm </string>
 
     HomePage:
     <string name="home_page_buy1">Køb på plads</string>
@@ -71,6 +72,12 @@
     <string name="order">Ordre</string>
     <string name="buy">Køb</string>
     <string name="more">Mere</string>
+
+    MatInfo:
+    <string name="matsize">Størrelse </string>
+    <string name="cubicweight">Vægt pr m\u00B3</string>
+    <string name="matnr">Varenummer</string>
+    <string name="matgroup">Varegruppe</string>
 
 
 
