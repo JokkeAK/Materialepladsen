@@ -1,46 +1,28 @@
 package com.example.materialepladsenappui
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.CutCornerShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.composed
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawWithContent
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.*
-import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
-import androidx.compose.ui.layout.AlignmentLine
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.materialepladsenappui.screens.MyApp
-import com.example.materialepladsenappui.ui.theme.BRed
+import androidx.navigation.NavHostController
+//import com.example.materialepladsenappui.screens.MyApp
+import com.example.materialepladsenappui.theme.BRed
 import innerShadow
 
 
 // All text is hardcoded. Needs to be changed.
 @Composable
-fun Receipt(date: String, totalPriceForDay: Double){
+fun Receipt(date: String, totalPriceForDay: Double, navController: NavHostController? = null){
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -93,7 +75,7 @@ fun Receipt(date: String, totalPriceForDay: Double){
             .fillMaxWidth()
             .height(height = 32.dp))
 
-        BordeauxButton(stringResource(R.string.export))
+        BordeauxButton(stringResource(R.string.export), "", navController)
 
     }
 
@@ -116,8 +98,6 @@ fun Divider(){
 @Preview(showBackground = true)
 @Composable
 fun ReceiptPreview() {
-    MyApp {
         Receipt("07/11-2022",
         4034.50)
-    }
 }

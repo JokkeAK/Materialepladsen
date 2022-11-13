@@ -21,7 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.materialepladsenappui.screens.MyApp
+//import com.example.materialepladsenappui.screens.MyApp
 
 // All text is hardcoded. Needs to be changed.
 
@@ -92,10 +92,8 @@ fun MaterialInfoCard(matInfo: String, matTotalWeight: Int, matTotalPrice: Double
 @Preview(showBackground = true)
 @Composable
 fun MaterialInfoCardPreview() {
-    MyApp {
         MaterialInfoCard(
             "Flisegrus 0-8 mm",
             200,
             68.0)
-    }
 }

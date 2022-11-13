@@ -1,11 +1,9 @@
 package com.example.materialepladsenappui
 
-import android.graphics.drawable.shapes.RectShape
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.AlertDialogDefaults.shape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -18,13 +16,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 
-import com.example.materialepladsenappui.ui.theme.BRed
+import com.example.materialepladsenappui.theme.BRed
 
 
 @Composable //need to add a function for navigation.
-fun BordeauxButton(text: String) {
-    Button(onClick = { /*TODO*/ },
+fun BordeauxButton(text: String, route: String, navController: NavHostController? = null) {
+    Button(onClick = {navController?.navigate(route)},
         modifier = Modifier
             .width(width = 260.dp)
             .height(height = 45.dp),

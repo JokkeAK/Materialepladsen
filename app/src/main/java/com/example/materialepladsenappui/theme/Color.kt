@@ -1,4 +1,4 @@
-package com.example.materialepladsenappui.ui.theme
+package com.example.materialepladsenappui.theme
 
 import androidx.compose.ui.graphics.Color
 

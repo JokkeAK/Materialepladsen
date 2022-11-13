@@ -15,11 +15,12 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.materialepladsenappui.ui.theme.BRed
+import androidx.navigation.NavHostController
+import com.example.materialepladsenappui.theme.BRed
 
 
 @Composable
-public fun Weight() {
+public fun Weight(navController: NavHostController? = null) {
     Header()
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -54,9 +55,9 @@ public fun Weight() {
             contentPadding = PaddingValues(horizontal = 10.dp, vertical = 10.dp),
             horizontalAlignment = Alignment.CenterHorizontally){
 
-            item { BordeauxButton(text = "tester")
+            item { BordeauxButton(text = "tester", "", navController)
                 Spacer(modifier = Modifier.height(10.dp))}
-            items(10){index -> BordeauxButton(text = "tester $index")
+            items(10){index -> BordeauxButton(text = "tester $index", "", navController)
                 Spacer(modifier = Modifier.height(10.dp))}
         }
         Spacer(modifier = Modifier.height(7.dp))

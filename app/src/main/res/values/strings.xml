@@ -48,7 +48,7 @@
     <string name="password">Password</string>
 
     OrderHistoryPage:
-    <string name="receipts">Kvitteringer</string>
+    <string name="receipts" tools:ignore="ExtraTranslation">Kvitteringer</string>
 
     ReceiptPage:
     <string name="export">Eksportér</string>
@@ -65,6 +65,12 @@
     <string name="start_weight">Din startvægt er: </string>
     <string name="weigh_car">Vej bil</string>
     <string name="continue_on">Fortsæt</string>
+
+    NavigationBar:
+    <string name="home">Hjem</string>
+    <string name="order">Ordre</string>
+    <string name="buy">Køb</string>
+    <string name="more">Mere</string>
 
 
 

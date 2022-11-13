@@ -16,14 +16,14 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.materialepladsenappui.ui.theme.BRed
+import androidx.navigation.NavHostController
+import com.example.materialepladsenappui.theme.BRed
 
 
 @Composable
-public fun Login(){
+public fun Login(navController: NavHostController? = null){
     Column (
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,

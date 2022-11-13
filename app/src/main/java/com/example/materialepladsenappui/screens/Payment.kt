@@ -1,31 +1,25 @@
 package com.example.materialepladsenappui
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CutCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.materialepladsenappui.screens.MyApp
-import com.example.materialepladsenappui.ui.theme.BRed
+import androidx.navigation.NavHostController
+
+//import com.example.materialepladsenappui.screens.MyApp
 
 @Composable
-public fun Betaling(licensePlate: String){
+public fun Payment(licensePlate: String, navController: NavHostController? = null){
     Column (
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
@@ -40,15 +34,15 @@ public fun Betaling(licensePlate: String){
         
         Spacer(modifier = Modifier.height(height = 50.dp))
         
-        BordeauxButton(text = stringResource(R.string.betaling_plate))
+        BordeauxButton(text = stringResource(R.string.betaling_plate),"", navController)
 
         Spacer(modifier = Modifier.height(height = 25.dp))
         
-        BordeauxButton(text = stringResource(R.string.betaling_kort))
+        BordeauxButton(text = stringResource(R.string.betaling_kort), "", navController)
 
         Spacer(modifier = Modifier.height(height = 25.dp))
         
-        BordeauxButton(text = stringResource(R.string.betaling_mobile))
+        BordeauxButton(text = stringResource(R.string.betaling_mobile), "", navController)
 
         Spacer(modifier = Modifier.height(height = 50.dp))
 
@@ -67,7 +61,5 @@ public fun Betaling(licensePlate: String){
 @Preview(showBackground = true)
 @Composable
 fun BetalingPreview() {
-    MyApp {
-        Betaling("CU342I2")
-    }
+        Payment("CU342I2")
 }

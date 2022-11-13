@@ -1,31 +1,23 @@
 package com.example.materialepladsenappui
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CutCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.materialepladsenappui.screens.MyApp
-import com.example.materialepladsenappui.ui.theme.BRed
+import androidx.navigation.NavHostController
 
 @Composable
-public fun StartVægt(weight: Int){
+public fun StartingWeight(weight: Int, navController: NavHostController? = null){
     Column (
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
@@ -48,7 +40,7 @@ public fun StartVægt(weight: Int){
 
             Spacer(modifier = Modifier.height(height = 200.dp))
 
-            BordeauxButton(stringResource(R.string.weigh_car))
+            BordeauxButton(stringResource(R.string.start_weight), "", navController)
 
             Spacer(modifier = Modifier.height(height = 40.dp))
 
@@ -65,7 +57,7 @@ public fun StartVægt(weight: Int){
             Spacer(modifier = Modifier.height(height = 40.dp))
 
 
-            BordeauxButton(stringResource(R.string.continue_on))
+            BordeauxButton(stringResource(R.string.continue_on), "buy on site", navController)
 
             }
         }
@@ -77,8 +69,6 @@ public fun StartVægt(weight: Int){
 
 @Preview(showBackground = true)
 @Composable
-fun StartVægtTest() {
-    MyApp {
-        StartVægt(250)
-    }
+fun StartingWeightTest() {
+        StartingWeight(250)
 }

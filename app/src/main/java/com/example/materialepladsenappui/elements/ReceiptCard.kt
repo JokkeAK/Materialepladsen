@@ -20,7 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.materialepladsenappui.screens.MyApp
+//import com.example.materialepladsenappui.screens.MyApp
 
 // All text is hardcoded. Needs to be changed.
 
@@ -91,7 +91,6 @@ fun ReceiptCard(date: String, location: String, matTypeAmount: Int, totalWeightF
 @Preview(showBackground = true)
 @Composable
 fun ReceiptCardPreview() {
-    MyApp {
         ReceiptCard(
             "07. november",
             "Næstved",
@@ -99,6 +98,5 @@ fun ReceiptCardPreview() {
             2825,
             4034.5,
             onClick = {}) //need to handle on click in the future
-    }
 }
 

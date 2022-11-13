@@ -40,7 +40,7 @@ fun navBar(){
         NavHost(navController = navController, startDestination = Routes.Landing.name,
             modifier = Modifier.padding(innerPadding)) {
                 composable(route = Routes.Landing.name) {
-                MyScreenContent()
+                HomePage()
             }
         }
 
