@@ -28,25 +28,25 @@ public fun MorePage(navController: NavHostController? = null){
             Header()
             Spacer(modifier = Modifier.height(75.dp))
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_personInf))
+        MoreButtons(text = stringResource(R.string.more_personInf),"" ,navController)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_payment))
+        MoreButtons(text = stringResource(R.string.more_payment), "", navController)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_loader))
+        MoreButtons(text = stringResource(R.string.more_loader), "Loader", navController)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_corporate))
+        MoreButtons(text = stringResource(R.string.more_corporate), "", navController)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_terms))
+        MoreButtons(text = stringResource(R.string.more_terms), "", navController)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_usage))
+        MoreButtons(text = stringResource(R.string.more_usage), "", navController)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_car))
+        MoreButtons(text = stringResource(R.string.more_car), "", navController)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_contact))
+        MoreButtons(text = stringResource(R.string.more_contact), "", navController)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_password))
+        MoreButtons(text = stringResource(R.string.more_password), "", navController)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_logOut))
+        MoreButtons(text = stringResource(R.string.more_logOut), "", navController)
         DividerBred()
 
     }
@@ -55,11 +55,11 @@ public fun MorePage(navController: NavHostController? = null){
 }
 
 @Composable
-public fun MoreButtons(text: String = "notext"){
+public fun MoreButtons(text: String = "notext", route: String, navController: NavHostController? = null){
     Column(modifier = Modifier.fillMaxWidth()) {
 
 
-    Button(onClick = { /*TODO*/ }, modifier = Modifier
+    Button(onClick = {navController?.navigate(route)}, modifier = Modifier
         .width(width = 450.dp)
         .height(height = 55.dp),
 

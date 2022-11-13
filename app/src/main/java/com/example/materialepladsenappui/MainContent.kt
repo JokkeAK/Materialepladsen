@@ -16,7 +16,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.materialepladsenappui.*
-import com.example.materialepladsenappui.NavigationBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -30,95 +29,65 @@ fun MainContent() {
     ) {
 
         Scaffold(
-
+           bottomBar = { BottomNavBar(navController = navController) }
         ) {
-
+            NavHost(
+                navController = navController,
+                startDestination = "home",
+            ){
+                composable("home"){
+                    HomePage(navController)
+                }
+                composable("starting weight"){
+                    StartingWeight(weight = 250, navController)
+                }
+                composable("buy on site"){
+                    BuyOnSite(navController)
+                }
+                composable("order page"){
+                    OrderPage(
+                        "Granit grå 11-16 mm ",
+                        "DKK 0.8/kg",
+                        "Granit i grå med lille rød nist. Velegnet til indkørsler. Pynt i haver.",
+                        585,
+                        2825,
+                        2825 - 585,
+                        1792.0,
+                        navController)
+                }
+                composable("payment"){
+                    Payment(licensePlate = "CU342I2", navController)
+                }
+                composable("login"){ //not used now, should this be the home page on startup?
+                    Login(navController)
+                }
+                composable("sign up private"){ //not used now
+                    SignUp(navController)
+                }
+                composable("order history"){
+                    OrderHistory(navController)
+                }
+                composable("receipt"){
+                    Receipt(
+                        "07/11-2022",
+                        4034.50,
+                        navController)
+                }
+                composable("more page"){
+                    MorePage(navController)
+                }
+                composable("loader"){
+                    Loader(navController)
+                }
+            }
         }
 
-        NavHost(
-            navController = navController,
-            startDestination = "home",
-        ){
-            composable("home"){
-                HomePage(navController)
-            }
-            composable("starting weight"){
-                StartingWeight(weight = 250, navController)
-            }
-            composable("buy on site"){
-                BuyOnSite(navController)
-            }
-            composable("order page"){
-                OrderPage(
-                    "Granit grå 11-16 mm ",
-                    "DKK 0.8/kg",
-                    "Granit i grå med lille rød nist. Velegnet til indkørsler. Pynt i haver.",
-                    585,
-                    2825,
-                    2825 - 585,
-                    1792.0,
-                    navController)
-            }
-            composable("payment"){
-                Payment(licensePlate = "CU342I2", navController)
-            }
-            composable("login"){ //not used now, should this be the home page on startup?
-                Login(navController)
-            }
-            composable("sign up private"){ //not used now
-                SignUp(navController)
-            }
-            composable("order history"){
-                OrderHistory(navController)
-            }
-            composable("receipt"){
-                Receipt(
-                    "07/11-2022",
-                    4034.50,
-                    navController)
-            }
-            composable("more page"){
-                MorePage(navController)
-            }
-        }
+
 
 
 
         }
     }
-
-
-
-@Composable
-fun MyBottomBar() {
-    NavigationBar(tonalElevation = 12.dp) {
-
-        NavigationBarItem(
-            icon = {Icons.Default.Home},
-            selected = true,
-            onClick = { /*TODO*/ })
-
-        NavigationBarItem(
-            icon = {Icons.Default.List},
-            selected = false,
-            onClick = { /*TODO*/ })
-
-        NavigationBarItem(
-            icon = {Icons.Default.ShoppingCart},
-            selected = false,
-            onClick = { /*TODO*/ })
-
-        NavigationBarItem(
-            icon = {Icons.Default.MoreVert},
-            selected = false,
-            onClick = { /*TODO*/ })
-    }
-    
-}
-
-
-
-
 
 
 @Preview

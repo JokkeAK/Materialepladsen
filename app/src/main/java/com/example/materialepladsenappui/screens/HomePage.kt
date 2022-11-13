@@ -76,6 +76,10 @@ fun HomePage(navController: NavHostController? = null) {
         )
 
         BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_calc),"", navController)
+
+
+
+
     }
 
 }
