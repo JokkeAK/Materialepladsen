@@ -28,25 +28,25 @@ public fun MorePage(navController: NavHostController? = null){
             Header()
             Spacer(modifier = Modifier.height(75.dp))
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_personInf),"" ,navController)
+        MoreButtons(text = stringResource(R.string.more_personInf), navController)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_payment), "", navController)
+        MoreButtons(text = stringResource(R.string.more_payment), navController)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_loader), "Loader", navController)
+        MoreButtons(text = stringResource(R.string.more_loader), navController, "Loader",)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_corporate), "", navController)
+        MoreButtons(text = stringResource(R.string.more_corporate), navController)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_terms), "", navController)
+        MoreButtons(text = stringResource(R.string.more_terms),  navController)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_usage), "", navController)
+        MoreButtons(text = stringResource(R.string.more_usage), navController)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_car), "", navController)
+        MoreButtons(text = stringResource(R.string.more_car), navController)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_contact), "", navController)
+        MoreButtons(text = stringResource(R.string.more_contact), navController)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_password), "", navController)
+        MoreButtons(text = stringResource(R.string.more_password), navController)
         DividerBred()
-        MoreButtons(text = stringResource(R.string.more_logOut), "", navController)
+        MoreButtons(text = stringResource(R.string.more_logOut), navController)
         DividerBred()
 
     }
@@ -54,8 +54,9 @@ public fun MorePage(navController: NavHostController? = null){
 
 }
 
+//Default route is "home" for the buttons on the "more page" to prevent program from crashing.
 @Composable
-public fun MoreButtons(text: String = "notext", route: String, navController: NavHostController? = null){
+public fun MoreButtons(text: String = "notext", navController: NavHostController? = null, route: String = "home", ){
     Column(modifier = Modifier.fillMaxWidth()) {
 
 

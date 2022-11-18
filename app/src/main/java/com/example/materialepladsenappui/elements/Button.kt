@@ -21,8 +21,9 @@ import androidx.navigation.NavHostController
 import com.example.materialepladsenappui.theme.BRed
 
 
-@Composable //need to add a function for navigation.
-fun BordeauxButton(text: String, route: String, navController: NavHostController? = null) {
+//Default route is "home" for the bordeaux buttons to prevent program from crashing.
+@Composable
+fun BordeauxButton(text: String, navController: NavHostController? = null, route: String = "home",) {
     Button(onClick = {navController?.navigate(route)},
         modifier = Modifier
             .width(width = 260.dp)

@@ -47,7 +47,7 @@ public fun Loader(navController: NavHostController? = null){
 
         Spacer(modifier = Modifier.height(height = 240.dp))
 
-        BordeauxButton(text = "Indstrutions Video", route = "", navController)
+        BordeauxButton(text = "Indstrutions Video", navController)
     }
 }
 

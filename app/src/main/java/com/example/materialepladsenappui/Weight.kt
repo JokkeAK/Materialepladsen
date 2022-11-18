@@ -55,9 +55,9 @@ public fun Weight(navController: NavHostController? = null) {
             contentPadding = PaddingValues(horizontal = 10.dp, vertical = 10.dp),
             horizontalAlignment = Alignment.CenterHorizontally){
 
-            item { BordeauxButton(text = "tester", "", navController)
+            item { BordeauxButton(text = "tester", navController)
                 Spacer(modifier = Modifier.height(10.dp))}
-            items(10){index -> BordeauxButton(text = "tester $index", "", navController)
+            items(10){index -> BordeauxButton(text = "tester $index", navController)
                 Spacer(modifier = Modifier.height(10.dp))}
         }
         Spacer(modifier = Modifier.height(7.dp))

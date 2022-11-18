@@ -74,30 +74,34 @@ fun OrderPage(
                     .align(Alignment.BottomCenter)
             ) {
 
-                Column(horizontalAlignment = Alignment.Start, modifier = Modifier.padding(10.dp)) {
+                Box{
+                    Column(horizontalAlignment = Alignment.Start, modifier = Modifier.padding(10.dp)) {
 
-                    Spacer(modifier = Modifier.height(5.dp))
+                        Spacer(modifier = Modifier.height(5.dp))
 
-                    Text(
-                        text = "$name- $weightPrice",
-                        color = Color.Black,
-                        style = TextStyle(
-                            fontSize = 24.sp,
-                            fontWeight = FontWeight.Bold
+                        Text(
+                            text = "$name- $weightPrice",
+                            color = Color.Black,
+                            style = TextStyle(
+                                fontSize = 24.sp,
+                                fontWeight = FontWeight.Bold
+                            )
                         )
-                    )
 
-                    Spacer(modifier = Modifier.height(5.dp))
+                        Spacer(modifier = Modifier.height(5.dp))
 
-                    Text(
-                        text = matInfo,
-                        color = Color.Black,
-                        style = TextStyle(
-                            fontSize = 16.sp
+                        Text(
+                            text = matInfo,
+                            color = Color.Black,
+                            style = TextStyle(
+                                fontSize = 16.sp
+                            )
                         )
-                    )
 
+                    }
                 }
+
+
 
             }
         }
@@ -207,14 +211,14 @@ fun OrderPage(
         )
 
         //The buttons to continue the flow.
-        BordeauxButton(text = stringResource(R.string.order_more),"buy on site", navController)
+        BordeauxButton(text = stringResource(R.string.order_more), navController, "buy on site")
 
         Spacer(
             modifier = Modifier
                 .height(height = 20.dp)
         )
 
-        BordeauxButton(text = stringResource(R.string.pay), "payment", navController)
+        BordeauxButton(text = stringResource(R.string.pay), navController, "payment")
 
     }
 

@@ -40,24 +40,32 @@ public fun StartingWeight(weight: Int, navController: NavHostController? = null)
 
             Spacer(modifier = Modifier.height(height = 200.dp))
 
-            BordeauxButton(stringResource(R.string.start_weight), "", navController)
+                Text(
+                    stringResource(R.string.start_weight),
+                    Modifier
+                        .background(Color.Gray, RectangleShape)
+                        .width(250.dp)
+                        .height(height = 48.dp)
+                        .wrapContentHeight(),
+                    Color.Black, fontSize = 20.sp, fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center)
 
             Spacer(modifier = Modifier.height(height = 40.dp))
 
             Text(
-                stringResource(R.string.start_weight) + " " + weight + " " + stringResource(R.string.kg),
+                "" +weight+ " " + stringResource(R.string.kg),
                 Modifier
                     .background(Color.Gray, RectangleShape)
                     .width(250.dp)
                     .height(height = 48.dp)
                     .wrapContentHeight(),
-                Color.Black, fontSize = 20.sp, fontWeight = FontWeight.Bold,
+                Color.Black, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold,
                 textAlign = TextAlign.Center)
 
             Spacer(modifier = Modifier.height(height = 40.dp))
 
 
-            BordeauxButton(stringResource(R.string.continue_on), "buy on site", navController)
+            BordeauxButton(stringResource(R.string.continue_on), navController, "buy on site",)
 
             }
         }

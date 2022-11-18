@@ -62,20 +62,20 @@ fun HomePage(navController: NavHostController? = null) {
         )
 
 
-        BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_buy1), "starting weight", navController)
+        BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_buy1), navController, "starting weight",)
 
         Spacer(
             modifier = Modifier
                 .height(height = 24.dp)
         )
 
-        BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_buy2),"", navController)
+        BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_buy2), navController)
         Spacer(
             modifier = Modifier
                 .height(height = 24.dp)
         )
 
-        BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_calc),"", navController)
+        BordeauxButton(text = stringResource(com.example.materialepladsenappui.R.string.home_page_calc), navController)
 
 
 

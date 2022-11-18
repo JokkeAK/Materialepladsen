@@ -133,7 +133,7 @@ fun BuyOnSite(navController: NavHostController? = null){
 
         Spacer(modifier = Modifier.height(50.dp))
 
-        BordeauxButton(text = "Vej bil", "order page", navController)
+        BordeauxButton(text = "Vej bil", navController, "order page")
     }
 }
 
