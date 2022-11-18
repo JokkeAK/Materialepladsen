@@ -44,23 +44,23 @@ fun OrderHistory(navController: NavHostController? = null){
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 10.dp),
             horizontalAlignment = Alignment.CenterHorizontally){
 
-            item { ReceiptCard(
+            item { OrderHistoryCard(
                 "07. november",
                 "Næstved",
-                4,
-                2825,
-                4034.5,
+                "Flisegrus 0-8 mm",
+                200,
+                68.0,
                 navController
                 )
             Spacer(modifier = Modifier.height(5.dp))}
-            items(20){index -> ReceiptCard(
+            items(20){index -> OrderHistoryCard(
                 "07. november",
                 "Næstved",
-                4,
-                2825,
-                4034.5,
+                "Flisegrus 0-8 mm",
+                200,
+                68.0,
                 navController
-                )
+            )
 
                 Spacer(modifier = Modifier.height(5.dp))}
         }

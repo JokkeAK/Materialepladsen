@@ -1,14 +1,10 @@
 package com.example.materialepladsenappui
 
-import android.media.Image
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,6 +18,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+
 //import com.example.materialepladsenappui.screens.MyApp
 
 /*
@@ -29,20 +27,25 @@ The card to be shown in order history which shows an image of the purchased mate
 the date and location and the amount and price.
 All text is hardcoded. Needs to be changed.
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MaterialInfoCard(
+fun OrderHistoryCard(
     date: String,
     location: String,
     matInfo: String,
     matTotalWeight: Int,
-    matTotalPrice: Double) {
+    matTotalPrice: Double,
+    navController: NavHostController? = null
+) {
 
     Card(
         shape = MaterialTheme.shapes.medium,
         modifier = Modifier
             .padding(top = 6.dp, bottom = 6.dp)
             .size(330.dp, 80.dp),
-        elevation = CardDefaults.cardElevation(8.dp)
+        elevation = CardDefaults.cardElevation(8.dp),
+        onClick = {navController?.navigate("receipt") }
+
     ) {
 
         //Row with the image and text.
@@ -111,7 +114,7 @@ fun MaterialInfoCard(
 @Preview(showBackground = true)
 @Composable
 fun MaterialInfoCardPreview() {
-        MaterialInfoCard(
+        OrderHistoryCard(
             "07. november",
             "Næstved",
             "Flisegrus 0-8 mm",
