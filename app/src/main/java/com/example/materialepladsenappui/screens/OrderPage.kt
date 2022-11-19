@@ -2,6 +2,7 @@ package com.example.materialepladsenappui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -43,7 +44,7 @@ fun OrderPage(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .size(360.dp, 360.dp)
+                .size(360.dp, 320.dp)
         ) {
 
             //Image based on the material to be purchased. Need to fetch this from somewhere.
@@ -71,37 +72,49 @@ fun OrderPage(
                     .size(360.dp, 105.dp)
                     .clip(RoundedCornerShape(topStart = 50.dp, topEnd = 50.dp))
                     .background(Color.White)
-                    .align(Alignment.BottomCenter)
-            ) {
+                    .align(Alignment.BottomCenter)) {
 
-                Box{
-                    Column(horizontalAlignment = Alignment.Start, modifier = Modifier.padding(10.dp)) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.padding(10.dp)) {
 
-                        Spacer(modifier = Modifier.height(5.dp))
+                    Spacer(modifier = Modifier.height(5.dp))
 
-                        Text(
-                            text = "$name- $weightPrice",
-                            color = Color.Black,
-                            style = TextStyle(
-                                fontSize = 24.sp,
-                                fontWeight = FontWeight.Bold
-                            )
+                    Text(
+                        text = "$name- $weightPrice",
+                        color = Color.Black,
+                        style = TextStyle(
+                            fontSize = 24.sp,
+                            fontWeight = FontWeight.Bold
                         )
+                    )
 
-                        Spacer(modifier = Modifier.height(5.dp))
+                    Spacer(modifier = Modifier.height(5.dp))
 
+                    Box(modifier = Modifier){
                         Text(
                             text = matInfo,
                             color = Color.Black,
                             style = TextStyle(
                                 fontSize = 16.sp
-                            )
+                            ),
+                            modifier = Modifier.align(Alignment.TopStart)
                         )
 
+                        //This text is clickable and leads to the home page for now instead of a more detailed product page.
+                        Text(
+                            text = stringResource(R.string.more_mat_info),
+                            color = Color.Black,
+                            style = TextStyle(
+                                fontSize = 16.sp,
+                                fontWeight = FontWeight.Bold),
+                            modifier = Modifier
+                                .align(Alignment.BottomEnd)
+                                .clickable(onClick = {navController?.navigate("home")})
+
+                        )
                     }
+
+
                 }
-
-
 
             }
         }
@@ -221,6 +234,27 @@ fun OrderPage(
         BordeauxButton(text = stringResource(R.string.pay), navController, "payment")
 
     }
+
+}
+
+
+@Composable
+fun ReadMore() {
+
+    Text(
+        text = stringResource(R.string.more_mat_info),
+        color = Color.Black,
+        style = TextStyle(
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Bold
+        )
+    )
+}
+
+@Composable
+fun TextTest1() {
+
+    Text(text = "hej")
 
 }
 
