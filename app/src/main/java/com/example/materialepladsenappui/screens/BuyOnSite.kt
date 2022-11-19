@@ -39,7 +39,7 @@ fun BuyOnSite(navController: NavHostController? = null){
         LazyColumn(modifier = Modifier
             .background(color = Color.Gray, shape = RectangleShape)
             .fillMaxWidth()
-            .height(526.dp),
+            .height(450.dp),
             contentPadding = PaddingValues(horizontal = 10.dp, vertical = 10.dp),
             /*horizontalAlignment = CenterHorizontally*/){
 
@@ -131,7 +131,7 @@ fun BuyOnSite(navController: NavHostController? = null){
                 .height(3.dp)
         )
 
-        Spacer(modifier = Modifier.height(50.dp))
+        Spacer(modifier = Modifier.height(15.dp))
 
         BordeauxButton(text = "Vej bil", navController, "order page")
     }

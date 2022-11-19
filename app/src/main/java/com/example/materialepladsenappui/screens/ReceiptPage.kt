@@ -49,9 +49,9 @@ fun Receipt(date: String, totalPriceForDay: Double, navController: NavHostContro
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 10.dp),
             horizontalAlignment = Alignment.CenterHorizontally){
 
-            item { MaterialInfoCard("07. november","Næstved","Flisegrus 0-8 mm", 200, 68.0)
+            item { OrderHistoryCard("07. november","Næstved","Flisegrus 0-8 mm", 200, 68.0)
                 Spacer(modifier = Modifier.height(5.dp))}
-            items(20){index -> MaterialInfoCard("07. november","Næstved","Flisegrus 0-8 mm", 200, 68.0)
+            items(20){index -> OrderHistoryCard("07. november","Næstved","Flisegrus 0-8 mm", 200, 68.0)
                 Spacer(modifier = Modifier.height(5.dp))}
         }
 
