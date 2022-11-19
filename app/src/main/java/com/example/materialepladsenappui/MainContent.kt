@@ -69,8 +69,15 @@ fun MainContent() {
                 }
                 composable("receipt"){
                     Receipt(
-                        "07/11-2022",
-                        4034.50,
+                        "07. november",
+                        "Næstved",
+                        "Granit grå 11-16 mm ",
+                        "DKK 0.8/kg",
+                        "Granit i grå med lille rød nist. Velegnet til indkørsler. Pynt i haver.",
+                        585,
+                        2825,
+                        2825 - 585,
+                        1792.0,
                         navController)
                 }
                 composable("more page"){

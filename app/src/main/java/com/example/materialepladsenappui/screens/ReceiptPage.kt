@@ -1,13 +1,18 @@
 package com.example.materialepladsenappui
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.*
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -22,7 +27,18 @@ import innerShadow
 
 // All text is hardcoded. Needs to be changed.
 @Composable
-fun Receipt(date: String, totalPriceForDay: Double, navController: NavHostController? = null){
+fun Receipt(
+    date: String,
+    location: String,
+    name: String,
+    weightPrice: String,
+    matInfo: String,
+    inWeight: Int,
+    outWeight: Int,
+    payWeight: Int,
+    totalPrice: Double,
+    navController: NavHostController? = null
+) {
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -30,55 +46,205 @@ fun Receipt(date: String, totalPriceForDay: Double, navController: NavHostContro
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Header()
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .size(360.dp, 320.dp)
+        ) {
 
-        Text(
-            stringResource(R.string.receipts) + " " + date,
-            style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold),
-            modifier = Modifier.padding(5.dp)
+            //Image based on the material to be purchased. Need to fetch this from somewhere.
+            Image(
+                painter = painterResource(id = R.drawable.order_placeholder),
+                contentDescription = "Image of material to be purchased",
+                modifier = Modifier
+                    .matchParentSize(),
+                alignment = Alignment.TopCenter
+            )
+
+            //Box containing the header for the frame.
+            Box(
+                modifier = Modifier
+                    .align(Alignment.TopCenter)
+            ) {
+                Header()
+            }
+
+
+            //Box containing the info about the material.
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .size(360.dp, 135.dp)
+                    .clip(RoundedCornerShape(topStart = 50.dp, topEnd = 50.dp))
+                    .background(Color.White)
+                    .align(Alignment.BottomCenter)
+            ) {
+
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.padding(10.dp)
+                ) {
+
+                    Spacer(modifier = Modifier.height(5.dp))
+
+                    Text(
+                        text = "\t$date - $location",
+                        color = Color.Black,
+                        style = TextStyle(
+                            fontSize = 26.sp,
+                            fontWeight = FontWeight.ExtraBold
+                        )
+                    )
+
+                    Text(
+                        text = "$name- $weightPrice",
+                        color = Color.Black,
+                        style = TextStyle(
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                    )
+
+                    Spacer(modifier = Modifier.height(5.dp))
+
+                    Box(modifier = Modifier) {
+                        Text(
+                            text = matInfo,
+                            color = Color.Black,
+                            style = TextStyle(
+                                fontSize = 16.sp
+                            ),
+                            modifier = Modifier.align(Alignment.TopStart)
+                        )
+
+                        //This text is clickable and leads to the home page for now instead of a more detailed product page.
+                        Text(
+                            text = stringResource(R.string.more_mat_info),
+                            color = Color.Black,
+                            style = TextStyle(
+                                fontSize = 16.sp,
+                                fontWeight = FontWeight.Bold
+                            ),
+                            modifier = Modifier
+                                .align(Alignment.BottomEnd)
+                                .clickable(onClick = { navController?.navigate("home") })
+
+                        )
+                    }
+
+
+                }
+
+            }
+        }
+
+
+        //Red divider line.
+        DividerBred()
+
+        Spacer(modifier = Modifier.height(5.dp))
+
+        //Box containing the initial weight, weight after materials have been loaded and the material weight to be purchased.
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .size(0.dp, 70.dp),
+        ) {
+
+            Column(modifier = Modifier.align(Alignment.TopStart)) {
+                Text(
+                    text = "\t\t" + stringResource(R.string.in_weight),
+                    style = TextStyle(fontSize = 17.sp)
+                )
+
+                Text(
+                    text = "\t\t" + stringResource(R.string.out_weight),
+                    style = TextStyle(fontSize = 17.sp)
+                )
+
+                Text(
+                    text = "\t\t" + stringResource(R.string.pay_weight),
+                    style = TextStyle(fontSize = 18.sp),
+                    fontWeight = FontWeight.SemiBold
+                )
+            }
+
+
+            Column(
+                modifier = Modifier.align(Alignment.TopEnd),
+                horizontalAlignment = Alignment.End
+            ) {
+
+                Row {
+                    Text(
+                        text = "$inWeight ",
+                        style = TextStyle(fontSize = 17.sp)
+                    )
+                    Text(
+                        text = stringResource(R.string.kg) + "\t\t\t",
+                        style = TextStyle(fontSize = 17.sp)
+                    )
+                }
+
+                Row {
+                    Text(
+                        text = "$outWeight ",
+                        style = TextStyle(fontSize = 17.sp)
+                    )
+                    Text(
+                        text = stringResource(R.string.kg) + "\t\t\t",
+                        style = TextStyle(fontSize = 17.sp)
+                    )
+                }
+                Row {
+                    Text(
+                        text = "$payWeight ",
+                        style = TextStyle(fontSize = 17.sp)
+                    )
+                    Text(
+                        text = stringResource(R.string.kg) + "\t\t\t",
+                        style = TextStyle(fontSize = 17.sp)
+                    )
+                }
+            }
+
+
+        }
+
+        DividerBred()
+
+        //Box containing the total price.
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .size(0.dp, 30.dp),
+        ) {
+            Text(
+                text = "\t\t" + stringResource(R.string.total),
+                modifier = Modifier.align(Alignment.TopStart),
+                style = TextStyle(fontSize = 24.sp),
+                fontWeight = FontWeight.SemiBold
+
+            )
+
+            Text(
+                text = stringResource(R.string.kr) + " " + totalPrice + "\t\t\t",
+                modifier = Modifier.align(Alignment.TopEnd),
+                style = TextStyle(fontSize = 24.sp),
+                fontWeight = FontWeight.SemiBold
+            )
+        }
+
+        DividerBred()
+
+        Spacer(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(height = 32.dp)
         )
 
-        LazyColumn(modifier = Modifier
-            .background(color = Color.Gray, shape = RectangleShape)
-            .fillMaxWidth()
-            .height(360.dp)
-            //Custom inner shadow code from https://stackoverflow.com/questions/71054138/jetpack-compose-inner-shadow
-            //Modified to fit our app design
-            //Inbuilt shadows for backgrounds suck.
-            .innerShadow(),
-            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 10.dp),
-            horizontalAlignment = Alignment.CenterHorizontally){
-
-            item { OrderHistoryCard("07. november","Næstved","Flisegrus 0-8 mm", 200, 68.0)
-                Spacer(modifier = Modifier.height(5.dp))}
-            items(20){index -> OrderHistoryCard("07. november","Næstved","Flisegrus 0-8 mm", 200, 68.0)
-                Spacer(modifier = Modifier.height(5.dp))}
-        }
-
-        Divider()
-
-        Box(modifier = Modifier
-            .fillMaxWidth()) {
-            Text(
-                text = "\t\t\t" + stringResource(R.string.total),
-                modifier = Modifier.align(Alignment.TopStart),
-                style = TextStyle(fontSize = 20.sp)
-            )
-            Text(
-                text = "" + totalPriceForDay + " " + stringResource(R.string.kr) + "\t\t\t",
-                modifier = Modifier.align(Alignment.TopEnd),
-                style = TextStyle(fontSize = 20.sp)
-            )
-        }
-
-        Spacer(modifier = Modifier
-            .fillMaxWidth()
-            .height(height = 32.dp))
-
         BordeauxButton(stringResource(R.string.export), navController)
-
     }
-
 }
 
 @Composable
@@ -98,6 +264,14 @@ fun Divider(){
 @Preview(showBackground = true)
 @Composable
 fun ReceiptPreview() {
-        Receipt("07/11-2022",
-        4034.50)
+        Receipt(
+            "07. november",
+            "Næstved",
+            "Granit grå 11-16 mm ",
+            "DKK 0.8/kg",
+            "Granit i grå med lille rød nist. Velegnet til indkørsler. Pynt i haver.",
+            585,
+            2825,
+            2825 - 585,
+            1792.0)
 }
