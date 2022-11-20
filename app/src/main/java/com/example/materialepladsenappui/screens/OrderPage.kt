@@ -23,15 +23,7 @@ import androidx.navigation.NavHostController
 
 //Can the weight be measured with decimals? If so change to double.
 @Composable
-fun OrderPage(
-    name: String,
-    weightPrice: String,
-    matInfo: String,
-    inWeight: Int,
-    outWeight: Int,
-    payWeight: Int,
-    totalPrice: Double,
-    navController: NavHostController? = null
+fun OrderPage(navController: NavHostController? = null
 ) {
 
 
@@ -41,180 +33,27 @@ fun OrderPage(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .size(360.dp, 320.dp)
-        ) {
-
-            //Image based on the material to be purchased. Need to fetch this from somewhere.
-            Image(
-                painter = painterResource(id = R.drawable.order_placeholder),
-                contentDescription = "Image of material to be purchased",
-                modifier = Modifier
-                    .matchParentSize(),
-                alignment = Alignment.TopCenter
-            )
-
-            //Box containing the header for the frame.
-            Box(
-                modifier = Modifier
-                    .align(Alignment.TopCenter)
-            ) {
-                Header()
-            }
-
-
-            //Box containing the info about the material.
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .size(360.dp, 105.dp)
-                    .clip(RoundedCornerShape(topStart = 50.dp, topEnd = 50.dp))
-                    .background(Color.White)
-                    .align(Alignment.BottomCenter)) {
-
-                Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.padding(10.dp)) {
-
-                    Spacer(modifier = Modifier.height(5.dp))
-
-                    Text(
-                        text = "$name- $weightPrice",
-                        color = Color.Black,
-                        style = TextStyle(
-                            fontSize = 24.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                    )
-
-                    Spacer(modifier = Modifier.height(5.dp))
-
-                    Box(modifier = Modifier){
-                        Text(
-                            text = matInfo,
-                            color = Color.Black,
-                            style = TextStyle(
-                                fontSize = 16.sp
-                            ),
-                            modifier = Modifier.align(Alignment.TopStart)
-                        )
-
-                        //This text is clickable and leads to the home page for now instead of a more detailed product page.
-                        Text(
-                            text = stringResource(R.string.more_mat_info),
-                            color = Color.Black,
-                            style = TextStyle(
-                                fontSize = 16.sp,
-                                fontWeight = FontWeight.Bold),
-                            modifier = Modifier
-                                .align(Alignment.BottomEnd)
-                                .clickable(onClick = {navController?.navigate("home")})
-
-                        )
-                    }
-
-
-                }
-
-            }
-        }
-
+        MaterialInfo(
+            "Granit grå 11-16 mm ",
+            "DKK 0.8/kg",
+            "Granit i grå med lille rød nist. Velegnet til indkørsler. Pynt i haver.",
+            navController
+        )
 
         //Red divider line.
         DividerBred()
 
         Spacer(modifier = Modifier.height(5.dp))
 
-        //Box containing the initial weight, weight after materials have been loaded and the material weight to be purchased.
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .size(0.dp, 70.dp),
-        ) {
-
-            Column(modifier = Modifier.align(Alignment.TopStart)) {
-                Text(
-                    text = "\t\t" + stringResource(R.string.in_weight),
-                    style = TextStyle(fontSize = 17.sp)
-                )
-
-                Text(
-                    text = "\t\t" + stringResource(R.string.out_weight),
-                    style = TextStyle(fontSize = 17.sp)
-                )
-
-                Text(
-                    text = "\t\t" + stringResource(R.string.pay_weight),
-                    style = TextStyle(fontSize = 18.sp),
-                    fontWeight = FontWeight.SemiBold
-                )
-            }
-
-
-            Column(
-                modifier = Modifier.align(Alignment.TopEnd),
-                horizontalAlignment = Alignment.End
-            ) {
-
-                Row {
-                    Text(
-                        text = "$inWeight ",
-                        style = TextStyle(fontSize = 17.sp)
-                    )
-                    Text(
-                        text = stringResource(R.string.kg) + "\t\t\t",
-                        style = TextStyle(fontSize = 17.sp)
-                    )
-                }
-
-                Row {
-                    Text(
-                        text = "$outWeight ",
-                        style = TextStyle(fontSize = 17.sp)
-                    )
-                    Text(
-                        text = stringResource(R.string.kg) + "\t\t\t",
-                        style = TextStyle(fontSize = 17.sp)
-                    )
-                }
-                Row {
-                    Text(
-                        text = "$payWeight ",
-                        style = TextStyle(fontSize = 17.sp)
-                    )
-                    Text(
-                        text = stringResource(R.string.kg) + "\t\t\t",
-                        style = TextStyle(fontSize = 17.sp)
-                    )
-                }
-            }
-
-
-        }
+        WeightInfo(
+            585,
+            2825,
+            2825 - 585
+        )
 
         DividerBred()
 
-        //Box containing the total price.
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .size(0.dp, 30.dp),
-        ) {
-            Text(
-                text = "\t\t" + stringResource(R.string.total),
-                modifier = Modifier.align(Alignment.TopStart),
-                style = TextStyle(fontSize = 24.sp),
-                fontWeight = FontWeight.SemiBold
-
-            )
-
-            Text(
-                text = stringResource(R.string.kr) + " " + totalPrice + "\t\t\t",
-                modifier = Modifier.align(Alignment.TopEnd),
-                style = TextStyle(fontSize = 24.sp),
-                fontWeight = FontWeight.SemiBold
-            )
-        }
+        PriceInfo(1792.0)
 
         DividerBred()
 
@@ -239,23 +78,189 @@ fun OrderPage(
 
 
 @Composable
-fun ReadMore() {
+fun MaterialInfo(
+    name: String,
+    weightPrice: String,
+    matInfo: String,
+    navController: NavHostController? = null
+) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .size(360.dp, 320.dp)
+    ) {
 
-    Text(
-        text = stringResource(R.string.more_mat_info),
-        color = Color.Black,
-        style = TextStyle(
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Bold
+        //Image based on the material to be purchased. Need to fetch this from somewhere.
+        Image(
+            painter = painterResource(id = R.drawable.order_placeholder),
+            contentDescription = "Image of material to be purchased",
+            modifier = Modifier
+                .matchParentSize(),
+            alignment = Alignment.TopCenter
         )
-    )
+
+        //Box containing the header for the frame.
+        Box(
+            modifier = Modifier
+                .align(Alignment.TopCenter)
+        ) {
+            Header()
+        }
+
+
+        //Box containing the info about the material.
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .size(360.dp, 105.dp)
+                .clip(RoundedCornerShape(topStart = 50.dp, topEnd = 50.dp))
+                .background(Color.White)
+                .align(Alignment.BottomCenter)
+        ) {
+
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.padding(10.dp)
+            ) {
+
+                Spacer(modifier = Modifier.height(5.dp))
+
+                Text(
+                    text = "$name- $weightPrice",
+                    color = Color.Black,
+                    style = TextStyle(
+                        fontSize = 24.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                )
+
+                Spacer(modifier = Modifier.height(5.dp))
+
+                Box(modifier = Modifier) {
+                    Text(
+                        text = matInfo,
+                        color = Color.Black,
+                        style = TextStyle(
+                            fontSize = 16.sp
+                        ),
+                        modifier = Modifier.align(Alignment.TopStart)
+                    )
+
+                    //This text is clickable and leads to the home page for now instead of a more detailed product page.
+                    Text(
+                        text = stringResource(R.string.more_mat_info),
+                        color = Color.Black,
+                        style = TextStyle(
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold
+                        ),
+                        modifier = Modifier
+                            .align(Alignment.BottomEnd)
+                            .clickable(onClick = { navController?.navigate("home") })
+
+                    )
+                }
+            }
+
+        }
+    }
 }
 
 @Composable
-fun TextTest1() {
+fun WeightInfo(
+    inWeight: Int,
+    outWeight: Int,
+    payWeight: Int
+) {
+    //Box containing the initial weight, weight after materials have been loaded and the material weight to be purchased.
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .size(0.dp, 70.dp),
+    ) {
 
-    Text(text = "hej")
+        Column(modifier = Modifier.align(Alignment.TopStart)) {
+            Text(
+                text = "\t\t" + stringResource(R.string.in_weight),
+                style = TextStyle(fontSize = 17.sp)
+            )
 
+            Text(
+                text = "\t\t" + stringResource(R.string.out_weight),
+                style = TextStyle(fontSize = 17.sp)
+            )
+
+            Text(
+                text = "\t\t" + stringResource(R.string.pay_weight),
+                style = TextStyle(fontSize = 18.sp),
+                fontWeight = FontWeight.SemiBold
+            )
+        }
+
+
+        Column(
+            modifier = Modifier.align(Alignment.TopEnd),
+            horizontalAlignment = Alignment.End
+        ) {
+
+            Row {
+                Text(
+                    text = "$inWeight ",
+                    style = TextStyle(fontSize = 17.sp)
+                )
+                Text(
+                    text = stringResource(R.string.kg) + "\t\t\t",
+                    style = TextStyle(fontSize = 17.sp)
+                )
+            }
+
+            Row {
+                Text(
+                    text = "$outWeight ",
+                    style = TextStyle(fontSize = 17.sp)
+                )
+                Text(
+                    text = stringResource(R.string.kg) + "\t\t\t",
+                    style = TextStyle(fontSize = 17.sp)
+                )
+            }
+            Row {
+                Text(
+                    text = "$payWeight ",
+                    style = TextStyle(fontSize = 17.sp)
+                )
+                Text(
+                    text = stringResource(R.string.kg) + "\t\t\t",
+                    style = TextStyle(fontSize = 17.sp)
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun PriceInfo(totalPrice: Double) {
+    //Box containing the total price.
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .size(0.dp, 30.dp),
+    ) {
+        Text(
+            text = "\t\t" + stringResource(R.string.total),
+            modifier = Modifier.align(Alignment.TopStart),
+            style = TextStyle(fontSize = 24.sp),
+            fontWeight = FontWeight.SemiBold
+
+        )
+
+        Text(
+            text = stringResource(R.string.kr) + " " + totalPrice + "\t\t\t",
+            modifier = Modifier.align(Alignment.TopEnd),
+            style = TextStyle(fontSize = 24.sp),
+            fontWeight = FontWeight.SemiBold
+        )
+    }
 }
 
 
@@ -263,13 +268,5 @@ fun TextTest1() {
 @Preview(showBackground = true)
 @Composable
 fun OrderPagePreview() {
-    OrderPage(
-        "Granit grå 11-16 mm ",
-        "DKK 0.8/kg",
-        "Granit i grå med lille rød nist. Velegnet til indkørsler. Pynt i haver.",
-        585,
-        2825,
-        2825 - 585,
-        1792.0
-    )
+    OrderPage()
 }

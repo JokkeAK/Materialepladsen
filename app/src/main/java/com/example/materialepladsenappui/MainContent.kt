@@ -45,15 +45,7 @@ fun MainContent() {
                     BuyOnSite(navController)
                 }
                 composable("order page"){
-                    OrderPage(
-                        "Granit grå 11-16 mm ",
-                        "DKK 0.8/kg",
-                        "Granit i grå med lille rød nist. Velegnet til indkørsler. Pynt i haver.",
-                        585,
-                        2825,
-                        2825 - 585,
-                        1792.0,
-                        navController)
+                    OrderPage(navController)
                 }
                 composable("payment"){
                     Payment(licensePlate = "CU342I2", navController)
