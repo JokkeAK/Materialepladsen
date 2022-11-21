@@ -44,7 +44,7 @@ fun OrderHistoryCard(
             .padding(top = 6.dp, bottom = 6.dp)
             .size(330.dp, 80.dp),
         elevation = CardDefaults.cardElevation(8.dp),
-        onClick = {navController?.navigate("receipt") }
+        onClick = { navController?.navigate("receipt") }
 
     ) {
 
@@ -65,59 +65,60 @@ fun OrderHistoryCard(
 
 
             //Column that holds the text.
-                Column() {
+            Column() {
+                Text(
+                    text = "\t$date - $location",
+                    color = Color.Black,
+                    style = TextStyle(
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                )
+
+                Text(
+                    text = "\t" + matInfo,
+                    color = Color.Black,
+                    style = TextStyle(
+                        fontSize = 16.sp
+                    )
+                )
+
+                Spacer(
+                    modifier = Modifier
+                        .height(height = 12.dp)
+                )
+
+                //Box to have the last line of the column fit properly.
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
                     Text(
-                        text = "\t$date - $location",
-                        color = Color.Black,
-                        style = TextStyle(
-                            fontSize = 18.sp,
-                            fontWeight = FontWeight.Bold
-                        )
+                        text = "\t" + matTotalWeight + " " + stringResource(R.string.kg),
+                        style = TextStyle(fontSize = 14.sp),
+                        modifier = Modifier.align(Alignment.BottomStart)
                     )
-
                     Text(
-                        text = "\t" + matInfo,
-                        color = Color.Black,
-                        style = TextStyle(
-                            fontSize = 16.sp
-                        )
+                        text = stringResource(R.string.kr) + " " + matTotalPrice + "\t\t\t",
+                        modifier = Modifier.align(Alignment.BottomEnd),
+                        style = TextStyle(fontSize = 14.sp)
                     )
-
-                    Spacer(
-                        modifier = Modifier
-                            .height(height = 12.dp)
-                    )
-
-                    //Box to have the last line of the column fit properly.
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                    ) {
-                        Text(
-                            text = "\t" + matTotalWeight + " " + stringResource(R.string.kg),
-                            style = TextStyle(fontSize = 14.sp),
-                            modifier = Modifier.align(Alignment.BottomStart)
-                        )
-                        Text(
-                            text = stringResource(R.string.kr) + " " + matTotalPrice + "\t\t\t",
-                            modifier = Modifier.align(Alignment.BottomEnd),
-                            style = TextStyle(fontSize = 14.sp)
-                        )
-                    }
                 }
             }
         }
     }
+}
 
 
 //Info about the material is hard coded for now. Need to get the data from somewhere.
 @Preview(showBackground = true)
 @Composable
 fun MaterialInfoCardPreview() {
-        OrderHistoryCard(
-            "07. november",
-            "Næstved",
-            "Flisegrus 0-8 mm",
-            200,
-            68.0)
+    OrderHistoryCard(
+        "07. november",
+        "Næstved",
+        "Flisegrus 0-8 mm",
+        200,
+        68.0
+    )
 }

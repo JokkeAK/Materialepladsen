@@ -1,7 +1,6 @@
 package com.example.materialepladsenappui
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
@@ -17,26 +16,33 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-
 import com.example.materialepladsenappui.theme.BRed
 
-
+//The button that is primarily used in the app with the classical bordeaux color that Materialepladsen use.
 //Default route is "home" for the bordeaux buttons to prevent program from crashing.
 @Composable
-fun BordeauxButton(text: String, navController: NavHostController? = null, route: String = "home",) {
-    Button(onClick = {navController?.navigate(route)},
+fun BordeauxButton(
+    text: String,
+    navController: NavHostController? = null,
+    route: String = "home",
+) {
+    Button(
+        onClick = { navController?.navigate(route) },
         modifier = Modifier
             .width(width = 260.dp)
             .height(height = 45.dp),
         shape = RectangleShape,
         colors = ButtonDefaults.buttonColors(
             containerColor = BRed,
-            contentColor = Color.White),
-        border = BorderStroke(1.dp, Color.Black)
-        ,elevation =  ButtonDefaults.elevatedButtonElevation(
+            contentColor = Color.White
+        ),
+        border = BorderStroke(1.dp, Color.Black),
+        elevation = ButtonDefaults.elevatedButtonElevation(
             defaultElevation = 10.dp,
             pressedElevation = 10.dp,
-            disabledElevation = 10.dp))
+            disabledElevation = 10.dp
+        )
+    )
     {
         Text(
             text = text,
@@ -44,6 +50,8 @@ fun BordeauxButton(text: String, navController: NavHostController? = null, route
             textAlign = TextAlign.Center,
             style = TextStyle(
                 fontSize = 20.sp,
-                fontWeight = FontWeight.Bold)
-        )    }
+                fontWeight = FontWeight.Bold
+            )
+        )
+    }
 }

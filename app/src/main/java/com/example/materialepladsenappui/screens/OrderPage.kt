@@ -1,5 +1,6 @@
 package com.example.materialepladsenappui
 
+import DividerBred
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -21,9 +22,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 
+//This composable is the order page that shows which material is about to be purchased with some
+//needed info about the material, price and weight.
 //Can the weight be measured with decimals? If so change to double.
 @Composable
-fun OrderPage(navController: NavHostController? = null
+fun OrderPage(
+    navController: NavHostController? = null
 ) {
 
 
@@ -40,7 +44,6 @@ fun OrderPage(navController: NavHostController? = null
             navController
         )
 
-        //Red divider line.
         DividerBred()
 
         Spacer(modifier = Modifier.height(5.dp))
@@ -76,7 +79,7 @@ fun OrderPage(navController: NavHostController? = null
 
 }
 
-
+//This composable holds the info about the chosen material including image, price, and description.
 @Composable
 fun MaterialInfo(
     name: String,
@@ -156,7 +159,7 @@ fun MaterialInfo(
                         ),
                         modifier = Modifier
                             .align(Alignment.BottomEnd)
-                            .clickable(onClick = { navController?.navigate("home") })
+                            .clickable(onClick = { navController?.navigate("mat info") })
 
                     )
                 }
@@ -166,6 +169,8 @@ fun MaterialInfo(
     }
 }
 
+//This composable shows how much the user weighed in initially, the weight with the material and
+//how much weight is to be accounted for in the price.
 @Composable
 fun WeightInfo(
     inWeight: Int,
@@ -238,6 +243,7 @@ fun WeightInfo(
     }
 }
 
+//This composable shows the price to pay for the material.
 @Composable
 fun PriceInfo(totalPrice: Double) {
     //Box containing the total price.

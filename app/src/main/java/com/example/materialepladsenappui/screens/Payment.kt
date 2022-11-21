@@ -18,41 +18,48 @@ import androidx.navigation.NavHostController
 
 //import com.example.materialepladsenappui.screens.MyApp
 
+//This composable shows the user the available payment methods.
 @Composable
-public fun Payment(licensePlate: String, navController: NavHostController? = null){
-    Column (
+public fun Payment(licensePlate: String, navController: NavHostController? = null) {
+    Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
+    ) {
 
         Header()
 
         Spacer(modifier = Modifier.height(height = 100.dp))
-        
-        Text(text = stringResource(R.string.betaling_foretrukne), fontSize = 20.sp, fontWeight = FontWeight.Bold)
-        
+
+        Text(
+            text = stringResource(R.string.betaling_foretrukne),
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold
+        )
+
         Spacer(modifier = Modifier.height(height = 50.dp))
-        
+
         BordeauxButton(text = stringResource(R.string.betaling_plate), navController)
 
         Spacer(modifier = Modifier.height(height = 25.dp))
-        
+
         BordeauxButton(text = stringResource(R.string.betaling_kort), navController)
 
         Spacer(modifier = Modifier.height(height = 25.dp))
-        
+
         BordeauxButton(text = stringResource(R.string.betaling_mobile), navController)
 
         Spacer(modifier = Modifier.height(height = 50.dp))
 
-        Text(text = stringResource(R.string.nummerplade)+ "\n" + licensePlate ,
+        Text(
+            text = stringResource(R.string.nummerplade) + "\n" + licensePlate,
             Modifier
                 .background(Color.Gray, RectangleShape)
                 .padding(10.dp)
                 .width(280.dp),
             Color.Black, fontSize = 25.sp, fontWeight = FontWeight.Bold,
-            textAlign = TextAlign.Center)
+            textAlign = TextAlign.Center
+        )
 
     }
 }
@@ -61,5 +68,5 @@ public fun Payment(licensePlate: String, navController: NavHostController? = nul
 @Preview(showBackground = true)
 @Composable
 fun BetalingPreview() {
-        Payment("CU342I2")
+    Payment("CU342I2")
 }

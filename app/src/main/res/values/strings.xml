@@ -42,7 +42,6 @@
     <string name="more_mat_info">Læs mere.</string>
 
 
-
     LoginPage:
     <string name="new_user">Ny bruger?</string>
     <string name="login">Log ind</string>
@@ -79,8 +78,6 @@
     <string name="cubicweight">Vægt pr m\u00B3</string>
     <string name="matnr">Varenummer</string>
     <string name="matgroup">Varegruppe</string>
-
-
 
 
 </resources>

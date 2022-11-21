@@ -16,29 +16,26 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 
+//The composable shows the starting weight for the user.
 @Composable
-public fun StartingWeight(weight: Int, navController: NavHostController? = null){
-    Column (
+public fun StartingWeight(weight: Int, navController: NavHostController? = null) {
+    Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
+    ) {
 
         Header()
 
-
-
-
-
         Box() {
-            Column(modifier = Modifier.fillMaxSize(),
+            Column(
+                modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
 
 
-
-            Spacer(modifier = Modifier.height(height = 200.dp))
+                Spacer(modifier = Modifier.height(height = 200.dp))
 
                 Text(
                     stringResource(R.string.start_weight),
@@ -48,28 +45,29 @@ public fun StartingWeight(weight: Int, navController: NavHostController? = null)
                         .height(height = 48.dp)
                         .wrapContentHeight(),
                     Color.Black, fontSize = 20.sp, fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.Center)
+                    textAlign = TextAlign.Center
+                )
 
-            Spacer(modifier = Modifier.height(height = 40.dp))
+                Spacer(modifier = Modifier.height(height = 40.dp))
 
-            Text(
-                "" +weight+ " " + stringResource(R.string.kg),
-                Modifier
-                    .background(Color.Gray, RectangleShape)
-                    .width(250.dp)
-                    .height(height = 48.dp)
-                    .wrapContentHeight(),
-                Color.Black, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold,
-                textAlign = TextAlign.Center)
+                Text(
+                    "" + weight + " " + stringResource(R.string.kg),
+                    Modifier
+                        .background(Color.Gray, RectangleShape)
+                        .width(250.dp)
+                        .height(height = 48.dp)
+                        .wrapContentHeight(),
+                    Color.Black, fontSize = 20.sp, fontWeight = FontWeight.ExtraBold,
+                    textAlign = TextAlign.Center
+                )
 
-            Spacer(modifier = Modifier.height(height = 40.dp))
+                Spacer(modifier = Modifier.height(height = 40.dp))
 
 
-            BordeauxButton(stringResource(R.string.continue_on), navController, "buy on site",)
+                BordeauxButton(stringResource(R.string.continue_on), navController, "buy on site")
 
             }
         }
-
 
 
     }
@@ -78,5 +76,5 @@ public fun StartingWeight(weight: Int, navController: NavHostController? = null)
 @Preview(showBackground = true)
 @Composable
 fun StartingWeightTest() {
-        StartingWeight(250)
+    StartingWeight(250)
 }
