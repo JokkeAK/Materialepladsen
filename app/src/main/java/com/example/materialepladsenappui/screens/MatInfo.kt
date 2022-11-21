@@ -205,7 +205,7 @@ fun MatInfo(
         Spacer(modifier = Modifier.height(5.dp))
         Box(modifier = Modifier
             .fillMaxWidth()
-            .size(0.dp, 270.dp)) {
+            .size(0.dp, 300.dp)) {
             Column(horizontalAlignment = Alignment.Start, modifier = Modifier.padding(horizontal = 10.dp)) {
                 Text(text = "Produktbeskrivelse",
                 color = Color.Black,
@@ -226,9 +226,6 @@ fun MatInfo(
                 }
             }
         }
-
-        Spacer(modifier = Modifier.height(10.dp))
-        BordeauxButton(text = "Vej bil", route = "OrderPage",navController )
 
     }
 }
