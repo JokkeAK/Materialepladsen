@@ -40,7 +40,7 @@ public fun Login(navController: NavHostController? = null) {
             painter = painterResource(id = R.drawable.mp_logo_big),
             contentDescription = "Materialepladsen logo",
             modifier = Modifier
-                .size(size = 275.dp)
+                .size(size = 225.dp)
                 .clip(shape = CircleShape),
             contentScale = ContentScale.Fit
         )
@@ -54,11 +54,11 @@ public fun Login(navController: NavHostController? = null) {
         BordeauxButton(text = stringResource(R.string.new_user), navController, "sign up private")
 
 
-        Spacer(modifier = Modifier.height(height = 200.dp))
+        Spacer(modifier = Modifier.height(height = 40.dp))
 
-        UsernameTextFiled()
+        UsernameTextField()
         Spacer(modifier = Modifier.height(height = 10.dp))
-        PasswordTextFiled()
+        PasswordTextField()
         Spacer(modifier = Modifier.height(height = 20.dp))
 
         BordeauxButton(stringResource(R.string.login), navController, "home")
@@ -69,7 +69,7 @@ public fun Login(navController: NavHostController? = null) {
 
 //Composable text field for usernames.
 @Composable
-fun UsernameTextFiled() {
+fun UsernameTextField() {
 
     //Need to make the value "Ny bruger" not hard coded, but how?
     var text by rememberSaveable { mutableStateOf("Ny bruger") }
@@ -84,7 +84,7 @@ fun UsernameTextFiled() {
 
 //Composable text field for passwords.
 @Composable
-fun PasswordTextFiled() {
+fun PasswordTextField() {
 
     //Need to make the value "Password" not hard coded, but how?
     var text by rememberSaveable { mutableStateOf("Password") }

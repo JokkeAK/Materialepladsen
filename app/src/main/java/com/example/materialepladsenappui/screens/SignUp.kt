@@ -46,7 +46,7 @@ public fun SignUp(navController: NavHostController? = null) {
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
-        UsernameTextFiled()
+        UsernameTextField()
         Spacer(modifier = Modifier.height(height = 10.dp))
         EmailTextFiled()
         Spacer(modifier = Modifier.height(height = 10.dp))
@@ -54,13 +54,13 @@ public fun SignUp(navController: NavHostController? = null) {
         Spacer(modifier = Modifier.height(height = 10.dp))
         CityTextFiled()
         Spacer(modifier = Modifier.height(height = 10.dp))
-        PasswordTextFiled()
+        PasswordTextField()
         Spacer(modifier = Modifier.height(height = 10.dp))
         ZipTextFiled()
         Spacer(modifier = Modifier.height(height = 10.dp))
         LicensePlateTextFiled()
         Spacer(modifier = Modifier.height(height = 60.dp))
-        PasswordTextFiled()
+        PasswordTextField()
 
 
         Spacer(modifier = Modifier.height(height = 20.dp))
