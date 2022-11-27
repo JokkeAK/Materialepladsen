@@ -31,7 +31,7 @@ public fun MorePage(navController: NavHostController? = null) {
     )
     {
         Header()
-        Spacer(modifier = Modifier.height(75.dp))
+        Spacer(modifier = Modifier.height(20.dp))
         DividerBred()
         MoreButtons(text = stringResource(R.string.more_personInf), navController)
         DividerBred()
@@ -72,7 +72,7 @@ public fun MoreButtons(
         Button(
             onClick = { navController?.navigate(route) }, modifier = Modifier
                 .width(width = 450.dp)
-                .height(height = 55.dp),
+                .height(height = 45.dp),
 
             shape = RectangleShape,
             colors = ButtonDefaults.buttonColors(
