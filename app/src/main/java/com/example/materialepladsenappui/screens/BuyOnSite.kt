@@ -1,6 +1,7 @@
 package com.example.materialepladsenappui
 
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -37,7 +38,7 @@ fun BuyOnSite(navController: NavHostController? = null) {
 
         Spacer(modifier = Modifier.height(19.dp))
 
-        MaterialList()
+        MaterialList(navController)
 
         Spacer(Modifier.height(3.dp))
         Divider(
@@ -55,7 +56,7 @@ fun BuyOnSite(navController: NavHostController? = null) {
 
 //This composable shows the materials that can be purchased at the customer location in a horizontal and vertical list.
 @Composable
-fun MaterialList() {
+fun MaterialList(navController: NavHostController? = null) {
     LazyColumn(
         modifier = Modifier
             .background(color = Color.Gray, shape = RectangleShape)
@@ -67,30 +68,30 @@ fun MaterialList() {
 
         item { BoldText(str = "Granit") }
         items(1) { index ->
-            RowInGrid(i = 5)
+            RowInGrid(i = 5,navController)
         }
         item { BoldText(str = "Grus") }
         items(1) { index ->
-            RowInGrid(i = 5)
+            RowInGrid(i = 5,navController)
         }
         item { BoldText(str = "Andet") }
         items(1) { index ->
-            RowInGrid(i = 5)
+            RowInGrid(i = 5,navController)
         }
         item { BoldText(str = "Andet") }
         items(1) { index ->
-            RowInGrid(i = 5)
+            RowInGrid(i = 5,navController)
         }
     }
 }
 
 
 @Composable
-fun RowInGrid(i: Int) {
+fun RowInGrid(i: Int,navController: NavHostController? = null) {
 
     LazyRow() {
         items(i) { index ->
-            BuyCard(onClick = {})
+            BuyCard(navController,"home")
         }
     }
     Spacer(modifier = Modifier.height(30.dp))
@@ -102,14 +103,20 @@ fun BoldText(str: String) {
 }
 
 //This composable is the card for each product.
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BuyCard(onClick: () -> Unit/*Needs input*/) {
-    Card(
+fun BuyCard(navController: NavHostController? = null,
+            route: String = "home",){
+
+
+    Card(onClick = {navController?.navigate(route) },
         shape = MaterialTheme.shapes.medium,
         modifier = Modifier
             .padding(top = 6.dp, bottom = 6.dp, start = 15.dp, end = 15.dp)
             .fillMaxWidth(0.9F),
-        elevation = CardDefaults.cardElevation(8.dp)
+        elevation = CardDefaults.cardElevation(8.dp),
+        border = if (true) BorderStroke(2.dp,Color.Blue) else null
+
     ) {
 
         Column(horizontalAlignment = CenterHorizontally) {
