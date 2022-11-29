@@ -8,11 +8,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -21,20 +18,26 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 
 //This composable shows the different text field a private user needs to enter to create an account.
 @Composable
-public fun SignUp(navController: NavHostController? = null) {
+public fun SignUpP1(navController: NavHostController? = null,
+                    appViewModel: ViewModel = viewModel()
+) {
+    val appUiState by appViewModel.uiState.collectAsState()
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
+
         Spacer(
             modifier = Modifier
-                .height(height = 68.dp)
+                .height(height = 30.dp)
         )
         Image(
             painter = painterResource(id = R.drawable.mp_logo_big),
@@ -45,42 +48,68 @@ public fun SignUp(navController: NavHostController? = null) {
             contentScale = ContentScale.Fit
         )
 
-        Spacer(modifier = Modifier.height(height = 10.dp))
-        UsernameTextField()
-        Spacer(modifier = Modifier.height(height = 10.dp))
-        EmailTextFiled()
-        Spacer(modifier = Modifier.height(height = 10.dp))
-        TlfTextFiled()
-        Spacer(modifier = Modifier.height(height = 10.dp))
-        CityTextFiled()
-        Spacer(modifier = Modifier.height(height = 10.dp))
-        PasswordTextField()
-        Spacer(modifier = Modifier.height(height = 10.dp))
-        ZipTextFiled()
-        Spacer(modifier = Modifier.height(height = 10.dp))
-        LicensePlateTextFiled()
-        Spacer(modifier = Modifier.height(height = 60.dp))
-        PasswordTextField()
-
 
         Spacer(modifier = Modifier.height(height = 20.dp))
 
+        FullNameTextField(
+            fullNameSignUp = appViewModel.fullNameSignUP,
+            onFullNameSignUpChanged = {appViewModel.updateFullNameSignUp(it)}
+        )
 
-        BordeauxButton(stringResource(R.string.login), navController, "home")
+        Spacer(modifier = Modifier.height(height = 10.dp))
+
+        EmailTextField(
+            emailSignUp = appViewModel.emailSignUP,
+            onEmailSignUpChanged = {appViewModel.updateEmailSignUp(it)}
+        )
+
+        Spacer(modifier = Modifier.height(height = 10.dp))
+
+        PhoneNumberTextField(
+            phoneNumberSignUp = appViewModel.phoneNumberSignUp,
+            onPhoneNumberSignUpChanged = {appViewModel.updatePhoneNumberSignUp(it)}
+        )
+
+        Spacer(modifier = Modifier.height(height = 10.dp))
+
+        CityTextField(
+            citySignUp = appViewModel.citySignUp,
+            onCitySignUpChanged = {appViewModel.updateCitySignUp(it)}
+        )
+
+        Spacer(modifier = Modifier.height(height = 10.dp))
+
+        ZipTextField(
+            zipSignUp = appViewModel.zipSignUp,
+            onZipSignUpChanged = {appViewModel.updateZipSignUp(it)}
+        )
+
+        Spacer(modifier = Modifier.height(height = 10.dp))
+
+        LicensePlateTextField(
+            licensePlateSignUp = appViewModel.licensePlateSignUp,
+            onLicensePlateSignUpChanged = {appViewModel.updateLicensePlateSignUp(it)}
+        )
+
+        Spacer(modifier = Modifier.height(height = 20.dp))
+
+        BordeauxButton(stringResource(R.string.continue_on), navController, "sign up p2")
 
     }
 }
 
 
-//Need to make the values in mutableStateOf not hard coded, but how?
-@Composable
-private fun FullNameTextFiled() {
 
-    var text by rememberSaveable { mutableStateOf("Navn") }
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun FullNameTextField(
+    fullNameSignUp: String,
+    onFullNameSignUpChanged: (String) -> Unit,
+) {
     TextField(
         modifier = Modifier.width(width = 250.dp),
-        value = text,
-        onValueChange = { text = it },
+        value = fullNameSignUp,
+        onValueChange = onFullNameSignUpChanged,
         label = { Text(stringResource(R.string.name_full)) },
         singleLine = true
     )
@@ -88,67 +117,83 @@ private fun FullNameTextFiled() {
 
 
 @Composable
-private fun EmailTextFiled() {
-    var text by rememberSaveable { mutableStateOf("Email@Email.dk") }
+private fun EmailTextField(
+    emailSignUp: String,
+    onEmailSignUpChanged: (String) -> Unit,
+) {
+
     TextField(
         modifier = Modifier.width(width = 250.dp),
-        value = text,
-        onValueChange = { text = it },
+        value = emailSignUp,
+        onValueChange = onEmailSignUpChanged,
         label = { Text(stringResource(R.string.mail)) },
         singleLine = true
     )
 }
 
 @Composable
-private fun TlfTextFiled() {
-    var text by rememberSaveable { mutableStateOf("+45 12 34 56 78") }
+private fun PhoneNumberTextField(
+    phoneNumberSignUp: String,
+    onPhoneNumberSignUpChanged: (String) -> Unit,
+) {
     TextField(
         modifier = Modifier.width(width = 250.dp),
-        value = text,
-        onValueChange = { text = it },
+        value = phoneNumberSignUp,
+        onValueChange = onPhoneNumberSignUpChanged,
         label = { Text(stringResource(R.string.phone)) },
         singleLine = true
     )
 }
 
 @Composable
-private fun CityTextFiled() {
-    var text by rememberSaveable { mutableStateOf("Roskilde") }
+private fun CityTextField(
+    citySignUp: String,
+    onCitySignUpChanged: (String) -> Unit,
+) {
     TextField(
         modifier = Modifier.width(width = 250.dp),
-        value = text,
-        onValueChange = { text = it },
+        value = citySignUp,
+        onValueChange = onCitySignUpChanged,
         label = { Text(stringResource(R.string.city)) },
         singleLine = true
     )
 }
 
 @Composable
-private fun ZipTextFiled() {
-    var text by rememberSaveable { mutableStateOf("4000") }
+private fun ZipTextField(
+    zipSignUp: String,
+    onZipSignUpChanged: (String) -> Unit,
+) {
+
     TextField(
         modifier = Modifier.width(width = 250.dp),
-        value = text,
-        onValueChange = { text = it },
+        value = zipSignUp,
+        onValueChange = onZipSignUpChanged,
         label = { Text(stringResource(R.string.zip)) },
         singleLine = true
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun LicensePlateTextFiled() {
-    var text by rememberSaveable { mutableStateOf("AA 12 345") }
+private fun LicensePlateTextField(
+    licensePlateSignUp: String,
+    onLicensePlateSignUpChanged: (String) -> Unit,
+) {
+
     TextField(
         modifier = Modifier.width(width = 250.dp),
-        value = text,
-        onValueChange = { text = it },
+        value = licensePlateSignUp,
+        onValueChange = onLicensePlateSignUpChanged,
         label = { Text(stringResource(R.string.license)) },
         singleLine = true
     )
 }
 
+
+
 @Preview(showBackground = true)
 @Composable
-fun SignUpPreview() {
-    SignUp()
+fun SignUpP1Preview() {
+    SignUpP1()
 }

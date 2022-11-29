@@ -31,7 +31,7 @@ fun MainContent() {
         ) {
             NavHost(
                 navController = navController,
-                startDestination = "home",
+                startDestination = "login",
             ) {
                 composable("home") {
                     HomePage(navController)
@@ -48,11 +48,14 @@ fun MainContent() {
                 composable("payment") {
                     Payment(licensePlate = "CU342I2", navController)
                 }
-                composable("login") { //not used now, should this be the home page on startup?
+                composable("login") {
                     Login(navController)
                 }
-                composable("sign up private") { //not used now
-                    SignUp(navController)
+                composable("sign up p1") {
+                    SignUpP1(navController)
+                }
+                composable("sign up p2") {
+                    SignUpP2(navController)
                 }
                 composable("order history") {
                     OrderHistory(navController)
