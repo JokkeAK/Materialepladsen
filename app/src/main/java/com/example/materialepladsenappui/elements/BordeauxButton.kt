@@ -38,9 +38,9 @@ fun BordeauxButton(
         ),
         border = BorderStroke(1.dp, Color.Black),
         elevation = ButtonDefaults.elevatedButtonElevation(
-            defaultElevation = 10.dp,
+            defaultElevation = 5.dp,
             pressedElevation = 10.dp,
-            disabledElevation = 10.dp
+            disabledElevation = 0.dp
         )
     )
     {

@@ -56,7 +56,7 @@ public fun Login(navController: NavHostController? = null,
         BordeauxButton(text = stringResource(R.string.new_user), navController, "sign up p1")
 
 
-        Spacer(modifier = Modifier.height(height = 40.dp))
+        Spacer(modifier = Modifier.height(height = 20.dp))
 
         LoginUsernameTextField(
             username = appViewModel.username,
