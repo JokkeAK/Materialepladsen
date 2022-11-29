@@ -27,7 +27,7 @@ import com.example.materialepladsenappui.theme.BRed
 
 //Composable for additional info for the product to be purchased.
 @Composable
-fun MatInfo(
+fun MatInfoReceipt(
     navController: NavHostController? = null
 ) {
 
@@ -40,7 +40,7 @@ fun MatInfo(
         ) {
 
 
-            MaterialNameAndImage(
+            MaterialNameAndImageReceipt(
                 "Granit grå 11-16 mm ",
                 "DKK 0.8/kg",
                 "0-8",
@@ -55,23 +55,18 @@ fun MatInfo(
                     .fillMaxWidth()
                     .height(3.dp))
 
-            MaterialDescription(
+            MaterialDescriptionReceipt(
                 "Flisegrus bruges som afretningslag og klaplag (det øverste lag under belægningen). " +
                         "Størrelsen 0-8 mm gør det nemt for afretningen. Det høje lerindhold bevirker at gruset får en høj bæreevne. " +
                         "Det anbefales dog, at der kun bliver brugt et minimum af grus ca. 3-5 cm. Under gruset bør der lægges et lag " +
                         "stabilgrus, alt efter hvor højt fliserne skal ligge. Gruset sætter sig ca. 20% efter komprimering med pladevibrator."
             )
-
-            Spacer(modifier = Modifier.height(15.dp))
-
-            BordeauxButton(text = stringResource(R.string.continue_weigh), navController, "order page")
-
      }
 }
 
 //This composable holds the image, name with price/kg for the chosen material and descriptors of the chosen material
 @Composable
-fun MaterialNameAndImage(
+fun MaterialNameAndImageReceipt(
     name: String,
     weightPrice: String,
     size: String,
@@ -266,12 +261,12 @@ fun MaterialNameAndImage(
 
 //This composable holds the expanded material description.
 @Composable
-fun MaterialDescription(matDescription: String) {
+fun MaterialDescriptionReceipt(matDescription: String) {
 
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .size(0.dp, 180.dp)
+            .size(0.dp, 220.dp)
     ) {
         Column(
             horizontalAlignment = Alignment.Start,
@@ -307,6 +302,6 @@ fun MaterialDescription(matDescription: String) {
 
 @Preview(showBackground = true)
 @Composable
-fun MatInfoPreview() {
-    MatInfo()
+fun MatInfoReceiptPreview() {
+    MatInfoReceipt()
 }

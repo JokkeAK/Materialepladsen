@@ -148,20 +148,6 @@ fun MaterialInfo(
                         ),
                         modifier = Modifier.align(Alignment.TopStart)
                     )
-
-                    //This text is clickable and leads to the home page for now instead of a more detailed product page.
-                    Text(
-                        text = stringResource(R.string.more_mat_info),
-                        color = Color.Black,
-                        style = TextStyle(
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.Bold
-                        ),
-                        modifier = Modifier
-                            .align(Alignment.BottomEnd)
-                            .clickable(onClick = { navController?.navigate("mat info") })
-
-                    )
                 }
             }
 

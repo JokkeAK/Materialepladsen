@@ -164,7 +164,7 @@ fun ReceiptDateAndInfo(
                         ),
                         modifier = Modifier
                             .align(Alignment.BottomEnd)
-                            .clickable(onClick = { navController?.navigate("home") })
+                            .clickable(onClick = { navController?.navigate("mat info receipt") })
 
                     )
                 }

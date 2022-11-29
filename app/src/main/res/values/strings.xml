@@ -86,6 +86,8 @@
     <string name="cubicweight">Vægt pr m\u00B3</string>
     <string name="matnr">Varenummer</string>
     <string name="matgroup">Varegruppe</string>
+    <string name="continue_weigh">Vej materiale</string>
+
 
 
 </resources>
