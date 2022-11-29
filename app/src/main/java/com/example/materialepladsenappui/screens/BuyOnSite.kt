@@ -40,17 +40,6 @@ fun BuyOnSite(navController: NavHostController? = null) {
 
         MaterialList(navController)
 
-        Spacer(Modifier.height(3.dp))
-        Divider(
-            color = BRed,
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(3.dp)
-        )
-
-        Spacer(modifier = Modifier.height(15.dp))
-
-        BordeauxButton(stringResource(R.string.weigh_car), navController, "order page")
     }
 }
 
@@ -61,7 +50,7 @@ fun MaterialList(navController: NavHostController? = null) {
         modifier = Modifier
             .background(color = Color.Gray, shape = RectangleShape)
             .fillMaxWidth()
-            .height(450.dp),
+            .height(500.dp),
         contentPadding = PaddingValues(horizontal = 10.dp, vertical = 10.dp)
     ) {
 
@@ -91,7 +80,7 @@ fun RowInGrid(i: Int,navController: NavHostController? = null) {
 
     LazyRow() {
         items(i) { index ->
-            BuyCard(navController,"home")
+            BuyCard(navController,"mat info")
         }
     }
     Spacer(modifier = Modifier.height(30.dp))
@@ -106,7 +95,7 @@ fun BoldText(str: String) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BuyCard(navController: NavHostController? = null,
-            route: String = "home",){
+            route: String = "home"){
 
 
     Card(onClick = {navController?.navigate(route) },
@@ -115,7 +104,6 @@ fun BuyCard(navController: NavHostController? = null,
             .padding(top = 6.dp, bottom = 6.dp, start = 15.dp, end = 15.dp)
             .fillMaxWidth(0.9F),
         elevation = CardDefaults.cardElevation(8.dp),
-        border = if (true) BorderStroke(2.dp,Color.Blue) else null
 
     ) {
 

@@ -70,7 +70,7 @@ fun MainContent() {
                     Loader(navController)
                 }
                 composable("mat info") {
-                    MatInfo()
+                    MatInfo(navController)
                 }
             }
         }
