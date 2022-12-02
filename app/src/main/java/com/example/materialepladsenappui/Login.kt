@@ -51,7 +51,7 @@ public fun Login(){
                 contentColor = Color.White
             ), shape = RectangleShape
         ){
-            Text(text = "Ny bruger?",color = Color.White)
+            Text(text = "Indtast brugernavn?",color = Color.White)
         }
 
         Spacer( modifier = Modifier.height(height = 200.dp))
