@@ -72,6 +72,9 @@ fun MainContent() {
                 composable("mat info") {
                     MatInfo(navController)
                 }
+                composable("mat info receipt") {
+                    MatInfo(navController)
+                }
             }
         }
     }
