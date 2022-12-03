@@ -2,7 +2,6 @@
 
 package com.example.materialepladsenappui
 
-import android.media.Image
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -10,7 +9,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -24,8 +22,9 @@ import androidx.navigation.NavHostController
 
 //This composable shows the different text field a private user needs to enter to create an account.
 @Composable
-public fun SignUpP2(navController: NavHostController? = null,
-                    appViewModel: ViewModel = viewModel()
+public fun SignUpP2(
+    navController: NavHostController? = null,
+    appViewModel: ViewModel = viewModel()
 ) {
     val appUiState by appViewModel.uiState.collectAsState()
 
@@ -52,13 +51,13 @@ public fun SignUpP2(navController: NavHostController? = null,
         Spacer(modifier = Modifier.height(height = 75.dp))
         SignUpUsernameTextField(
             usernameSignUp = appViewModel.usernameSignUp,
-            onUsernameSignUpChanged = {appViewModel.updateUsernameSignUp(it)},
+            onUsernameSignUpChanged = { appViewModel.updateUsernameSignUp(it) },
             isUsernameSignUpTaken = appUiState.isSignUpUsernameTaken
         )
         Spacer(modifier = Modifier.height(height = 10.dp))
         SignUpPasswordTextField(
             passwordSignUp = appViewModel.passwordSignUp,
-            onPasswordSignUpChanged = {appViewModel.updatePasswordSignUp(it)},
+            onPasswordSignUpChanged = { appViewModel.updatePasswordSignUp(it) },
             isPasswordInvalid = appUiState.isSignUpPasswordInvalid
         )
 
@@ -71,29 +70,30 @@ public fun SignUpP2(navController: NavHostController? = null,
 }
 
 @Composable
- fun SignUpUsernameTextField(
+fun SignUpUsernameTextField(
     usernameSignUp: String,
     onUsernameSignUpChanged: (String) -> Unit,
     isUsernameSignUpTaken: Boolean
-    ) {
+) {
 
-        TextField(
-            modifier = Modifier.width(width = 250.dp),
-            value = usernameSignUp,
-            onValueChange = onUsernameSignUpChanged,
-            label = {
-                if (isUsernameSignUpTaken) {
-                    Text(stringResource(R.string.username_taken))
-                } else {
-                    Text(stringResource(R.string.username))
-                } },
-            singleLine = true,
-            isError = isUsernameSignUpTaken
-        )
-    }
+    TextField(
+        modifier = Modifier.width(width = 250.dp),
+        value = usernameSignUp,
+        onValueChange = onUsernameSignUpChanged,
+        label = {
+            if (isUsernameSignUpTaken) {
+                Text(stringResource(R.string.username_taken))
+            } else {
+                Text(stringResource(R.string.username))
+            }
+        },
+        singleLine = true,
+        isError = isUsernameSignUpTaken
+    )
+}
 
 @Composable
- fun SignUpPasswordTextField(
+fun SignUpPasswordTextField(
     passwordSignUp: String,
     onPasswordSignUpChanged: (String) -> Unit,
     isPasswordInvalid: Boolean
@@ -107,7 +107,8 @@ public fun SignUpP2(navController: NavHostController? = null,
                 Text(stringResource(R.string.password_invalid))
             } else {
                 Text(stringResource(R.string.password))
-            } },
+            }
+        },
         singleLine = true,
         isError = isPasswordInvalid
     )

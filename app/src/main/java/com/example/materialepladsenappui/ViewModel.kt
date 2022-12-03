@@ -31,7 +31,6 @@ class ViewModel : ViewModel() {
     var passwordSignUp by mutableStateOf("")
 
 
-
     //Update the login username.
     fun updateUsername(newUsername: String) {
         username = newUsername
@@ -66,21 +65,21 @@ class ViewModel : ViewModel() {
     fun updatePhoneNumberSignUp(newPhoneNumberSignUp: String) {
         phoneNumberSignUp = newPhoneNumberSignUp
     }
+
     //Update the sign up city.
     fun updateCitySignUp(newCitySignUp: String) {
         citySignUp = newCitySignUp
     }
+
     //Update the sign up zip.
     fun updateZipSignUp(newZipSignUp: String) {
         zipSignUp = newZipSignUp
     }
+
     //Update the sign up license plate.
     fun updateLicensePlateSignUp(newLicensePlateSignUp: String) {
         licensePlateSignUp = newLicensePlateSignUp
     }
-
-
-
 
 
     //Checks whether login username is correct or not

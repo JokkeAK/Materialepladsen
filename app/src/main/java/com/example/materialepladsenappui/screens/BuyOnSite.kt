@@ -1,7 +1,6 @@
 package com.example.materialepladsenappui
 
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -16,13 +15,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.materialepladsenappui.theme.BRed
 
 //This composable shows the materials that can be purchased at the user's location.
 @Composable
@@ -57,30 +54,30 @@ fun MaterialList(navController: NavHostController? = null) {
 
         item { BoldText(str = "Granit") }
         items(1) { index ->
-            RowInGrid(i = 5,navController)
+            RowInGrid(i = 5, navController)
         }
         item { BoldText(str = "Grus") }
         items(1) { index ->
-            RowInGrid(i = 5,navController)
+            RowInGrid(i = 5, navController)
         }
         item { BoldText(str = "Andet") }
         items(1) { index ->
-            RowInGrid(i = 5,navController)
+            RowInGrid(i = 5, navController)
         }
         item { BoldText(str = "Andet") }
         items(1) { index ->
-            RowInGrid(i = 5,navController)
+            RowInGrid(i = 5, navController)
         }
     }
 }
 
 
 @Composable
-fun RowInGrid(i: Int,navController: NavHostController? = null) {
+fun RowInGrid(i: Int, navController: NavHostController? = null) {
 
     LazyRow() {
         items(i) { index ->
-            BuyCard(navController,"mat info")
+            BuyCard(navController, "mat info")
         }
     }
     Spacer(modifier = Modifier.height(30.dp))
@@ -94,18 +91,21 @@ fun BoldText(str: String) {
 //This composable is the card for each product.
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BuyCard(navController: NavHostController? = null,
-            route: String = "home"){
+fun BuyCard(
+    navController: NavHostController? = null,
+    route: String = "home"
+) {
 
 
-    Card(onClick = {navController?.navigate(route) },
+    Card(
+        onClick = { navController?.navigate(route) },
         shape = MaterialTheme.shapes.medium,
         modifier = Modifier
             .padding(top = 6.dp, bottom = 6.dp, start = 15.dp, end = 15.dp)
             .fillMaxWidth(0.9F),
         elevation = CardDefaults.cardElevation(8.dp),
 
-    ) {
+        ) {
 
         Column(horizontalAlignment = CenterHorizontally) {
             Image(

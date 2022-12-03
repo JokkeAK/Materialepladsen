@@ -9,7 +9,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -23,8 +22,9 @@ import androidx.navigation.NavHostController
 
 //This composable is the login page where a new user can go to the sign up page.
 @Composable
-public fun Login(navController: NavHostController? = null,
-                 appViewModel: ViewModel = viewModel()
+public fun Login(
+    navController: NavHostController? = null,
+    appViewModel: ViewModel = viewModel()
 ) {
     val appUiState by appViewModel.uiState.collectAsState()
 
@@ -60,15 +60,17 @@ public fun Login(navController: NavHostController? = null,
 
         LoginUsernameTextField(
             username = appViewModel.username,
-            onUsernameChanged = {appViewModel.updateUsername(it)},
-            isUsernameWrong = appUiState.isEnteredUsernameWrong)
+            onUsernameChanged = { appViewModel.updateUsername(it) },
+            isUsernameWrong = appUiState.isEnteredUsernameWrong
+        )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
 
         LoginPasswordTextField(
             password = appViewModel.password,
-            onPasswordChanged = {appViewModel.updatePassword(it)},
-            isPasswordWrong = appUiState.isEnteredPasswordWrong)
+            onPasswordChanged = { appViewModel.updatePassword(it) },
+            isPasswordWrong = appUiState.isEnteredPasswordWrong
+        )
 
         Spacer(modifier = Modifier.height(height = 20.dp))
 
@@ -92,11 +94,12 @@ fun LoginUsernameTextField(
         value = username,
         onValueChange = onUsernameChanged,
         label = {
-                if (isUsernameWrong) {
-                    Text(stringResource(R.string.username_wrong))
-                } else {
-                    Text(stringResource(R.string.username))
-                } },
+            if (isUsernameWrong) {
+                Text(stringResource(R.string.username_wrong))
+            } else {
+                Text(stringResource(R.string.username))
+            }
+        },
         singleLine = true,
         isError = isUsernameWrong
     )
@@ -119,7 +122,8 @@ fun LoginPasswordTextField(
                 Text(stringResource(R.string.password_wrong))
             } else {
                 Text(stringResource(R.string.password))
-            } },
+            }
+        },
         singleLine = true,
         isError = isPasswordWrong
     )

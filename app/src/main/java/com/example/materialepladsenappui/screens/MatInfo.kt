@@ -23,8 +23,6 @@ import androidx.navigation.NavHostController
 import com.example.materialepladsenappui.theme.BRed
 
 
-
-
 //Composable for additional info for the product to be purchased.
 @Composable
 fun MatInfo(
@@ -32,41 +30,42 @@ fun MatInfo(
 ) {
 
 
-     Column(
+    Column(
+        modifier = Modifier
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+
+
+        MaterialNameAndImage(
+            "Granit grå 11-16 mm ",
+            "DKK 0.8/kg",
+            "0-8",
+            1.600,
+            104,
+            "Grus & Sand"
+        )
+
+        Divider(
+            color = BRed,
             modifier = Modifier
-                .fillMaxSize(),
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
+                .fillMaxWidth()
+                .height(3.dp)
+        )
 
+        MaterialDescription(
+            "Flisegrus bruges som afretningslag og klaplag (det øverste lag under belægningen). " +
+                    "Størrelsen 0-8 mm gør det nemt for afretningen. Det høje lerindhold bevirker at gruset får en høj bæreevne. " +
+                    "Det anbefales dog, at der kun bliver brugt et minimum af grus ca. 3-5 cm. Under gruset bør der lægges et lag " +
+                    "stabilgrus, alt efter hvor højt fliserne skal ligge. Gruset sætter sig ca. 20% efter komprimering med pladevibrator."
+        )
 
-            MaterialNameAndImage(
-                "Granit grå 11-16 mm ",
-                "DKK 0.8/kg",
-                "0-8",
-                1.600,
-                104,
-                "Grus & Sand"
-            )
+        Spacer(modifier = Modifier.height(15.dp))
 
-            Divider(
-                color = BRed,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(3.dp))
+        BordeauxButton(text = stringResource(R.string.continue_weigh), navController, "order page")
 
-            MaterialDescription(
-                "Flisegrus bruges som afretningslag og klaplag (det øverste lag under belægningen). " +
-                        "Størrelsen 0-8 mm gør det nemt for afretningen. Det høje lerindhold bevirker at gruset får en høj bæreevne. " +
-                        "Det anbefales dog, at der kun bliver brugt et minimum af grus ca. 3-5 cm. Under gruset bør der lægges et lag " +
-                        "stabilgrus, alt efter hvor højt fliserne skal ligge. Gruset sætter sig ca. 20% efter komprimering med pladevibrator."
-            )
-
-            Spacer(modifier = Modifier.height(15.dp))
-
-            BordeauxButton(text = stringResource(R.string.continue_weigh), navController, "order page")
-
-     }
+    }
 }
 
 //This composable holds the image, name with price/kg for the chosen material and descriptors of the chosen material
@@ -150,7 +149,7 @@ fun MaterialNameAndImage(
                             )
                         )
 
-                       // Spacer(modifier = Modifier.height(5.dp))
+                        // Spacer(modifier = Modifier.height(5.dp))
 
                         Text(
                             text = stringResource(R.string.cubicweight),
@@ -161,7 +160,7 @@ fun MaterialNameAndImage(
                             )
                         )
 
-                       // Spacer(modifier = Modifier.height(5.dp))
+                        // Spacer(modifier = Modifier.height(5.dp))
 
                         Text(
                             text = stringResource(R.string.matnr),

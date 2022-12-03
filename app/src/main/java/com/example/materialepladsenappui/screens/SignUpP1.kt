@@ -9,7 +9,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -23,8 +22,9 @@ import androidx.navigation.NavHostController
 
 //This composable shows the different text field a private user needs to enter to create an account.
 @Composable
-public fun SignUpP1(navController: NavHostController? = null,
-                    appViewModel: ViewModel = viewModel()
+public fun SignUpP1(
+    navController: NavHostController? = null,
+    appViewModel: ViewModel = viewModel()
 ) {
     val appUiState by appViewModel.uiState.collectAsState()
 
@@ -53,42 +53,42 @@ public fun SignUpP1(navController: NavHostController? = null,
 
         FullNameTextField(
             fullNameSignUp = appViewModel.fullNameSignUP,
-            onFullNameSignUpChanged = {appViewModel.updateFullNameSignUp(it)}
+            onFullNameSignUpChanged = { appViewModel.updateFullNameSignUp(it) }
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
 
         EmailTextField(
             emailSignUp = appViewModel.emailSignUP,
-            onEmailSignUpChanged = {appViewModel.updateEmailSignUp(it)}
+            onEmailSignUpChanged = { appViewModel.updateEmailSignUp(it) }
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
 
         PhoneNumberTextField(
             phoneNumberSignUp = appViewModel.phoneNumberSignUp,
-            onPhoneNumberSignUpChanged = {appViewModel.updatePhoneNumberSignUp(it)}
+            onPhoneNumberSignUpChanged = { appViewModel.updatePhoneNumberSignUp(it) }
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
 
         CityTextField(
             citySignUp = appViewModel.citySignUp,
-            onCitySignUpChanged = {appViewModel.updateCitySignUp(it)}
+            onCitySignUpChanged = { appViewModel.updateCitySignUp(it) }
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
 
         ZipTextField(
             zipSignUp = appViewModel.zipSignUp,
-            onZipSignUpChanged = {appViewModel.updateZipSignUp(it)}
+            onZipSignUpChanged = { appViewModel.updateZipSignUp(it) }
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
 
         LicensePlateTextField(
             licensePlateSignUp = appViewModel.licensePlateSignUp,
-            onLicensePlateSignUpChanged = {appViewModel.updateLicensePlateSignUp(it)}
+            onLicensePlateSignUpChanged = { appViewModel.updateLicensePlateSignUp(it) }
         )
 
         Spacer(modifier = Modifier.height(height = 20.dp))
@@ -97,7 +97,6 @@ public fun SignUpP1(navController: NavHostController? = null,
 
     }
 }
-
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -189,7 +188,6 @@ private fun LicensePlateTextField(
         singleLine = true
     )
 }
-
 
 
 @Preview(showBackground = true)
