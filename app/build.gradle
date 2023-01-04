@@ -25,8 +25,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -67,7 +67,10 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
     //Database connection dependency
-    implementation 'com.microsoft.sqlserver:mssql-jdbc-11.2.1.jre17'
+    //implementation 'com.microsoft.sqlserver:mssql-jdbc-11.2.1.jre17'
+    implementation fileTree(dir:"src/main/libs", include:['*.jar'])
+
+
 
 }
 android {
