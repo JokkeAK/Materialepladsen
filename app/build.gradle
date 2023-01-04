@@ -66,6 +66,8 @@ dependencies {
     //noinspection GradleDependency
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1"
+    //Database connection dependency
+    implementation 'com.microsoft.sqlserver:mssql-jdbc-11.2.1.jre17'
 
 }
 android {
