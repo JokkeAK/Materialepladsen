@@ -23,7 +23,7 @@ class DBHelper {
          Log.i("Conn","Connection is null")
      }
 
-        val query = "SELECT TOP (1) [product_group] FROM [materialepladsen_core_DTUMP2].[dbo].[v_mobileApp_products]"
+        val query = "SELECT [product_group] FROM [materialepladsen_core_DTUMP2].[dbo].[v_mobileApp_products]"
 
         val stmt = conn?.createStatement()
         Log.i("Conn","after statement")
@@ -31,6 +31,9 @@ class DBHelper {
         Log.i("Conn", "after executeQuery")
         //val tableName = rs?.getString(1)
         Log.i("Conn", rs.toString())
+        while(rs?.next()==true){
+            Log.i("Conn", rs.getString(1))
+        }
     }
 
 }
