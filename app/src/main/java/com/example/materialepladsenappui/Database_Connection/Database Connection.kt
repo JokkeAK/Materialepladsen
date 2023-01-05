@@ -30,7 +30,7 @@ class DatabaseConnection {
                 //"jdbc:jtds:sqlserver://152.115.71.190:48123;databaseName=materialepladsen_core_DTUMP2;user=DTUMP2;password=mxDEKrZ8c2;"
 
            // Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver")
-            connString = "jdbc:sqlserver://152.115.71.190:48123;encrypt=true;database=materialepladsen_core_DTUMP2;user=DTUMP2;password=mxDEKrZ8c2;integratedSecurity=true;"
+            connString = "jdbc:jtds:sqlserver://152.115.71.190:48123;database=materialepladsen_core_DTUMP2;user=DTUMP2;password=mxDEKrZ8c2;"
 
             conn = DriverManager.getConnection(connString)
         }

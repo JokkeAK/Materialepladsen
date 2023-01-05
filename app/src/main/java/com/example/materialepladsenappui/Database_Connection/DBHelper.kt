@@ -14,17 +14,23 @@ class DBHelper {
         val conn = db.getAltConnection()
      if (conn != null) {
          if(conn.isClosed){
-             Log.i("connection", "Connection is closed")
+             Log.i("Conn", "Connection is closed")
+         } else{
+             Log.i("Conn","Connection is not closed " + conn.toString())
          }
+
+     } else{
+         Log.i("Conn","Connection is null")
      }
 
-        val query = "SELECT TOP (1) [product_group]\n" +
-                "FROM [materialepladsen_core_DTUMP2].[dbo].[v_mobileApp_products]"
+        val query = "SELECT TOP (1) [product_group] FROM [materialepladsen_core_DTUMP2].[dbo].[v_mobileApp_products]"
 
         val stmt = conn?.createStatement()
+        Log.i("Conn","after statement")
         val rs = stmt?.executeQuery(query)
-        val tableName = rs?.getString("TABLE_NAME")
-        Log.i("tables", "tableName")
+        Log.i("Conn", "after executeQuery")
+        //val tableName = rs?.getString(1)
+        Log.i("Conn", rs.toString())
     }
 
 }
