@@ -19,7 +19,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-
+import com.example.materialepladsenappui.Database_Connection.DBHelper
+import kotlinx.coroutines.runBlocking
 
 //This composable is the home screen once the user is logged in.
 @Composable
@@ -33,7 +34,7 @@ fun HomePage(navController: NavHostController? = null) {
 
         Header()
 
-        Greeting(name = "Allan")
+        Greeting(name =  "Allan")
 
         Spacer(
             modifier = Modifier

@@ -69,6 +69,7 @@ dependencies {
     //Database connection dependency
     //implementation 'com.microsoft.sqlserver:mssql-jdbc-11.2.1.jre17'
     implementation fileTree(dir:"src/main/libs", include:['*.jar'])
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
 
 
 

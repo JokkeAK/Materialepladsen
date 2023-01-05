@@ -5,22 +5,21 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.example.composenavigation.ui.MainContent
 import com.example.materialepladsenappui.Database_Connection.DBHelper
-import kotlinx.coroutines.runBlocking
 import android.util.Log
+import kotlinx.coroutines.*
 
 
 class MainActivity : ComponentActivity() {
+    @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        fun main(){
-            runBlocking {
 
-                val dbhelper = DBHelper()
-                dbhelper.Select()
+        GlobalScope.async {
+            val dbhelper = DBHelper()
+            Log.i("hello", "main:ahhhhhhhhhhhh ")
+            dbhelper.Select() }
 
-            }
-        }
 
         setContent {
             MainContent()
