@@ -1,49 +1,13 @@
-package com.example.materialepladsenappui.Models
-
-class ProductModel(){
-    val productGroup: String
-        get() {
-            TODO()
-        }
-    val id: Long
-        get() {
-            TODO()
-        }
-    val productArticleNumber: String
-        get() {
-            TODO()
-        }
-    val productArticleName: String
-        get() {
-            TODO()
-        }
-    val productSize: String
-        get() {
-            TODO()
-        }
-    val productWeight: Double
-        get() {
-            TODO()
-        }
-    val productPriceExTAX: Double
-        get() {
-            TODO()
-        }
-    val productPriceInTAX: Double
-        get() {
-            TODO()
-        }
-    val unit: String
-        get() {
-            TODO()
-        }
-    val availability: Boolean
-        get() {
-            TODO()
-        }
+data class ProductModel(
+    val productGroup: String,
+    val id: Long,
+    val productArticleNumber: String,
+    val productArticleName: String,
+    val productSize: String,
+    val productWeight: Double,
+    val productPriceExTAX: Double,
+    val productPriceInTAX: Double,
+    val unit: String,
+    val availability: Boolean,
     val productImage: String
-        get() {
-            TODO()
-        }
-
-}
+)
