@@ -14,12 +14,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         GlobalScope.async {
             val dbhelper = DBHelper()
             Log.i("hello", "main:ahhhhhhhhhhhh ")
             dbhelper.Select() }
-
 
         setContent {
             MainContent()
