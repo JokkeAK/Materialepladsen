@@ -1,4 +1,4 @@
-package com.example.materialepladsenappui.Models
+package com.example.materialepladsenappui.models
 
 data class OrdersModel(
     val orderID: Long,

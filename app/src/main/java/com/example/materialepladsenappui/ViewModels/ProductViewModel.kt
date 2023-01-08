@@ -1,6 +1,6 @@
 package com.example.materialepladsenappui.ViewModels
 
-import ProductModel
+import com.example.materialepladsenappui.models.ProductModel
 
 
 class ProductViewModel(private val productModel: ProductModel) {

@@ -1,3 +1,5 @@
+package com.example.materialepladsenappui.models
+
 data class ProductModel(
     val productGroup: String,
     val id: Long,

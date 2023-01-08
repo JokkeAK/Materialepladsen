@@ -1,6 +1,6 @@
 package com.example.materialepladsenappui.ViewModels
 
-import com.example.materialepladsenappui.Models.CustomersModel
+import com.example.materialepladsenappui.models.CustomersModel
 
 class CustomersViewModel(private val customers: List<CustomersModel>) {
 
