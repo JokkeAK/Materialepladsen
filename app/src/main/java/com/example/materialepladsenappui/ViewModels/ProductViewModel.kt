@@ -2,7 +2,7 @@ package com.example.materialepladsenappui.ViewModels
 
 import ProductModel
 
-
+/*
 class ProductViewModel(private val productModel: ProductModel) {
 
     val productGroup: String
@@ -38,3 +38,5 @@ class ProductViewModel(private val productModel: ProductModel) {
     val productImage: String
         get() = productModel.productImage
 }
+
+ */

@@ -6,6 +6,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -18,13 +20,19 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.example.materialepladsenappui.Database_Connection.DBHelper
-import kotlinx.coroutines.runBlocking
+import com.example.materialepladsenappui.ViewModels.CustomersViewModel
 
 //This composable is the home screen once the user is logged in.
 @Composable
-fun HomePage(navController: NavHostController? = null) {
+fun HomePage(
+    navController: NavHostController? = null,
+    customersViewModel: CustomersViewModel = viewModel()
+) {
+
+    val appUiState by customersViewModel.uiState.collectAsState()
+
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -34,7 +42,7 @@ fun HomePage(navController: NavHostController? = null) {
 
         Header()
 
-        Greeting(name =  "Allan")
+        Greeting(name = appUiState.welcomeFirstName)
 
         Spacer(
             modifier = Modifier
@@ -43,7 +51,7 @@ fun HomePage(navController: NavHostController? = null) {
 
         Image(
             painter = painterResource(id = com.example.materialepladsenappui.R.drawable.mp_logo_big),
-            contentDescription = "materialepladsen logo",
+            contentDescription = "Logo of Materialepladsen",
             modifier = Modifier
                 .size(size = 200.dp)
                 .clip(shape = CircleShape),
@@ -97,7 +105,7 @@ fun Greeting(name: String) {
             .height(3.dp)
     )
     Text(
-        text = "Velkommen, $name",
+        text = stringResource(id = R.string.home_page_welcome)+ " $name",
         color = Color.Black,
         textAlign = TextAlign.Center,
         style = TextStyle(
