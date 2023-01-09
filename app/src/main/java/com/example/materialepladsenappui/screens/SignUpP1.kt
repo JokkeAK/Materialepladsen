@@ -19,14 +19,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import com.example.materialepladsenappui.ViewModels.CustomersViewModel
 
 //This composable shows the different text field a private user needs to enter to create an account.
 @Composable
 public fun SignUpP1(
     navController: NavHostController? = null,
-    appViewModel: ViewModel = viewModel()
+    customersViewModel: CustomersViewModel = viewModel()
 ) {
-    val appUiState by appViewModel.uiState.collectAsState()
+    val appUiState by customersViewModel.uiState.collectAsState()
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -51,47 +52,48 @@ public fun SignUpP1(
 
         Spacer(modifier = Modifier.height(height = 20.dp))
 
-        FullNameTextField(
-            fullNameSignUp = appViewModel.fullNameSignUP,
-            onFullNameSignUpChanged = { appViewModel.updateFullNameSignUp(it) }
+        FirstNameTextField(
+            firstNameSignUp = customersViewModel.firstNameSignUp,
+            onFirstNameSignUpChanged = { customersViewModel.updateFirstNameSignUp(it) }
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
 
-        EmailTextField(
-            emailSignUp = appViewModel.emailSignUP,
-            onEmailSignUpChanged = { appViewModel.updateEmailSignUp(it) }
+        LastNameTextField(
+            lastNameSignUp = customersViewModel.lastNameSignUp,
+            onLastNameSignUpChanged = { customersViewModel.updateLastNameSignUp(it) }
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
+
 
         PhoneNumberTextField(
-            phoneNumberSignUp = appViewModel.phoneNumberSignUp,
-            onPhoneNumberSignUpChanged = { appViewModel.updatePhoneNumberSignUp(it) }
+            phoneNumberSignUp = customersViewModel.phoneNumberSignUp,
+            onPhoneNumberSignUpChanged = { customersViewModel.updatePhoneNumberSignUp(it) }
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
 
         CityTextField(
-            citySignUp = appViewModel.citySignUp,
-            onCitySignUpChanged = { appViewModel.updateCitySignUp(it) }
+            citySignUp = customersViewModel.citySignUp,
+            onCitySignUpChanged = { customersViewModel.updateCitySignUp(it) }
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
 
         ZipTextField(
-            zipSignUp = appViewModel.zipSignUp,
-            onZipSignUpChanged = { appViewModel.updateZipSignUp(it) }
+            zipSignUp = customersViewModel.zipSignUp,
+            onZipSignUpChanged = { customersViewModel.updateZipSignUp(it) }
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
 
         LicensePlateTextField(
-            licensePlateSignUp = appViewModel.licensePlateSignUp,
-            onLicensePlateSignUpChanged = { appViewModel.updateLicensePlateSignUp(it) }
+            licensePlateSignUp = customersViewModel.licensePlateSignUp,
+            onLicensePlateSignUpChanged = { customersViewModel.updateLicensePlateSignUp(it) }
         )
 
-        Spacer(modifier = Modifier.height(height = 20.dp))
+        Spacer(modifier = Modifier.height(height = 15.dp))
 
         BordeauxButton(stringResource(R.string.continue_on), navController, "sign up p2")
 
@@ -101,34 +103,33 @@ public fun SignUpP1(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun FullNameTextField(
-    fullNameSignUp: String,
-    onFullNameSignUpChanged: (String) -> Unit,
+private fun FirstNameTextField(
+    firstNameSignUp: String,
+    onFirstNameSignUpChanged: (String) -> Unit,
 ) {
     TextField(
         modifier = Modifier.width(width = 250.dp),
-        value = fullNameSignUp,
-        onValueChange = onFullNameSignUpChanged,
-        label = { Text(stringResource(R.string.name_full)) },
+        value = firstNameSignUp,
+        onValueChange = onFirstNameSignUpChanged,
+        label = { Text(stringResource(R.string.name_first)) },
         singleLine = true
     )
 }
-
 
 @Composable
-private fun EmailTextField(
-    emailSignUp: String,
-    onEmailSignUpChanged: (String) -> Unit,
+private fun LastNameTextField(
+    lastNameSignUp: String,
+    onLastNameSignUpChanged: (String) -> Unit,
 ) {
-
     TextField(
         modifier = Modifier.width(width = 250.dp),
-        value = emailSignUp,
-        onValueChange = onEmailSignUpChanged,
-        label = { Text(stringResource(R.string.mail)) },
+        value = lastNameSignUp,
+        onValueChange = onLastNameSignUpChanged,
+        label = { Text(stringResource(R.string.name_last)) },
         singleLine = true
     )
 }
+
 
 @Composable
 private fun PhoneNumberTextField(

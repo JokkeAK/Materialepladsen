@@ -6,6 +6,6 @@ data class AppUiState(
     val welcomeFirstName : String = "",
     val isEnteredUsernameWrong: Boolean = false,
     val isEnteredPasswordWrong: Boolean = false,
-    val isSignUpUsernameTaken: Boolean = false,
+    val hasEmailSignUpBeenTaken: Boolean = false,
     val isSignUpPasswordInvalid: Boolean = false
 )

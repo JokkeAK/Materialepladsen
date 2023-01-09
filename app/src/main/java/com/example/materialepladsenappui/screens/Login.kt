@@ -19,14 +19,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import com.example.materialepladsenappui.ViewModels.CustomersViewModel
 
 //This composable is the login page where a new user can go to the sign up page.
 @Composable
 public fun Login(
     navController: NavHostController? = null,
-    appViewModel: ViewModel = viewModel()
+    customersViewModel: CustomersViewModel = viewModel()
 ) {
-    val appUiState by appViewModel.uiState.collectAsState()
+    val appUiState by customersViewModel.uiState.collectAsState()
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -58,17 +59,17 @@ public fun Login(
 
         Spacer(modifier = Modifier.height(height = 20.dp))
 
-        LoginUsernameTextField(
-            username = appViewModel.username,
-            onUsernameChanged = { appViewModel.updateUsername(it) },
-            isUsernameWrong = appUiState.isEnteredUsernameWrong
+        LoginEmailTextField(
+            email = customersViewModel.email,
+            onEmailChanged = { customersViewModel.updateEmail(it) },
+            isEmailWrong = appUiState.isEnteredUsernameWrong
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
 
         LoginPasswordTextField(
-            password = appViewModel.password,
-            onPasswordChanged = { appViewModel.updatePassword(it) },
+            password = customersViewModel.password,
+            onPasswordChanged = { customersViewModel.updatePassword(it) },
             isPasswordWrong = appUiState.isEnteredPasswordWrong
         )
 
@@ -79,29 +80,28 @@ public fun Login(
     }
 }
 
-
-//Composable text field for usernames.
+//Composable text field for emails.
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginUsernameTextField(
-    username: String,
-    onUsernameChanged: (String) -> Unit,
-    isUsernameWrong: Boolean
+fun LoginEmailTextField(
+    email: String,
+    onEmailChanged: (String) -> Unit,
+    isEmailWrong: Boolean
 ) {
 
     TextField(
         modifier = Modifier.width(width = 250.dp),
-        value = username,
-        onValueChange = onUsernameChanged,
+        value = email,
+        onValueChange = onEmailChanged,
         label = {
-            if (isUsernameWrong) {
-                Text(stringResource(R.string.username_wrong))
+            if (isEmailWrong) {
+                Text(stringResource(R.string.email_wrong))
             } else {
-                Text(stringResource(R.string.username))
+                Text(stringResource(R.string.email))
             }
         },
         singleLine = true,
-        isError = isUsernameWrong
+        isError = isEmailWrong
     )
 }
 

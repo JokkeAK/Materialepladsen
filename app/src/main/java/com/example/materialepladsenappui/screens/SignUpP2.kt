@@ -19,14 +19,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import com.example.materialepladsenappui.ViewModels.CustomersViewModel
 
 //This composable shows the different text field a private user needs to enter to create an account.
 @Composable
 public fun SignUpP2(
     navController: NavHostController? = null,
-    appViewModel: ViewModel = viewModel()
+    customersViewModel: CustomersViewModel = viewModel()
 ) {
-    val appUiState by appViewModel.uiState.collectAsState()
+    val appUiState by customersViewModel.uiState.collectAsState()
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -49,15 +50,18 @@ public fun SignUpP2(
         )
 
         Spacer(modifier = Modifier.height(height = 75.dp))
-        SignUpUsernameTextField(
-            usernameSignUp = appViewModel.usernameSignUp,
-            onUsernameSignUpChanged = { appViewModel.updateUsernameSignUp(it) },
-            isUsernameSignUpTaken = appUiState.isSignUpUsernameTaken
+
+        EmailTextField(
+            emailSignUp = customersViewModel.usernameSignUp,
+            onEmailSignUpChanged = { customersViewModel.updateEmailSignUp(it) },
+            hasEmailBeenUsed = appUiState.hasEmailSignUpBeenTaken
         )
+
         Spacer(modifier = Modifier.height(height = 10.dp))
+
         SignUpPasswordTextField(
-            passwordSignUp = appViewModel.passwordSignUp,
-            onPasswordSignUpChanged = { appViewModel.updatePasswordSignUp(it) },
+            passwordSignUp = customersViewModel.passwordSignUp,
+            onPasswordSignUpChanged = { customersViewModel.updatePasswordSignUp(it) },
             isPasswordInvalid = appUiState.isSignUpPasswordInvalid
         )
 
@@ -69,26 +73,29 @@ public fun SignUpP2(
     }
 }
 
+
 @Composable
-fun SignUpUsernameTextField(
-    usernameSignUp: String,
-    onUsernameSignUpChanged: (String) -> Unit,
-    isUsernameSignUpTaken: Boolean
+private fun EmailTextField(
+    emailSignUp: String,
+    onEmailSignUpChanged: (String) -> Unit,
+    hasEmailBeenUsed: Boolean
+
 ) {
 
     TextField(
         modifier = Modifier.width(width = 250.dp),
-        value = usernameSignUp,
-        onValueChange = onUsernameSignUpChanged,
+        value = emailSignUp,
+        onValueChange = onEmailSignUpChanged,
         label = {
-            if (isUsernameSignUpTaken) {
-                Text(stringResource(R.string.username_taken))
+            if (hasEmailBeenUsed) {
+                Text(stringResource(R.string.email_used))
             } else {
-                Text(stringResource(R.string.username))
+                Text(stringResource(R.string.email))
             }
         },
         singleLine = true,
-        isError = isUsernameSignUpTaken
+        isError = hasEmailBeenUsed
+
     )
 }
 

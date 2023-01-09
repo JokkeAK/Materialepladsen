@@ -46,8 +46,7 @@
     LoginPage:
     <string name="new_user">Ny bruger?</string>
     <string name="login">Log ind</string>
-    <string name="username">Brugernavn</string>
-    <string name="username_wrong">Brugernavn er forkert</string>
+    <string name="email_wrong">Emailen er forkert</string>
     <string name="password">Adgangskode</string>
     <string name="password_wrong">Adgangskode er forkert</string>
 
@@ -58,8 +57,8 @@
     <string name="export">Eksportér</string>
 
     SignUpP1:
-    <string name="name_full">Fulde navn</string>
-    <string name="mail">E-mail</string>
+    <string name="name_first">Fornavn</string>
+    <string name="name_last">Efternavn</string>
     <string name="phone">Telefon nr.</string>
     <string name="city">By</string>
     <string name="zip">Postnummer</string>
@@ -69,7 +68,9 @@
     SignUpP2:
     <string name="create_account">Opret bruger</string>
     <string name="password_invalid">Adgangskoden er ugyldig</string>
-    <string name="username_taken">Brugernavnet er taget</string>
+    <string name="email_used">Emailen er blevet brugt</string>
+    <string name="email">E-mail</string>
+
 
     StartingWeightPage:
     <string name="start_weight">Din startvægt er: </string>
