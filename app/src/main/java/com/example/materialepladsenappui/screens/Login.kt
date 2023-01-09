@@ -23,7 +23,7 @@ import com.example.materialepladsenappui.ViewModels.CustomersViewModel
 
 //This composable is the login page where a new user can go to the sign up page.
 @Composable
-public fun Login(
+fun Login(
     navController: NavHostController? = null,
     customersViewModel: CustomersViewModel = viewModel()
 ) {
@@ -62,7 +62,7 @@ public fun Login(
         LoginEmailTextField(
             email = customersViewModel.email,
             onEmailChanged = { customersViewModel.updateEmail(it) },
-            isEmailWrong = appUiState.isEnteredUsernameWrong
+            isEmailWrong = appUiState.isEnteredEmailWrong
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))

@@ -35,7 +35,6 @@ public fun SignUpP1(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-
         Spacer(
             modifier = Modifier
                 .height(height = 30.dp)
@@ -49,8 +48,7 @@ public fun SignUpP1(
             contentScale = ContentScale.Fit
         )
 
-
-        Spacer(modifier = Modifier.height(height = 20.dp))
+        Spacer(modifier = Modifier.height(height = 15.dp))
 
         FirstNameTextField(
             firstNameSignUp = customersViewModel.firstNameSignUp,

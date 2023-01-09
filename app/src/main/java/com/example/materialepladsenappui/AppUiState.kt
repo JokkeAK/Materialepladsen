@@ -4,7 +4,7 @@ package com.example.materialepladsenappui
 data class AppUiState(
     //The first name that is greeted at the home screen
     val welcomeFirstName : String = "",
-    val isEnteredUsernameWrong: Boolean = false,
+    val isEnteredEmailWrong: Boolean = false,
     val isEnteredPasswordWrong: Boolean = false,
     val hasEmailSignUpBeenTaken: Boolean = false,
     val isSignUpPasswordInvalid: Boolean = false

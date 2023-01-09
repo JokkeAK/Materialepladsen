@@ -109,15 +109,15 @@ class CustomersViewModel : ViewModel() {
     }
 
 
-    //Checks whether login username is correct or not
-    fun checkUsername() {
-        //Username is correct
+    //Checks whether login email is correct or not
+    fun checkEmail() {
+        //Email is correct
         if (true /*TODO need to make a check to see if username is correct */) {
         }
-        //Username is wrong
+        //Email is wrong
         else {
             _uiState.update { currentState ->
-                currentState.copy(isEnteredUsernameWrong = true)
+                currentState.copy(isEnteredEmailWrong = true)
             }
         }
     }

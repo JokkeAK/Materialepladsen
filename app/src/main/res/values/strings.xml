@@ -48,7 +48,7 @@
     <string name="login">Log ind</string>
     <string name="email_wrong">Emailen er forkert</string>
     <string name="password">Adgangskode</string>
-    <string name="password_wrong">Adgangskode er forkert</string>
+    <string name="password_wrong">Adgangskoden er forkert</string>
 
     OrderHistoryPage:
     <string name="receipts" tools:ignore="ExtraTranslation">Kvitteringer</string>
