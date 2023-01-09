@@ -1,21 +1,24 @@
 package com.example.materialepladsenappui.models
 
+import java.math.BigDecimal
+import java.util.Date
+
 data class OrdersModel(
-    val orderID: Long,
-    val orderNumber: String,
-    val siteID: Long,
+    val orderID: Int,
+    val orderNumber: Int,
+    val siteID: Int,
     val siteName: String,
-    val typeID: Long,
+    val typeID: Int,
     val typeName: String,
-    val stateID: Long,
+    val stateID: Int,
     val state: String,
-    val created: String,
-    val closed: String,
-    val visitTime: String,
-    val weightIn: Double,
-    val weightOut: Double,
+    val created: Date,
+    val closed: Date,
+    val visitTime: Int,
+    val weightIn: Int,
+    val weightOut: Int,
     val paymentMethod: String,
-    val paymentPriceInVAT: Double,
-    val paymentPriceExVAT: Double,
-    val paymentPriceVAT: Double
+    val paymentPriceInVAT: BigDecimal,
+    val paymentPriceExVAT: BigDecimal,
+    val paymentPriceVAT: BigDecimal
 )

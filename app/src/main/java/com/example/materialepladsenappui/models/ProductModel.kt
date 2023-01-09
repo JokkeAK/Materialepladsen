@@ -1,15 +1,15 @@
-package com.example.materialepladsenappui.models
+import java.math.BigDecimal
 
 data class ProductModel(
     val productGroup: String,
-    val id: Long,
+    val id: Int,
     val productArticleNumber: String,
     val productArticleName: String,
     val productSize: String,
-    val productWeight: Double,
-    val productPriceExTAX: Double,
-    val productPriceInTAX: Double,
+    val productWeight: Int,
+    val productPriceExTAX: BigDecimal,
+    val productPriceInTAX: BigDecimal,
     val unit: String,
-    val availability: Boolean,
+    val availability: String,
     val productImage: String
 )
