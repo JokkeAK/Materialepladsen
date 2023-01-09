@@ -7,6 +7,7 @@
     <string name="mm">mm </string>
 
     HomePage:
+    <string name="home_page_welcome">Velkommen,</string>
     <string name="home_page_buy1">Køb på plads</string>
     <string name="home_page_buy2">Køb online</string>
     <string name="home_page_calc">Udregn forbrug</string>
