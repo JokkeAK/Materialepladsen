@@ -15,8 +15,8 @@ class JsonDeserializer {
 
         val data = webPage.readText()
 
-       // val gson = Gson()
-       // val td = gson.fromJson(data)
+        val gson = Gson()
+        val td = gson.fromJson(data,OrdersModel ::class.java )
 
         Log.i("JSONTEST", data)
 
