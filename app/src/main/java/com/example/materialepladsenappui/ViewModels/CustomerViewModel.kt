@@ -161,6 +161,10 @@ class CustomersViewModel : ViewModel() {
         }
     }
 
+    fun CreateCustomer(){
+
+    }
+
 
 
 
