@@ -1,8 +1,10 @@
 package com.example.materialepladsenappui.Models
 
+import java.util.Date
+
 data class CustomersModel(
-    val customerNumber: Long,
-    val customerGUID: String,
+    val customerNumber: Int,
+    val customerGUID: Int,
     val customerFirstName: String,
     val customerLastName: String,
     val customerAddress: String,
@@ -14,11 +16,11 @@ data class CustomersModel(
     val customerPassword: String,
     val cardNumber: String,
     val licensplate: String,
-    val created: String,
-    val createdBy: String,
-    val modified: String,
+    val created: Date,
+    val createdBy: Date,
+    val modified: Date,
     val modifiedBy: String,
-    val archived: Boolean,
+    val archived: Date,
     val archivedBy: String
 )
 
