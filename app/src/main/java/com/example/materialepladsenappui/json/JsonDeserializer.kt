@@ -3,64 +3,66 @@ package com.example.materialepladsenappui.json
 import android.util.Log
 import com.example.materialepladsenappui.models.OrdersModel
 import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import com.google.gson.annotations.SerializedName
 import java.net.URL
-import java.util.*
 
-data class OrderOngoing(
-    @SerializedName("Created") var Created: String,
-    @SerializedName("Closed") var Closed: String,
-    @SerializedName("Site") var Site: String,
-    @SerializedName("SiteId") var SiteId: Int,
-    @SerializedName("TypeId") var TypeId: Int,
-    @SerializedName("Licenseplate") var Licenseplate: String,
-    @SerializedName("WeightUnit") var WeightUnit: String = "Kg.",
-    @SerializedName("WeightIn") var WeightIn: Int,
-    @SerializedName("WeightOut") var WeightProduct: Int,
-    @SerializedName("OrderNumber") var OrderNumber: Int,
-    @SerializedName("CustomerId") var CustomerId: Int,
-    @SerializedName("Description") var Description: String,
-    @SerializedName("ErrCode") var ErrCode: Int,
-    @SerializedName("QueueStateId") var QueueStateId: Int,
+// a small helper dataclasss to keep see whether the barrier was opened succesfully
+// it corresponds to the Json object returned by the webservice
+data class Barrier(
+    @SerializedName("Description") var desc: String,
+    @SerializedName("ErrCode") var errcode: String,
+    @SerializedName("Command") var command: String,
+    @SerializedName("CommandGuid") var cmdGUID: Int,
 
     )
-data class test(
-    var number: Int
-)
 
+//our main class for http calls to the webservice
 class JsonDeserializer {
+    //makes a new order
     fun requestNewOrder(CustomerId: Int, Licenseplate: String): OrdersModel? {
 
         val webPage = URL(
             "http://152.115.71.190:41000/?user=DTUMP2&password=mxDEKrZ8c2&request=EC02E425-B6BD-4D82-A9A2-F58507385B41&type=requestOrderNew&customerid=$CustomerId&licenseplate=$Licenseplate"
         )
         val data = webPage.readText()
-        Log.i("JSON", data)
+
         val gson = Gson()
-       return gson.fromJson(data, OrdersModel::class.java)
+        return gson.fromJson(data, OrdersModel::class.java)
 
 
     }
-    fun requestWeight(CustomerId: Int, Licenseplate: String, OrderNumber: Int): OrdersModel?{
-        val webPage =URL(
-            "http:// 152.115.71.190:41000/?user=DTUMP2&password=mxDEKrZ8c2&request=412084F3-98C2-48BA-A322-5CFDCD4E5410&type=requestOrderWeighing&customerid=$CustomerId&licenseplate=$Licenseplate&ordernumber=$OrderNumber"
+
+    fun requestWeight(CustomerId: Int, Licenseplate: String, OrderNumber: Int): OrdersModel? {
+        val webPage = URL(
+            "http://152.115.71.190:41000/?user=DTUMP2&password=mxDEKrZ8c2&request=412084F3-98C2-48BA-A322-5CFDCD4E5410&type=requestOrderWeighing&customerid=$CustomerId&licenseplate=$Licenseplate&ordernumber=$OrderNumber"
         )
         val data = webPage.readText()
-        Log.i("JSON", data)
+
         val gson = Gson()
-      val  weight = gson.fromJson(data, OrdersModel::class.java)
-        Log.i("JSON", weight.toString())
-        return weight
+
+        return gson.fromJson(data, OrdersModel::class.java)
 
     }
-    fun requestPayment(){
 
-    }
-    fun requestBarrier(){
+    fun requestPayment(CustomerId: Int, Licenseplate: String, OrderNumber: Int): OrdersModel? {
+        val webPage = URL(
+            "http://152.115.71.190:41000/?user=DTUMP2&password=mxDEKrZ8c2&request=DCA382A0-F943-4A76-AE8ECF894E2B2A7B& type=requestOrderPayment&customerid=$CustomerId&licenseplate=$Licenseplate&order number=$OrderNumber"
+        )
+        val gson = Gson()
+        val data = webPage.readText()
 
+
+        return gson.fromJson(data, OrdersModel::class.java)
     }
-    fun requestweight(){
+
+    fun requestBarrier(SiteId: Int): Barrier? {
+        val webPage = URL(
+            "http://152.115.71.190:41000/?user=DTUMP2&password=mxDEKrZ8c2&&type=requestIOCbarrier&request=79F" +
+                    "D22F6-66DD-4249-810C-839C28130C11&site=$SiteId"
+        )
+        val gson = Gson()
+        val data = webPage.readText()
+        return gson.fromJson(data, Barrier::class.java)
 
     }
 }
