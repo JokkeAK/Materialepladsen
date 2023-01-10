@@ -2,6 +2,7 @@ package com.example.materialepladsenappui.models
 
 import java.util.Date
 
+
 data class Customer(
     val customerNumber: Int?,
     val customerGUID: Int?,

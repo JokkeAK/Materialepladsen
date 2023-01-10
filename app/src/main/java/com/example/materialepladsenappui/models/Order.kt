@@ -2,6 +2,7 @@ package com.example.materialepladsenappui.models
 
 import com.google.gson.annotations.SerializedName
 
+
 data class Order(
     @SerializedName("Created") var Created: String,
     @SerializedName("Closed") var Closed: String,
