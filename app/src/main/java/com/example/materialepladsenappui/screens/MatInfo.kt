@@ -63,7 +63,7 @@ fun MatInfo(
 
         Spacer(modifier = Modifier.height(15.dp))
 
-        BordeauxButton(text = stringResource(R.string.continue_weigh), navController, "order page")
+        BordeauxButton(text = stringResource(R.string.continue_weigh), navController, "order page"){}
 
     }
 }

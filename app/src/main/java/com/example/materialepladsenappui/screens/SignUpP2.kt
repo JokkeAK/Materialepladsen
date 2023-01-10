@@ -19,13 +19,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.example.materialepladsenappui.ViewModels.CustomersViewModel
+import androidx.navigation.compose.rememberNavController
+import com.example.materialepladsenappui.ViewModels.CustomerViewModel
 
 //This composable shows the different text field a private user needs to enter to create an account.
 @Composable
 public fun SignUpP2(
     navController: NavHostController? = null,
-    customersViewModel: CustomersViewModel = viewModel()
+    customersViewModel: CustomerViewModel
 ) {
     val appUiState by customersViewModel.uiState.collectAsState()
 
@@ -52,7 +53,7 @@ public fun SignUpP2(
         Spacer(modifier = Modifier.height(height = 75.dp))
 
         EmailTextField(
-            emailSignUp = customersViewModel.usernameSignUp,
+            emailSignUp = customersViewModel.emailSignUp,
             onEmailSignUpChanged = { customersViewModel.updateEmailSignUp(it) },
             hasEmailBeenUsed = appUiState.hasEmailSignUpBeenTaken
         )
@@ -68,20 +69,21 @@ public fun SignUpP2(
         Spacer(modifier = Modifier.height(height = 75.dp))
 
 
-        BordeauxButton(stringResource(R.string.create_account), navController, "home")
+        BordeauxButton(stringResource(R.string.create_account), navController, "home") {
+            customersViewModel.CreateCustomer()
+        }
 
     }
 }
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun EmailTextField(
     emailSignUp: String,
     onEmailSignUpChanged: (String) -> Unit,
     hasEmailBeenUsed: Boolean
-
 ) {
-
     TextField(
         modifier = Modifier.width(width = 250.dp),
         value = emailSignUp,
@@ -125,5 +127,7 @@ fun SignUpPasswordTextField(
 @Preview(showBackground = true)
 @Composable
 fun SignUpP2Preview() {
-    SignUpP2()
+    val navController = rememberNavController()
+    val customerViewModel: CustomerViewModel = viewModel()
+    SignUpP2(navController,customerViewModel)
 }

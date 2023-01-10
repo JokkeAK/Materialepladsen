@@ -22,13 +22,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.example.materialepladsenappui.ViewModels.CustomersViewModel
+import com.example.materialepladsenappui.ViewModels.CustomerViewModel
 
 //This composable is the home screen once the user is logged in.
 @Composable
 fun HomePage(
     navController: NavHostController? = null,
-    customersViewModel: CustomersViewModel = viewModel()
+    customersViewModel: CustomerViewModel = viewModel()
 ) {
 
     val appUiState by customersViewModel.uiState.collectAsState()
@@ -68,7 +68,7 @@ fun HomePage(
             text = stringResource(com.example.materialepladsenappui.R.string.home_page_buy1),
             navController,
             "starting weight",
-        )
+        ){}
 
         Spacer(
             modifier = Modifier
@@ -78,7 +78,7 @@ fun HomePage(
         BordeauxButton(
             text = stringResource(com.example.materialepladsenappui.R.string.home_page_buy2),
             navController
-        )
+        ){}
         Spacer(
             modifier = Modifier
                 .height(height = 24.dp)
@@ -87,7 +87,7 @@ fun HomePage(
         BordeauxButton(
             text = stringResource(com.example.materialepladsenappui.R.string.home_page_calc),
             navController
-        )
+        ){}
 
 
     }

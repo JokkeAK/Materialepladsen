@@ -1,5 +1,12 @@
 package com.example.materialepladsenappui.ViewModels
 
+import androidx.lifecycle.ViewModel
+
+class ProductViewModel : ViewModel() {
+
+}
+
+
 /*
 class ProductViewModel(private val productModel: ProductModel) {
 

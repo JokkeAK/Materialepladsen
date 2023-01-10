@@ -5,14 +5,17 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import com.example.materialepladsenappui.AppUiState
 import androidx.lifecycle.ViewModel
+import com.example.materialepladsenappui.Database_Connection.DBHelper
+import com.example.materialepladsenappui.Models.Customer
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import java.util.*
 
 
 // ViewModel containing the app data and methods to process the data related to the customer
-class CustomersViewModel : ViewModel() {
+class CustomerViewModel : ViewModel() {
 
     // Game UI state
     private val _uiState = MutableStateFlow(AppUiState())
@@ -23,6 +26,9 @@ class CustomersViewModel : ViewModel() {
     //val customerList: List<CustomersModel>
        // get() = customers
 
+    val dbhelper = DBHelper()
+
+    //val customer: Customer = Customer(0,0,"","","","","","","","","","","",Date(),Date(), Date(),"",Date(),"")
 
     var email by mutableStateOf("")
     var password by mutableStateOf("")
@@ -30,12 +36,11 @@ class CustomersViewModel : ViewModel() {
 
     var firstNameSignUp by mutableStateOf("")
     var lastNameSignUp by mutableStateOf("")
-    var emailSignUp by mutableStateOf("")
     var phoneNumberSignUp by mutableStateOf("")
     var citySignUp by mutableStateOf("")
     var zipSignUp by mutableStateOf("")
     var licensePlateSignUp by mutableStateOf("")
-    var usernameSignUp by mutableStateOf("")
+    var emailSignUp by mutableStateOf("")
     var passwordSignUp by mutableStateOf("")
 
 
@@ -53,7 +58,7 @@ class CustomersViewModel : ViewModel() {
     }
 
 
-    //Update the login username.
+    //Update the login E-mail.
     fun updateEmail(newEmail: String) {
         email = newEmail
     }
@@ -61,11 +66,6 @@ class CustomersViewModel : ViewModel() {
     //Update the login password.
     fun updatePassword(newPassword: String) {
         password = newPassword
-    }
-
-    //Update the sign up username.
-    fun updateUsernameSignUp(newUsernameSignUp: String) {
-        usernameSignUp = newUsernameSignUp
     }
 
     //Update the sign up password.
@@ -159,6 +159,12 @@ class CustomersViewModel : ViewModel() {
                 currentState.copy(isSignUpPasswordInvalid = true)
             }
         }
+    }
+
+    fun CreateCustomer() {
+        firstNameSignUp
+        val customer: Customer = Customer(0,0,firstNameSignUp,lastNameSignUp,null, zipSignUp, citySignUp,phoneNumberSignUp,phoneNumberSignUp,emailSignUp,passwordSignUp,null,licensePlateSignUp,Date(),"AppSignUpMP2", Date(),"",Date(),"")
+        dbhelper.createCustomer(customer)
     }
 
 

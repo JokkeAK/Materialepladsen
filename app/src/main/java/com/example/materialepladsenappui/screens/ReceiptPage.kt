@@ -68,7 +68,7 @@ fun Receipt(
                 .height(height = 32.dp)
         )
 
-        BordeauxButton(stringResource(R.string.export), navController)
+        BordeauxButton(stringResource(R.string.export), navController){}
     }
 }
 
