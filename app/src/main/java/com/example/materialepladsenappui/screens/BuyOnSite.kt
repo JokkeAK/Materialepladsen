@@ -1,6 +1,8 @@
 package com.example.materialepladsenappui
 
 
+import android.graphics.BitmapFactory
+import android.widget.ImageView
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -20,6 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import coil.compose.AsyncImage
 
 //This composable shows the materials that can be purchased at the user's location.
 @Composable
@@ -94,7 +97,7 @@ fun BoldText(str: String) {
 fun BuyCard(
     navController: NavHostController? = null,
     route: String = "home"
-) {
+){
 
 
     Card(
@@ -108,6 +111,15 @@ fun BuyCard(
         ) {
 
         Column(horizontalAlignment = CenterHorizontally) {
+            AsyncImage(
+                model = "https://www.materialepladsen.dk/images/productimages/Asfaltknust0-20mm_7e084a14-673f-430c-a7de-739474b6d113.jpg",
+                contentDescription = "Mat photo",
+                modifier = Modifier
+                    .size(size = 85.dp)
+                    .clip(shape = RectangleShape),
+                contentScale = ContentScale.Fit
+            )
+            /*
             Image(
                 painter = painterResource(id = R.drawable.mp_logo_big),
                 contentDescription = "Materialepladsen logo",
@@ -116,6 +128,7 @@ fun BuyCard(
                     .clip(shape = RectangleShape),
                 contentScale = ContentScale.Fit
             )
+             */
             Spacer(modifier = Modifier.height(3.dp))
             Text("Navn")
             Spacer(modifier = Modifier.height(3.dp))
