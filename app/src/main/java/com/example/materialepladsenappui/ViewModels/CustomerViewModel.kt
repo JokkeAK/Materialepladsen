@@ -161,9 +161,9 @@ class CustomerViewModel : ViewModel() {
         }
     }
 
+    //Getting a customer from the view input to update the database
     fun CreateCustomer() {
-        firstNameSignUp
-        val customer: Customer = Customer(0,0,firstNameSignUp,lastNameSignUp,null, zipSignUp, citySignUp,phoneNumberSignUp,phoneNumberSignUp,emailSignUp,passwordSignUp,null,licensePlateSignUp,Date(),"AppSignUpMP2", Date(),"",Date(),"")
+        val customer: Customer = Customer(null,null,firstNameSignUp,lastNameSignUp,null, zipSignUp, citySignUp,phoneNumberSignUp,phoneNumberSignUp,emailSignUp,passwordSignUp,null,licensePlateSignUp,null,null, null,null,null,null)
         dbhelper.createCustomer(customer)
     }
 
