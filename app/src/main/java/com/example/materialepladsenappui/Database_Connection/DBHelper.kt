@@ -3,7 +3,7 @@ package com.example.materialepladsenappui.Database_Connection
 import android.content.ContentValues.TAG
 import android.nfc.Tag
 import android.util.Log
-import com.example.materialepladsenappui.Models.Customer
+import com.example.materialepladsenappui.models.Customer
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.sql.Connection

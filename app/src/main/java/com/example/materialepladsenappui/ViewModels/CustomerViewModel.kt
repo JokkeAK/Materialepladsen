@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import com.example.materialepladsenappui.AppUiState
 import androidx.lifecycle.ViewModel
 import com.example.materialepladsenappui.Database_Connection.DBHelper
-import com.example.materialepladsenappui.Models.Customer
+import com.example.materialepladsenappui.models.Customer
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import com.example.composenavigation.ui.MainContent
 import com.example.materialepladsenappui.Database_Connection.DBHelper
 import android.util.Log
+import com.example.materialepladsenappui.json.JsonDeserializer
 import kotlinx.coroutines.*
 
 
@@ -17,7 +18,9 @@ class MainActivity : ComponentActivity() {
         GlobalScope.async {
             val dbhelper = DBHelper()
             Log.i("hello", "main:ahhhhhhhhhhhh ")
-            dbhelper.Select() }
+            dbhelper.Select()
+        }
+
 
         setContent {
             MainContent()
