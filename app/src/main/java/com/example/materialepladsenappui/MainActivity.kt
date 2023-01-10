@@ -19,8 +19,8 @@ class MainActivity : ComponentActivity() {
             val dbhelper = DBHelper()
             Log.i("hello", "main:ahhhhhhhhhhhh ")
             dbhelper.Select()
-            val json = JsonDeserializer()
-            json.test() }
+        }
+
 
         setContent {
             MainContent()
