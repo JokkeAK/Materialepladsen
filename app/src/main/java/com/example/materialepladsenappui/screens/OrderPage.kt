@@ -64,14 +64,14 @@ fun OrderPage(
         )
 
         //The buttons to continue the flow.
-        BordeauxButton(text = stringResource(R.string.order_more), navController, "buy on site")
+        BordeauxButton(text = stringResource(R.string.order_more), navController, "buy on site"){}
 
         Spacer(
             modifier = Modifier
                 .height(height = 20.dp)
         )
 
-        BordeauxButton(text = stringResource(R.string.pay), navController, "payment")
+        BordeauxButton(text = stringResource(R.string.pay), navController, "payment"){}
 
     }
 

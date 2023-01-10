@@ -64,7 +64,7 @@ public fun StartingWeight(weight: Int, navController: NavHostController? = null)
                 Spacer(modifier = Modifier.height(height = 40.dp))
 
 
-                BordeauxButton(stringResource(R.string.continue_on), navController, "buy on site")
+                BordeauxButton(stringResource(R.string.continue_on), navController, "buy on site"){}
 
             }
         }

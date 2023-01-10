@@ -9,10 +9,12 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.materialepladsenappui.*
+import com.example.materialepladsenappui.ViewModels.CustomerViewModel
 
 //The content of the app with all of the possible screens as composables with their defined routes.
 @OptIn(ExperimentalMaterial3Api::class)
@@ -20,6 +22,7 @@ import com.example.materialepladsenappui.*
 @Composable
 fun MainContent() {
     val navController = rememberNavController()
+    val customerViewModel: CustomerViewModel = viewModel()
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -52,10 +55,10 @@ fun MainContent() {
                     Login(navController)
                 }
                 composable("sign up p1") {
-                    SignUpP1(navController)
+                    SignUpP1(navController, customerViewModel)
                 }
                 composable("sign up p2") {
-                    SignUpP2(navController)
+                    SignUpP2(navController, customerViewModel)
                 }
                 composable("order history") {
                     OrderHistory(navController)

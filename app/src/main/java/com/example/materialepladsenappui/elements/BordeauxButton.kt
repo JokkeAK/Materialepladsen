@@ -25,9 +25,11 @@ fun BordeauxButton(
     text: String,
     navController: NavHostController? = null,
     route: String = "home",
+    onClick:() -> Unit
 ) {
     Button(
-        onClick = { navController?.navigate(route) },
+        onClick = { navController?.navigate(route)
+                  onClick() },
         modifier = Modifier
             .width(width = 260.dp)
             .height(height = 45.dp),
