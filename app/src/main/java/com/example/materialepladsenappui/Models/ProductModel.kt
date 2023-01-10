@@ -11,5 +11,6 @@ data class ProductModel(
     val productPriceInTAX: BigDecimal,
     val unit: String,
     val availability: String,
-    val productImage: String
+    val productImage: String,
+    val productDescription : String
 )
