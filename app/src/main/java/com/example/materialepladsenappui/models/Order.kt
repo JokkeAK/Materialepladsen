@@ -1,24 +1,20 @@
-package com.example.materialepladsenappui.Models
+package com.example.materialepladsenappui.models
 
-import java.math.BigDecimal
-import java.util.Date
+import com.google.gson.annotations.SerializedName
 
 data class Order(
-    val orderID: Int,
-    val orderNumber: Int,
-    val siteID: Int,
-    val siteName: String,
-    val typeID: Int,
-    val typeName: String,
-    val stateID: Int,
-    val state: String,
-    val created: Date,
-    val closed: Date,
-    val visitTime: Int,
-    val weightIn: Int,
-    val weightOut: Int,
-    val paymentMethod: String,
-    val paymentPriceInVAT: BigDecimal,
-    val paymentPriceExVAT: BigDecimal,
-    val paymentPriceVAT: BigDecimal
+    @SerializedName("Created") var Created: String,
+    @SerializedName("Closed") var Closed: String,
+    @SerializedName("Site") var Site: String,
+    @SerializedName("SiteId") var SiteId: Int,
+    @SerializedName("TypeId") var TypeId: Int,
+    @SerializedName("Licenseplate") var Licenseplate: String,
+    @SerializedName("WeightUnit") var WeightUnit: String = "Kg.",
+    @SerializedName("WeightIn") var WeightIn: Int,
+    @SerializedName("WeightOut") var WeightProduct: Int,
+    @SerializedName("OrderNumber") var OrderNumber: Int,
+    @SerializedName("CustomerId") var CustomerId: Int,
+    @SerializedName("Description") var Description: String,
+    @SerializedName("ErrCode") var ErrCode: Int,
+    @SerializedName("QueueStateId") var QueueStateId: Int,
 )

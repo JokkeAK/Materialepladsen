@@ -1,4 +1,4 @@
-package com.example.materialepladsenappui.Models
+package com.example.materialepladsenappui.models
 
 import java.util.Date
 
