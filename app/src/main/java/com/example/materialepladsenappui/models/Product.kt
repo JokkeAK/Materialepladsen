@@ -1,6 +1,6 @@
 import java.math.BigDecimal
 
-data class ProductModel(
+data class Product(
     val productGroup: String,
     val id: Int,
     val productArticleNumber: String,
@@ -11,5 +11,6 @@ data class ProductModel(
     val productPriceInTAX: BigDecimal,
     val unit: String,
     val availability: String,
-    val productImage: String
+    val productImage: String,
+    val productDescription : String
 )
