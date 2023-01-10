@@ -3,7 +3,7 @@ package com.example.materialepladsenappui.Models
 import java.math.BigDecimal
 import java.util.Date
 
-data class OrdersModel(
+data class Order(
     val orderID: Int,
     val orderNumber: Int,
     val siteID: Int,
