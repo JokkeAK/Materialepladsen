@@ -1,7 +1,5 @@
 package com.example.materialepladsenappui.ViewModels
 
-import ProductModel
-
 /*
 class ProductViewModel(private val productModel: ProductModel) {
 
