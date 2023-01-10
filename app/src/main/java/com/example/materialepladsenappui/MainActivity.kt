@@ -19,6 +19,10 @@ class MainActivity : ComponentActivity() {
             val dbhelper = DBHelper()
             Log.i("hello", "main:ahhhhhhhhhhhh ")
             dbhelper.Select()
+
+          val json =  JsonDeserializer()
+            json.requestNewOrder(12541,"dsdfghjkl")
+            json.requestWeight(12541,"BB11345",2000014)
         }
 
 

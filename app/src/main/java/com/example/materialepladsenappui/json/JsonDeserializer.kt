@@ -30,17 +30,37 @@ data class test(
 )
 
 class JsonDeserializer {
-    fun newOrder(Licenseplate: String, CustomerId: Int): OrdersModel? {
+    fun requestNewOrder(CustomerId: Int, Licenseplate: String): OrdersModel? {
 
         val webPage = URL(
             "http://152.115.71.190:41000/?user=DTUMP2&password=mxDEKrZ8c2&request=EC02E425-B6BD-4D82-A9A2-F58507385B41&type=requestOrderNew&customerid=$CustomerId&licenseplate=$Licenseplate"
         )
         val data = webPage.readText()
+        Log.i("JSON", data)
         val gson = Gson()
-        val order = gson.fromJson(data, OrdersModel::class.java)
-        Log.i("JSON", order.toString())
-       return order
+       return gson.fromJson(data, OrdersModel::class.java)
 
+
+    }
+    fun requestWeight(CustomerId: Int, Licenseplate: String, OrderNumber: Int): OrdersModel?{
+        val webPage =URL(
+            "http:// 152.115.71.190:41000/?user=DTUMP2&password=mxDEKrZ8c2&request=412084F3-98C2-48BA-A322-5CFDCD4E5410&type=requestOrderWeighing&customerid=$CustomerId&licenseplate=$Licenseplate&ordernumber=$OrderNumber"
+        )
+        val data = webPage.readText()
+        Log.i("JSON", data)
+        val gson = Gson()
+      val  weight = gson.fromJson(data, OrdersModel::class.java)
+        Log.i("JSON", weight.toString())
+        return weight
+
+    }
+    fun requestPayment(){
+
+    }
+    fun requestBarrier(){
+
+    }
+    fun requestweight(){
 
     }
 }
