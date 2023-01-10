@@ -43,7 +43,7 @@ class JsonDeserializer {
         return gson.fromJson(data, OrdersModel::class.java)
 
     }
-
+// function for getting the payment
     fun requestPayment(CustomerId: Int, Licenseplate: String, OrderNumber: Int): OrdersModel? {
         val webPage = URL(
             "http://152.115.71.190:41000/?user=DTUMP2&password=mxDEKrZ8c2&request=DCA382A0-F943-4A76-AE8ECF894E2B2A7B& type=requestOrderPayment&customerid=$CustomerId&licenseplate=$Licenseplate&order number=$OrderNumber"
