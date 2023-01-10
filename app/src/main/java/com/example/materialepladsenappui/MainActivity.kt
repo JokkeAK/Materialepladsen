@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
             Log.i("hello", "main:ahhhhhhhhhhhh ")
             dbhelper.Select()
             val json = JsonDeserializer()
-            json.test()}
+            json.test() }
 
         setContent {
             MainContent()
