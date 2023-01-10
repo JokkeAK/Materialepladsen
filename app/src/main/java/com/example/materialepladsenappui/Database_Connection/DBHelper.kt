@@ -3,7 +3,7 @@ package com.example.materialepladsenappui.Database_Connection
 import android.content.ContentValues.TAG
 import android.nfc.Tag
 import android.util.Log
-import com.example.materialepladsenappui.Models.CustomersModel
+import com.example.materialepladsenappui.Models.Customer
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.sql.Connection
@@ -27,7 +27,7 @@ class DBHelper {
         conn?.close()
     }
 
-    fun createCustomer(customersModel: CustomersModel){
+    fun createCustomer(customer: Customer){
         // Create a DatabaseConnection object and get a connection
         val conn = getConn()
 
@@ -39,17 +39,17 @@ class DBHelper {
                 " @output_exceptionMessage nvarchar(1000)\n" +
                 "\n" +
                 "EXEC @return_value = [dbo].[usp_customer_add] \n" +
-                "@input_customer_firstName = N'${customersModel.customerFirstName}',\n" +
-                " @input_customer_lastName = N'${customersModel.customerLastName}',\n" +
+                "@input_customer_firstName = N'${customer.customerFirstName}',\n" +
+                " @input_customer_lastName = N'${customer.customerLastName}',\n" +
                 " @input_customer_address = NULL,\n" +
-                " @input_customer_postalcode = N'${customersModel.customerPostalcode}',\n" +
-                " @input_customer_city = N'${customersModel.customerCity}',\n" +
-                " @input_customer_phone = N'${customersModel.customerPhone}',\n" +
-                " @input_customer_mobile = N'${customersModel.customerMobile}',\n" +
-                " @input_customer_email = N'${customersModel.customerEmail}',\n" +
-                " @input_customer_password = N'${customersModel.customerPassword}',\n" +
+                " @input_customer_postalcode = N'${customer.customerPostalcode}',\n" +
+                " @input_customer_city = N'${customer.customerCity}',\n" +
+                " @input_customer_phone = N'${customer.customerPhone}',\n" +
+                " @input_customer_mobile = N'${customer.customerMobile}',\n" +
+                " @input_customer_email = N'${customer.customerEmail}',\n" +
+                " @input_customer_password = N'${customer.customerPassword}',\n" +
                 " @input_customer_cardtag = N'NULL',\n" +
-                " @input_customer_licensplate = N'${customersModel.licensplate}',\n" +
+                " @input_customer_licensplate = N'${customer.licensplate}',\n" +
                 " @output_customer_number = @output_customer_number OUTPUT,\n" +
                 " @output_customer_guid = @output_customer_guid OUTPUT,\n" +
                 " @output_customer_cardNumber = @output_customer_cardNumber OUTPUT,\n" +

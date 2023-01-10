@@ -39,15 +39,15 @@ public fun Payment(licensePlate: String, navController: NavHostController? = nul
 
         Spacer(modifier = Modifier.height(height = 50.dp))
 
-        BordeauxButton(text = stringResource(R.string.betaling_plate), navController)
+        BordeauxButton(text = stringResource(R.string.betaling_plate), navController){}
 
         Spacer(modifier = Modifier.height(height = 25.dp))
 
-        BordeauxButton(text = stringResource(R.string.betaling_kort), navController)
+        BordeauxButton(text = stringResource(R.string.betaling_kort), navController){}
 
         Spacer(modifier = Modifier.height(height = 25.dp))
 
-        BordeauxButton(text = stringResource(R.string.betaling_mobile), navController)
+        BordeauxButton(text = stringResource(R.string.betaling_mobile), navController){}
 
         Spacer(modifier = Modifier.height(height = 50.dp))
 

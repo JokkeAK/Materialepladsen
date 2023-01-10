@@ -19,13 +19,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.example.materialepladsenappui.ViewModels.CustomersViewModel
+import com.example.materialepladsenappui.ViewModels.CustomerViewModel
 
 //This composable is the login page where a new user can go to the sign up page.
 @Composable
 fun Login(
     navController: NavHostController? = null,
-    customersViewModel: CustomersViewModel = viewModel()
+    customersViewModel: CustomerViewModel = viewModel()
 ) {
     val appUiState by customersViewModel.uiState.collectAsState()
 
@@ -54,7 +54,7 @@ fun Login(
         )
 
 
-        BordeauxButton(text = stringResource(R.string.new_user), navController, "sign up p1")
+        BordeauxButton(text = stringResource(R.string.new_user), navController, "sign up p1"){}
 
 
         Spacer(modifier = Modifier.height(height = 20.dp))
@@ -75,7 +75,7 @@ fun Login(
 
         Spacer(modifier = Modifier.height(height = 20.dp))
 
-        BordeauxButton(stringResource(R.string.login), navController, "home")
+        BordeauxButton(stringResource(R.string.login), navController, "home"){}
 
     }
 }

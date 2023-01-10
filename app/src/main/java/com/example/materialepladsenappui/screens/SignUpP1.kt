@@ -19,15 +19,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.example.materialepladsenappui.ViewModels.CustomersViewModel
+import androidx.navigation.compose.rememberNavController
+import com.example.materialepladsenappui.ViewModels.CustomerViewModel
 
 //This composable shows the different text field a private user needs to enter to create an account.
 @Composable
 public fun SignUpP1(
     navController: NavHostController? = null,
-    customersViewModel: CustomersViewModel = viewModel()
+    customerViewModel: CustomerViewModel
 ) {
-    val appUiState by customersViewModel.uiState.collectAsState()
+    val appUiState by customerViewModel.uiState.collectAsState()
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -51,49 +52,49 @@ public fun SignUpP1(
         Spacer(modifier = Modifier.height(height = 15.dp))
 
         FirstNameTextField(
-            firstNameSignUp = customersViewModel.firstNameSignUp,
-            onFirstNameSignUpChanged = { customersViewModel.updateFirstNameSignUp(it) }
+            firstNameSignUp = customerViewModel.firstNameSignUp,
+            onFirstNameSignUpChanged = { customerViewModel.updateFirstNameSignUp(it) }
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
 
         LastNameTextField(
-            lastNameSignUp = customersViewModel.lastNameSignUp,
-            onLastNameSignUpChanged = { customersViewModel.updateLastNameSignUp(it) }
+            lastNameSignUp = customerViewModel.lastNameSignUp,
+            onLastNameSignUpChanged = { customerViewModel.updateLastNameSignUp(it) }
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
 
 
         PhoneNumberTextField(
-            phoneNumberSignUp = customersViewModel.phoneNumberSignUp,
-            onPhoneNumberSignUpChanged = { customersViewModel.updatePhoneNumberSignUp(it) }
+            phoneNumberSignUp = customerViewModel.phoneNumberSignUp,
+            onPhoneNumberSignUpChanged = { customerViewModel.updatePhoneNumberSignUp(it) }
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
 
         CityTextField(
-            citySignUp = customersViewModel.citySignUp,
-            onCitySignUpChanged = { customersViewModel.updateCitySignUp(it) }
+            citySignUp = customerViewModel.citySignUp,
+            onCitySignUpChanged = { customerViewModel.updateCitySignUp(it) }
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
 
         ZipTextField(
-            zipSignUp = customersViewModel.zipSignUp,
-            onZipSignUpChanged = { customersViewModel.updateZipSignUp(it) }
+            zipSignUp = customerViewModel.zipSignUp,
+            onZipSignUpChanged = { customerViewModel.updateZipSignUp(it) }
         )
 
         Spacer(modifier = Modifier.height(height = 10.dp))
 
         LicensePlateTextField(
-            licensePlateSignUp = customersViewModel.licensePlateSignUp,
-            onLicensePlateSignUpChanged = { customersViewModel.updateLicensePlateSignUp(it) }
+            licensePlateSignUp = customerViewModel.licensePlateSignUp,
+            onLicensePlateSignUpChanged = { customerViewModel.updateLicensePlateSignUp(it) }
         )
 
         Spacer(modifier = Modifier.height(height = 15.dp))
 
-        BordeauxButton(stringResource(R.string.continue_on), navController, "sign up p2")
+        BordeauxButton(stringResource(R.string.continue_on), navController, "sign up p2") {}
 
     }
 }
@@ -114,6 +115,7 @@ private fun FirstNameTextField(
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun LastNameTextField(
     lastNameSignUp: String,
@@ -192,5 +194,8 @@ private fun LicensePlateTextField(
 @Preview(showBackground = true)
 @Composable
 fun SignUpP1Preview() {
-    SignUpP1()
+    val navController = rememberNavController()
+    val customerViewModel: CustomerViewModel = viewModel()
+    SignUpP1(navController,customerViewModel)
 }
+
