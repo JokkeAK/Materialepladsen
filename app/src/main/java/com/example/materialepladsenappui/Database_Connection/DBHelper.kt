@@ -17,24 +17,27 @@ class DBHelper {
         // Check if the connection is not null and not closed
         if (conn != null) {
             if (conn.isClosed) {
-                Log.i("Conn", "Connection is closed")
+                Log.i("TestConn", "Connection is closed")
             } else {
-                Log.i("Conn", "Connection is not closed " + conn.toString())
+                Log.i("TestConn", "Connection is not closed " + conn.toString())
             }
         } else {
-            Log.i("Conn", "Connection is null")
+            Log.i("TestConn", "Connection is null")
         }
 
         // Set the query to select a record from the v_mobileApp_products table
-        val query = "SELECT TOP (1) [product_group] FROM [materialepladsen_core_DTUMP2].[dbo].[v_mobileApp_products]"
+        val query = "SELECT [product_group] FROM [materialepladsen_core_DTUMP2].[dbo].[v_mobileApp_products]"
 
         // Create a statement and execute the query
         val stmt = conn?.createStatement()
-        Log.i("Conn", "after statement")
+        Log.i("TestConn", "after statement")
         val rs = stmt?.executeQuery(query)
-        Log.i("Conn", "after executeQuery")
+        Log.i("TestConn", "after executeQuery")
 
         // Log the result set
-        Log.i("Conn", rs.toString())
+        Log.i("TestConn", rs.toString())
+        while (rs?.next() == true){
+            Log.i("TestConn",rs.getString(1))
+        }
     }
 }
