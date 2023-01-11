@@ -2,25 +2,31 @@
 
 package com.example.materialepladsenappui
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.materialepladsenappui.ViewModels.CustomerViewModel
+import com.example.materialepladsenappui.theme.BRed
 
 //This composable shows the different text field a private user needs to enter to create an account.
 @Composable
@@ -50,7 +56,7 @@ public fun SignUpP2(
             contentScale = ContentScale.Fit
         )
 
-        Spacer(modifier = Modifier.height(height = 75.dp))
+        Spacer(modifier = Modifier.height(height = 50.dp))
 
         EmailTextField(
             emailSignUp = customersViewModel.emailSignUp,
@@ -66,12 +72,29 @@ public fun SignUpP2(
             isPasswordInvalid = appUiState.isSignUpPasswordInvalid
         )
 
-        Spacer(modifier = Modifier.height(height = 75.dp))
+        Spacer(modifier = Modifier.height(height = 10.dp))
+
+        SignUpPasswordCheckTextField(
+            passwordCheckSignUp = customersViewModel.passwordCheckSignUp,
+            onPasswordCheckSignUpChanged = { customersViewModel.updatePasswordCheckSignUp(it)},
+            arePasswordsIdentical = appUiState.arePasswordsIdentical,
+        )
+
+        Spacer(modifier = Modifier.height(height = 50.dp))
 
 
-        BordeauxButton(stringResource(R.string.create_account), navController, "home") {
-            customersViewModel.CreateCustomer()
-        }
+        BordeauxButton(
+            stringResource(R.string.create_account),
+            navController,
+            if(customersViewModel.passwordSignUp == customersViewModel.passwordCheckSignUp){
+                "home"
+            } else {
+                "sign up p2"
+            }
+        )
+        { customersViewModel.checkPasswords() }
+
+
 
     }
 }
@@ -114,12 +137,36 @@ fun SignUpPasswordTextField(
         label = {
             if (isPasswordInvalid) {
                 Text(stringResource(R.string.password_invalid))
-            } else {
+            }
+            else {
                 Text(stringResource(R.string.password))
             }
         },
         singleLine = true,
         isError = isPasswordInvalid
+    )
+}
+
+@Composable
+fun SignUpPasswordCheckTextField(
+    passwordCheckSignUp: String,
+    onPasswordCheckSignUpChanged: (String) -> Unit,
+    arePasswordsIdentical: Boolean,
+) {
+    TextField(
+        modifier = Modifier.width(width = 250.dp),
+        value = passwordCheckSignUp,
+        onValueChange = onPasswordCheckSignUpChanged,
+        label = {
+            if (arePasswordsIdentical) {
+                Text(stringResource(R.string.password_again))
+            } else {
+                Text(stringResource(R.string.password_not_the_same))
+            }
+        },
+
+        singleLine = true,
+        isError = !arePasswordsIdentical
     )
 }
 

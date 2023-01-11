@@ -70,6 +70,10 @@
     <string name="password_invalid">Adgangskoden er ugyldig</string>
     <string name="email_used">Emailen er blevet brugt</string>
     <string name="email">E-mail</string>
+    <string name="password_again">Indtast adgangskoden igen</string>
+    <string name="password_not_the_same">Adgangskoderne er ikke ens</string>
+
+
 
 
     StartingWeightPage:
