@@ -42,6 +42,8 @@ class CustomerViewModel : ViewModel() {
     var licensePlateSignUp by mutableStateOf("")
     var emailSignUp by mutableStateOf("")
     var passwordSignUp by mutableStateOf("")
+    var passwordCheckSignUp by mutableStateOf("")
+
 
 
 
@@ -72,6 +74,12 @@ class CustomerViewModel : ViewModel() {
     fun updatePasswordSignUp(newPasswordSignUp: String) {
         passwordSignUp = newPasswordSignUp
     }
+
+    //Update the sign up password for checking the password.
+    fun updatePasswordCheckSignUp(newPasswordCheckSignUp: String) {
+        passwordCheckSignUp = newPasswordCheckSignUp
+    }
+
 
     //Update the sign up first name.
     fun updateFirstNameSignUp(newFirstNameSignUP: String) {
@@ -167,7 +175,27 @@ class CustomerViewModel : ViewModel() {
         dbhelper.createCustomer(customer)
     }
 
+    // Checks if the entered passwords on sign up are identical and that the text fields are not empty
+    fun checkPasswords(){
+        if (passwordSignUp == passwordCheckSignUp && passwordSignUp != "" && passwordCheckSignUp != ""){
+            // The passwords are the same and a user is created when pressing the button "Opret bruger".
+            _uiState.update { currentState ->
+                currentState.copy(
+                    arePasswordsIdentical = true,
+                ) }
+            CreateCustomer()
+        } else {
+            // The passwords are not the same and the user is greeted with an error message.
+            _uiState.update { currentState ->
+                currentState.copy(
+                    arePasswordsIdentical = false,
+                ) }
+            // Resets the text fields for password and password check
+            passwordSignUp = ""
+            passwordCheckSignUp = ""
+        }
 
+    }
 
 
 }
